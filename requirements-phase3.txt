@@ -1,0 +1,2 @@
+# Additional dependency for Phase 3 EDA charts. Pandas and NumPy are in Phase 1.
+matplotlib==3.11.2

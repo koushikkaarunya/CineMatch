@@ -1,0 +1,7 @@
+# Phase 7 runtime; install into the project's .venv.
+# Versions are pinned to make the local CPU inference environment reproducible.
+sentence-transformers==5.2.1
+torch==2.10.0
+requests==2.32.5
+transformers==5.19.0
+huggingface-hub==2.2.0

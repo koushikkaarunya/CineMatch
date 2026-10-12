@@ -1,0 +1,47 @@
+.venv/
+.venv_*/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.DS_Store
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+.pnpm-store/
+**/.pnpm-store/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+*.log
+*.pem
+*.key
+.env
+.env.*
+!.env.example
+
+# Full pip freeze from this Mac is a local environment snapshot, not a portable lock.
+requirements-local-lock.txt
+
+# Only document the data layout in Git; keep source datasets, generated tables,
+# enrichment snapshots, embeddings and human/AI-assisted audit labels local.
+data/*
+!data/README.md
+
+# These contain per-user split rows, pair-level audit scores, local machine paths,
+# or large user-level diagnostics. The human-readable aggregate reports remain.
+reports/phase8_metadata_coverage.json
+reports/phase13_evaluation.json
+reports/phase13_split_manifest.csv
+reports/phase14_1_story_relevance.json
+reports/phase14_2_story_relevance.json
+reports/phase14_2_story_relevance_scores.csv
+reports/phase14_validation_manifest.csv
+reports/phase14_optimization.json
+reports/phase3_eda/.matplotlib/
+
+# Detailed per-query recommendation dumps are local diagnostics; the Markdown
+# reports retain the portfolio-level findings without publishing result traces.
+reports/phase9_hybrid_diagnostics.json
+reports/phase12_targeted_diagnostics.json

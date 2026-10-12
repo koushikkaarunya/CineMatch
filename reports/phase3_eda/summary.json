@@ -1,0 +1,236 @@
+{
+  "movies": {
+    "rows": 9742,
+    "columns": 7,
+    "column_names": [
+      "movie_id",
+      "imdb_id",
+      "title",
+      "release_year",
+      "genres",
+      "overview",
+      "plot_tags"
+    ],
+    "dtypes": {
+      "movie_id": "int64",
+      "imdb_id": "string",
+      "title": "string",
+      "release_year": "float64",
+      "genres": "string",
+      "overview": "string",
+      "plot_tags": "string"
+    },
+    "missing_by_column": {
+      "movie_id": 0,
+      "imdb_id": 0,
+      "title": 0,
+      "release_year": 13,
+      "genres": 0,
+      "overview": 6308,
+      "plot_tags": 6308
+    },
+    "exact_duplicate_rows": 0,
+    "duplicate_movie_ids": 0,
+    "unique_movie_ids": 9742,
+    "duplicate_imdb_ids_nonmissing": 0,
+    "missing_plots": 6308,
+    "plot_coverage_fraction": 0.35249435434202425,
+    "plot_length_characters": {
+      "count": 3434,
+      "mean": 3923.5920209668025,
+      "median": 3748.5,
+      "p90": 5825.700000000001,
+      "max": 38084,
+      "iqr_rule_outlier_count": 143
+    },
+    "release_year_numeric_range": [
+      1902,
+      2018
+    ],
+    "genre_counts": {
+      "Drama": 4361,
+      "Comedy": 3756,
+      "Thriller": 1894,
+      "Action": 1828,
+      "Romance": 1596,
+      "Adventure": 1263,
+      "Crime": 1199,
+      "Sci-Fi": 980,
+      "Horror": 978,
+      "Fantasy": 779,
+      "Children": 664,
+      "Animation": 611,
+      "Mystery": 573,
+      "Documentary": 440,
+      "War": 382,
+      "Musical": 334,
+      "Western": 167,
+      "IMAX": 158,
+      "Film-Noir": 87,
+      "(no genres listed)": 34
+    }
+  },
+  "ratings": {
+    "rows": 100836,
+    "columns": 4,
+    "column_names": [
+      "user_id",
+      "movie_id",
+      "rating",
+      "timestamp"
+    ],
+    "dtypes": {
+      "user_id": "int64",
+      "movie_id": "int64",
+      "rating": "float64",
+      "timestamp": "int64"
+    },
+    "missing_by_column": {
+      "user_id": 0,
+      "movie_id": 0,
+      "rating": 0,
+      "timestamp": 0
+    },
+    "exact_duplicate_rows": 0,
+    "duplicate_user_movie_pairs": 0,
+    "unique_users": 610,
+    "unique_rated_movies": 9724,
+    "rating_distribution": {
+      "0.5": 1370,
+      "1.0": 2811,
+      "1.5": 1791,
+      "2.0": 7551,
+      "2.5": 5550,
+      "3.0": 20047,
+      "3.5": 13136,
+      "4.0": 26818,
+      "4.5": 8551,
+      "5.0": 13211
+    },
+    "rating_mean": 3.501556983616962,
+    "rating_median": 3.5,
+    "rating_min": 0.5,
+    "rating_max": 5.0,
+    "ratings_outside_expected_0_5_to_5_range": 0,
+    "ratings_per_user": {
+      "mean": 165.30491803278687,
+      "median": 70.5,
+      "p90": 400.30000000000007,
+      "max": 2698,
+      "iqr_rule_outlier_count": 70
+    },
+    "ratings_per_movie": {
+      "mean_including_unrated_catalog_movies": 10.350646684459043,
+      "median_rated_movies_only": 3.0,
+      "p90_rated_movies_only": 27.0,
+      "max": 329,
+      "iqr_rule_outlier_count": 1179,
+      "unrated_catalog_movies": 18
+    },
+    "rating_movie_ids_found_in_catalog": 100836,
+    "rating_movie_ids_missing_from_catalog": 0,
+    "timestamp_range_utc": [
+      "1996-03-29T18:36:55+00:00",
+      "2018-09-24T14:27:30+00:00"
+    ],
+    "rating_matrix_sparsity_fraction": 0.9830317267467884,
+    "top_15_by_raw_rating_count": [
+      {
+        "movie_id": 356,
+        "rating_count": 329,
+        "mean_rating": 4.164133738601824,
+        "title": "Forrest Gump (1994)"
+      },
+      {
+        "movie_id": 318,
+        "rating_count": 317,
+        "mean_rating": 4.429022082018927,
+        "title": "Shawshank Redemption, The (1994)"
+      },
+      {
+        "movie_id": 296,
+        "rating_count": 307,
+        "mean_rating": 4.197068403908795,
+        "title": "Pulp Fiction (1994)"
+      },
+      {
+        "movie_id": 593,
+        "rating_count": 279,
+        "mean_rating": 4.161290322580645,
+        "title": "Silence of the Lambs, The (1991)"
+      },
+      {
+        "movie_id": 2571,
+        "rating_count": 278,
+        "mean_rating": 4.192446043165468,
+        "title": "Matrix, The (1999)"
+      },
+      {
+        "movie_id": 260,
+        "rating_count": 251,
+        "mean_rating": 4.231075697211155,
+        "title": "Star Wars: Episode IV - A New Hope (1977)"
+      },
+      {
+        "movie_id": 480,
+        "rating_count": 238,
+        "mean_rating": 3.75,
+        "title": "Jurassic Park (1993)"
+      },
+      {
+        "movie_id": 110,
+        "rating_count": 237,
+        "mean_rating": 4.031645569620253,
+        "title": "Braveheart (1995)"
+      },
+      {
+        "movie_id": 589,
+        "rating_count": 224,
+        "mean_rating": 3.970982142857143,
+        "title": "Terminator 2: Judgment Day (1991)"
+      },
+      {
+        "movie_id": 527,
+        "rating_count": 220,
+        "mean_rating": 4.225,
+        "title": "Schindler's List (1993)"
+      },
+      {
+        "movie_id": 2959,
+        "rating_count": 218,
+        "mean_rating": 4.272935779816514,
+        "title": "Fight Club (1999)"
+      },
+      {
+        "movie_id": 1,
+        "rating_count": 215,
+        "mean_rating": 3.9209302325581397,
+        "title": "Toy Story (1995)"
+      },
+      {
+        "movie_id": 1196,
+        "rating_count": 211,
+        "mean_rating": 4.2156398104265405,
+        "title": "Star Wars: Episode V - The Empire Strikes Back (1980)"
+      },
+      {
+        "movie_id": 50,
+        "rating_count": 204,
+        "mean_rating": 4.237745098039215,
+        "title": "Usual Suspects, The (1995)"
+      },
+      {
+        "movie_id": 2858,
+        "rating_count": 204,
+        "mean_rating": 4.056372549019608,
+        "title": "American Beauty (1999)"
+      }
+    ]
+  },
+  "leakage_and_design_notes": [
+    "Ratings have timestamps: use a chronological evaluation split for next-period prediction.",
+    "Compute popularity, user/movie aggregates, and learned preprocessing from training data only.",
+    "For per-user ranking evaluation, ensure held-out interactions do not appear in user history.",
+    "The matrix sparsity calculation assumes every catalog movie is a candidate for every user."
+  ]
+}

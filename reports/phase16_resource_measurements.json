@@ -1,0 +1,86 @@
+{
+  "measured_at_utc": "2026-10-12T12:39:08+00:00",
+  "measurement_method": "Single-process FastAPI lifespan + 5 sequential ASGI requests per endpoint; no socket or external service.",
+  "python": "3.14.6",
+  "machine": "arm64",
+  "startup_seconds": {
+    "python_imports": 1.939,
+    "model_and_catalog_lifespan": 10.143,
+    "total_until_ready": 12.082
+  },
+  "peak_rss_bytes": 2783870976,
+  "peak_rss_mib": 2654.9,
+  "loaded_modules_at_end": {
+    "numpy": true,
+    "pandas": true,
+    "scipy": true,
+    "sklearn": true,
+    "torch": false,
+    "sentence_transformers": false
+  },
+  "api_latency": {
+    "health": {
+      "http_status": 200,
+      "samples": 5,
+      "median_ms": 0.37,
+      "max_ms": 28.82,
+      "p95_ms_nearest_rank": 28.82
+    },
+    "search": {
+      "http_status": 200,
+      "samples": 5,
+      "median_ms": 3.09,
+      "max_ms": 5.73,
+      "p95_ms_nearest_rank": 5.73
+    },
+    "movie_details": {
+      "http_status": 200,
+      "samples": 5,
+      "median_ms": 0.76,
+      "max_ms": 1.03,
+      "p95_ms_nearest_rank": 1.03
+    },
+    "movie_recommendations": {
+      "http_status": 200,
+      "samples": 5,
+      "median_ms": 406.46,
+      "max_ms": 429.92,
+      "p95_ms_nearest_rank": 429.92
+    },
+    "user_recommendations": {
+      "http_status": 200,
+      "samples": 5,
+      "median_ms": 4008.09,
+      "max_ms": 4320.31,
+      "p95_ms_nearest_rank": 4320.31
+    },
+    "favorite_recommendations": {
+      "http_status": 200,
+      "samples": 5,
+      "median_ms": 1324.27,
+      "max_ms": 1404.78,
+      "p95_ms_nearest_rank": 1404.78
+    }
+  },
+  "disk_footprint_bytes": {
+    "project_data": 344457094,
+    "deployment_runtime_data": 49131170,
+    "python_virtual_environment": 1136745815,
+    "huggingface_model_cache": 91584545,
+    "frontend_production_bundle": 253264
+  },
+  "disk_footprint_mib": {
+    "project_data": 328.5,
+    "deployment_runtime_data": 46.86,
+    "python_virtual_environment": 1084.09,
+    "huggingface_model_cache": 87.34,
+    "frontend_production_bundle": 0.24
+  },
+  "notes": [
+    "Peak RSS covers one process with the full recommender and collaborative item-item matrix loaded.",
+    "The embedding cache is used; PyTorch and sentence-transformers are not imported for serving when that cache validates.",
+    "Latency measures warm in-process ASGI request handling, not socket, network transit, or TLS.",
+    "For five observations, nearest-rank p95 is the maximum observation; the sample is too small for stable tail-latency claims.",
+    "This result is specific to the machine, package versions, model cache, and warm request sequence."
+  ]
+}

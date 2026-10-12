@@ -1,0 +1,2 @@
+# Phase 10 directly uses SciPy sparse matrices for memory-conscious item-item similarity.
+scipy==1.18.1
