@@ -10,7 +10,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
-COPY requirements-backend.txt ./requirements-backend.txt
+COPY requirements.txt requirements-backend.txt ./
 RUN python -m pip install --no-cache-dir -r requirements-backend.txt \
     && python -m pip check \
     && useradd --create-home --uid 10001 cinematch

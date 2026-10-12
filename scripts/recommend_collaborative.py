@@ -139,31 +139,40 @@ class ItemItemCollaborativeRecommender:
         # Sparse matrices preserve missing ratings as absent entries, never zero ratings.
         residuals = sparse.csr_matrix((residual_values, (user_rows, movie_columns)), shape=matrix_shape)
         observed = sparse.csr_matrix((np.ones(len(data)), (user_rows, movie_columns)), shape=matrix_shape)
+        # Item-item intermediates are large (~movies^2 pairs), so each one is released as
+        # soon as it is consumed and element-wise steps run in place. This keeps the
+        # build's peak memory within serverless limits without changing the math.
         common_counts = (observed.T @ observed).tocsr()
-        residual_dots = (residuals.T @ residuals).tocsr()
-        squared_residuals = residuals.power(2)
-        squared_norms_on_overlap = (squared_residuals.T @ observed).tocsr()
-        # Each pair's cosine denominator uses only users who rated both movies.
-        overlap_norm_products = squared_norms_on_overlap.multiply(squared_norms_on_overlap.T).tocsr()
-        overlap_norm_products.data = np.sqrt(overlap_norm_products.data)
         sufficiently_observed = common_counts.copy()
         sufficiently_observed.data = (
             sufficiently_observed.data >= min_common_users
         ).astype(np.float64)
         sufficiently_observed.eliminate_zeros()
-        denominators = overlap_norm_products.multiply(sufficiently_observed).tocsr()
-        denominators.eliminate_zeros()
-        inverse_denominators = denominators.copy()
+        # Apply n/(n+alpha) to every retained pair's actual co-rater count.
+        shrink_factors = common_counts.multiply(sufficiently_observed).tocsr()
+        del common_counts
+        shrink_factors.data = shrink_factors.data / (shrink_factors.data + self.shrinkage)
+
+        # The overlap mask is symmetric with 1.0 values, so masking each full product
+        # before combining it yields exactly the same retained pairs and values.
+        squared_norms_on_overlap = (residuals.power(2).T @ observed).tocsr()
+        del observed
+        squared_norms_on_overlap = squared_norms_on_overlap.multiply(sufficiently_observed).tocsr()
+        # Each pair's cosine denominator uses only users who rated both movies.
+        inverse_denominators = squared_norms_on_overlap.multiply(squared_norms_on_overlap.T).tocsr()
+        del squared_norms_on_overlap, sufficiently_observed
+        np.sqrt(inverse_denominators.data, out=inverse_denominators.data)
+        inverse_denominators.eliminate_zeros()
         inverse_denominators.data = 1.0 / inverse_denominators.data
 
         # The sparse item-item matrix keeps memory bounded; absent pairs are not evidence.
+        residual_dots = (residuals.T @ residuals).tocsr()
+        del residuals
         raw_similarities = residual_dots.multiply(inverse_denominators).tocsr()
-        raw_similarities.data = np.clip(raw_similarities.data, -1.0, 1.0)
-        # Apply n/(n+alpha) to every retained pair's actual co-rater count.
-        overlap_counts = common_counts.multiply(sufficiently_observed).tocsr()
-        shrink_factors = overlap_counts.copy()
-        shrink_factors.data = shrink_factors.data / (shrink_factors.data + self.shrinkage)
+        del residual_dots, inverse_denominators
+        np.clip(raw_similarities.data, -1.0, 1.0, out=raw_similarities.data)
         self.similarity_matrix = raw_similarities.multiply(shrink_factors).tocsr()
+        del raw_similarities, shrink_factors
         self.similarity_matrix.setdiag(0)
         self.similarity_matrix.eliminate_zeros()
         self.user_history: dict[int, dict[int, float]] = {

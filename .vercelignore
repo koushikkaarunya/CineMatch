@@ -1,0 +1,12 @@
+# Keep only what the deployed frontend and FastAPI service need at runtime.
+/tests
+/docs
+/analysis
+/reports
+/data/raw
+/data/audit
+/data/processed
+/Dockerfile
+/.dockerignore
+/requirements-phase*.txt
+**/__pycache__

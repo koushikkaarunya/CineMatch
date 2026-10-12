@@ -1,5 +1,6 @@
 **
 !Dockerfile
+!requirements.txt
 !requirements-backend.txt
 !app/
 !app/__init__.py
