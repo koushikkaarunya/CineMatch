@@ -1,0 +1,3928 @@
+{
+  "phase": "Phase 9: Hybrid Content-Based Recommendation",
+  "catalog": {
+    "movie_count": 9742,
+    "usable_plot_count": 3434,
+    "missing_plot_count": 6308,
+    "director_count": 9590,
+    "writer_count": 8485,
+    "cast_count": 8814,
+    "selected_crew_count": 9230
+  },
+  "weights": {
+    "metadata": 0.34,
+    "tfidf": 0.16,
+    "transformer": 0.22,
+    "director": 0.1,
+    "writer": 0.07,
+    "cast": 0.07,
+    "crew": 0.04
+  },
+  "combination": "The Phase 5 metadata component preserves its 0.7 genre/0.3 tag Jaccard formula when both fields are present and renormalizes over pairwise-present fields when one is missing. Per-component scores become within-query percentile ranks; configured weights combine available ranks; final rank score is multiplied by available/query-signal weight coverage. Candidates require at least two positive component similarities.",
+  "evaluation_note": "Qualitative diagnostic only; no held-out rating evaluation or weight tuning.",
+  "known_failure_comparisons": {
+    "3": {
+      "expected_title": "Grumpier Old Men (1995)",
+      "title_matches_expected": true,
+      "movie_id": 3,
+      "title": "Grumpier Old Men (1995)",
+      "usable_plot": true,
+      "phase5_metadata": [
+        {
+          "movie_id": 8809,
+          "title": "Danny Deckchair (2003)",
+          "release_year": 2003.0,
+          "similarity": 0.82,
+          "shared_genres": "comedy, romance",
+          "shared_tags": "comedy, prank"
+        },
+        {
+          "movie_id": 1569,
+          "title": "My Best Friend's Wedding (1997)",
+          "release_year": 1997.0,
+          "similarity": 0.7999999999999999,
+          "shared_genres": "comedy, romance",
+          "shared_tags": "comedy, revenge"
+        },
+        {
+          "movie_id": 2558,
+          "title": "Forces of Nature (1999)",
+          "release_year": 1999.0,
+          "similarity": 0.7999999999999999,
+          "shared_genres": "comedy, romance",
+          "shared_tags": "comedy"
+        },
+        {
+          "movie_id": 2935,
+          "title": "Lady Eve, The (1941)",
+          "release_year": 1941.0,
+          "similarity": 0.7999999999999999,
+          "shared_genres": "comedy, romance",
+          "shared_tags": "comedy, revenge"
+        },
+        {
+          "movie_id": 3614,
+          "title": "Honeymoon in Vegas (1992)",
+          "release_year": 1992.0,
+          "similarity": 0.7999999999999999,
+          "shared_genres": "comedy, romance",
+          "shared_tags": "comedy"
+        }
+      ],
+      "phase6_tfidf": [
+        {
+          "movie_id": 1921,
+          "title": "Pi (1998)",
+          "release_year": 1998,
+          "similarity": 0.29644831587521836
+        },
+        {
+          "movie_id": 2310,
+          "title": "Mighty, The (1998)",
+          "release_year": 1998,
+          "similarity": 0.274110835025607
+        },
+        {
+          "movie_id": 1696,
+          "title": "Bent (1997)",
+          "release_year": 1997,
+          "similarity": 0.2685492108072082
+        },
+        {
+          "movie_id": 49130,
+          "title": "Good Year, A (2006)",
+          "release_year": 2006,
+          "similarity": 0.2600312466357962
+        },
+        {
+          "movie_id": 1839,
+          "title": "My Giant (1998)",
+          "release_year": 1998,
+          "similarity": 0.25984406804920535
+        }
+      ],
+      "phase7_transformer": [
+        {
+          "movie_id": 6789,
+          "title": "Apartment, The (Appartement, L') (1996)",
+          "release_year": 1996,
+          "similarity": 0.5269509553909302
+        },
+        {
+          "movie_id": 5189,
+          "title": "Humanoids from the Deep (1980)",
+          "release_year": 1980,
+          "similarity": 0.5246705412864685
+        },
+        {
+          "movie_id": 31590,
+          "title": "Hands Off the Loot (Touchez pas au grisbi) (1954)",
+          "release_year": 1954,
+          "similarity": 0.5213803052902222
+        },
+        {
+          "movie_id": 1085,
+          "title": "Old Man and the Sea, The (1958)",
+          "release_year": 1958,
+          "similarity": 0.493196964263916
+        },
+        {
+          "movie_id": 3324,
+          "title": "Drowning Mona (2000)",
+          "release_year": 2000,
+          "similarity": 0.4908880889415741
+        }
+      ],
+      "phase9_hybrid": [
+        {
+          "movie_id": 4069,
+          "title": "Wedding Planner, The (2001)",
+          "hybrid_score": 0.8584085996821526,
+          "positive_signals": 4,
+          "explanation": "shared genres: comedy, romance; plot word overlap (TF-IDF cosine 0.019); plot semantic match (Transformer cosine 0.394); shared cast member: Kevin Pollak",
+          "evidence_coverage": 1.0,
+          "missing_signals": "",
+          "genre_similarity": 1.0,
+          "tag_similarity": 0.0,
+          "tfidf_similarity": 0.01890127149439717,
+          "transformer_similarity": 0.39434176683425903,
+          "director_similarity": 0.0,
+          "writer_similarity": 0.0,
+          "cast_similarity": 0.038461538461538464,
+          "crew_similarity": 0.0,
+          "metadata_similarity": 0.7,
+          "metadata_rank_percentile": 0.9669859909353111,
+          "tfidf_rank_percentile": 0.8849067599067599,
+          "transformer_rank_percentile": 0.9734848484848485,
+          "director_rank_percentile": 0.4995828118481435,
+          "writer_rank_percentile": 0.4995284687021101,
+          "cast_rank_percentile": 0.990354062641852,
+          "crew_rank_percentile": 0.49078890333766795
+        },
+        {
+          "movie_id": 5077,
+          "title": "Cousins (1989)",
+          "hybrid_score": 0.847928359781138,
+          "positive_signals": 3,
+          "explanation": "shared genres: comedy, romance; shared plot tags: revenge; plot word overlap (TF-IDF cosine 0.138); plot semantic match (Transformer cosine 0.425)",
+          "evidence_coverage": 1.0,
+          "missing_signals": "",
+          "genre_similarity": 1.0,
+          "tag_similarity": 0.25,
+          "tfidf_similarity": 0.13793376275605784,
+          "transformer_similarity": 0.42545849084854126,
+          "director_similarity": 0.0,
+          "writer_similarity": 0.0,
+          "cast_similarity": 0.0,
+          "crew_similarity": 0.0,
+          "metadata_similarity": 0.7749999999999999,
+          "metadata_rank_percentile": 0.9765142150803461,
+          "tfidf_rank_percentile": 0.9932983682983683,
+          "transformer_rank_percentile": 0.990967365967366,
+          "director_rank_percentile": 0.4995828118481435,
+          "writer_rank_percentile": 0.4995284687021101,
+          "cast_rank_percentile": 0.49165910122560147,
+          "crew_rank_percentile": 0.49078890333766795
+        },
+        {
+          "movie_id": 47122,
+          "title": "John Tucker Must Die (2006)",
+          "hybrid_score": 0.8466979780903113,
+          "positive_signals": 3,
+          "explanation": "shared genres: comedy, romance; shared plot tags: revenge; plot word overlap (TF-IDF cosine 0.128); plot semantic match (Transformer cosine 0.422)",
+          "evidence_coverage": 1.0,
+          "missing_signals": "",
+          "genre_similarity": 1.0,
+          "tag_similarity": 0.2,
+          "tfidf_similarity": 0.12771282790220895,
+          "transformer_similarity": 0.4220127463340759,
+          "director_similarity": 0.0,
+          "writer_similarity": 0.0,
+          "cast_similarity": 0.0,
+          "crew_similarity": 0.0,
+          "metadata_similarity": 0.76,
+          "metadata_rank_percentile": 0.975123609394314,
+          "tfidf_rank_percentile": 0.990967365967366,
+          "transformer_rank_percentile": 0.9892191142191142,
+          "director_rank_percentile": 0.4995828118481435,
+          "writer_rank_percentile": 0.4995284687021101,
+          "cast_rank_percentile": 0.49165910122560147,
+          "crew_rank_percentile": 0.49078890333766795
+        },
+        {
+          "movie_id": 55245,
+          "title": "Good Luck Chuck (2007)",
+          "hybrid_score": 0.8445200468332701,
+          "positive_signals": 3,
+          "explanation": "shared genres: comedy, romance; shared plot tags: comedy; plot word overlap (TF-IDF cosine 0.042); plot semantic match (Transformer cosine 0.438)",
+          "evidence_coverage": 1.0,
+          "missing_signals": "",
+          "genre_similarity": 1.0,
+          "tag_similarity": 0.3333333333333333,
+          "tfidf_similarity": 0.04224733965685512,
+          "transformer_similarity": 0.43805351853370667,
+          "director_similarity": 0.0,
+          "writer_similarity": 0.0,
+          "cast_similarity": 0.0,
+          "crew_similarity": 0.0,
+          "metadata_similarity": 0.7999999999999999,
+          "metadata_rank_percentile": 0.9779048207663782,
+          "tfidf_rank_percentile": 0.965034965034965,
+          "transformer_rank_percentile": 0.9938811188811189,
+          "director_rank_percentile": 0.4995828118481435,
+          "writer_rank_percentile": 0.4995284687021101,
+          "cast_rank_percentile": 0.49165910122560147,
+          "crew_rank_percentile": 0.49078890333766795
+        },
+        {
+          "movie_id": 59421,
+          "title": "What Happens in Vegas... (2008)",
+          "hybrid_score": 0.8404325737377624,
+          "positive_signals": 3,
+          "explanation": "shared genres: comedy, romance; shared plot tags: comedy; plot word overlap (TF-IDF cosine 0.031); plot semantic match (Transformer cosine 0.442)",
+          "evidence_coverage": 1.0,
+          "missing_signals": "",
+          "genre_similarity": 1.0,
+          "tag_similarity": 0.16666666666666666,
+          "tfidf_similarity": 0.03117409853437035,
+          "transformer_similarity": 0.44199517369270325,
+          "director_similarity": 0.0,
+          "writer_similarity": 0.0,
+          "cast_similarity": 0.0,
+          "crew_similarity": 0.0,
+          "metadata_similarity": 0.75,
+          "metadata_rank_percentile": 0.9736299958796869,
+          "tfidf_rank_percentile": 0.946969696969697,
+          "transformer_rank_percentile": 0.99504662004662,
+          "director_rank_percentile": 0.4995828118481435,
+          "writer_rank_percentile": 0.4995284687021101,
+          "cast_rank_percentile": 0.49165910122560147,
+          "crew_rank_percentile": 0.49078890333766795
+        }
+      ]
+    },
+    "4": {
+      "expected_title": "Waiting to Exhale (1995)",
+      "title_matches_expected": true,
+      "movie_id": 4,
+      "title": "Waiting to Exhale (1995)",
+      "usable_plot": true,
+      "phase5_metadata": [
+        {
+          "movie_id": 1888,
+          "title": "Hope Floats (1998)",
+          "release_year": 1998.0,
+          "similarity": 0.7999999999999999,
+          "shared_genres": "comedy, drama, romance",
+          "shared_tags": "revenge"
+        },
+        {
+          "movie_id": 80586,
+          "title": "Flipped (2010)",
+          "release_year": 2010.0,
+          "similarity": 0.7999999999999999,
+          "shared_genres": "comedy, drama, romance",
+          "shared_tags": "revenge"
+        },
+        {
+          "movie_id": 909,
+          "title": "Apartment, The (1960)",
+          "release_year": 1960.0,
+          "similarity": 0.7749999999999999,
+          "shared_genres": "comedy, drama, romance",
+          "shared_tags": "revenge"
+        },
+        {
+          "movie_id": 1395,
+          "title": "Tin Men (1987)",
+          "release_year": 1987.0,
+          "similarity": 0.7666666666666666,
+          "shared_genres": "comedy, drama",
+          "shared_tags": "revenge"
+        },
+        {
+          "movie_id": 6367,
+          "title": "Down with Love (2003)",
+          "release_year": 2003.0,
+          "similarity": 0.7666666666666666,
+          "shared_genres": "comedy, romance",
+          "shared_tags": "revenge"
+        }
+      ],
+      "phase6_tfidf": [
+        {
+          "movie_id": 6124,
+          "title": "Savannah Smiles (1982)",
+          "release_year": 1982,
+          "similarity": 0.16165364358479906
+        },
+        {
+          "movie_id": 1027,
+          "title": "Robin Hood: Prince of Thieves (1991)",
+          "release_year": 1991,
+          "similarity": 0.14946313642547077
+        },
+        {
+          "movie_id": 5499,
+          "title": "Robin and Marian (1976)",
+          "release_year": 1976,
+          "similarity": 0.14209141303953035
+        },
+        {
+          "movie_id": 940,
+          "title": "Adventures of Robin Hood, The (1938)",
+          "release_year": 1938,
+          "similarity": 0.13667782707576617
+        },
+        {
+          "movie_id": 520,
+          "title": "Robin Hood: Men in Tights (1993)",
+          "release_year": 1993,
+          "similarity": 0.13506340572368244
+        }
+      ],
+      "phase7_transformer": [
+        {
+          "movie_id": 6549,
+          "title": "How to Deal (2003)",
+          "release_year": 2003,
+          "similarity": 0.5674481987953186
+        },
+        {
+          "movie_id": 4474,
+          "title": "Beaches (1988)",
+          "release_year": 1988,
+          "similarity": 0.5127331614494324
+        },
+        {
+          "movie_id": 4130,
+          "title": "Maid to Order (1987)",
+          "release_year": 1987,
+          "similarity": 0.5111735463142395
+        },
+        {
+          "movie_id": 2428,
+          "title": "Faculty, The (1998)",
+          "release_year": 1998,
+          "similarity": 0.5034304857254028
+        },
+        {
+          "movie_id": 4920,
+          "title": "Now, Voyager (1942)",
+          "release_year": 1942,
+          "similarity": 0.4989784359931946
+        }
+      ],
+      "phase9_hybrid": [
+        {
+          "movie_id": 1888,
+          "title": "Hope Floats (1998)",
+          "hybrid_score": 0.9047590067970938,
+          "positive_signals": 5,
+          "explanation": "shared genres: comedy, drama, romance; shared plot tags: revenge; plot word overlap (TF-IDF cosine 0.025); plot semantic match (Transformer cosine 0.452); shared director: Forest Whitaker",
+          "evidence_coverage": 1.0,
+          "missing_signals": "",
+          "genre_similarity": 1.0,
+          "tag_similarity": 0.3333333333333333,
+          "tfidf_similarity": 0.024616369841266063,
+          "transformer_similarity": 0.4519231617450714,
+          "director_similarity": 1.0,
+          "writer_similarity": 0.0,
+          "cast_similarity": 0.0,
+          "crew_similarity": 0.1111111111111111,
+          "metadata_similarity": 0.7999999999999999,
+          "metadata_rank_percentile": 0.9835702513391018,
+          "tfidf_rank_percentile": 0.8945221445221445,
+          "transformer_rank_percentile": 0.990967365967366,
+          "director_rank_percentile": 0.999947851481018,
+          "writer_rank_percentile": 0.4990569374042202,
+          "cast_rank_percentile": 0.4905810258738084,
+          "crew_rank_percentile": 0.9984828781967924
+        },
+        {
+          "movie_id": 51903,
+          "title": "I Think I Love My Wife (2007)",
+          "hybrid_score": 0.87197907697524,
+          "positive_signals": 4,
+          "explanation": "shared genres: comedy, drama, romance; plot word overlap (TF-IDF cosine 0.029); plot semantic match (Transformer cosine 0.444); shared cast member: Wendell Pierce",
+          "evidence_coverage": 1.0,
+          "missing_signals": "",
+          "genre_similarity": 1.0,
+          "tag_similarity": 0.0,
+          "tfidf_similarity": 0.029031712239738425,
+          "transformer_similarity": 0.4435052275657654,
+          "director_similarity": 0.0,
+          "writer_similarity": 0.0,
+          "cast_similarity": 0.034482758620689655,
+          "crew_similarity": 0.0,
+          "metadata_similarity": 0.7,
+          "metadata_rank_percentile": 0.9739905232797693,
+          "tfidf_rank_percentile": 0.9382284382284383,
+          "transformer_rank_percentile": 0.9851398601398601,
+          "director_rank_percentile": 0.4998957029620359,
+          "writer_rank_percentile": 0.4990569374042202,
+          "cast_rank_percentile": 0.9873467998184294,
+          "crew_rank_percentile": 0.49842869527524925
+        },
+        {
+          "movie_id": 3825,
+          "title": "Coyote Ugly (2000)",
+          "hybrid_score": 0.844169342262986,
+          "positive_signals": 3,
+          "explanation": "shared genres: comedy, drama, romance; plot word overlap (TF-IDF cosine 0.044); plot semantic match (Transformer cosine 0.438)",
+          "evidence_coverage": 1.0,
+          "missing_signals": "",
+          "genre_similarity": 1.0,
+          "tag_similarity": 0.0,
+          "tfidf_similarity": 0.044448402220642086,
+          "transformer_similarity": 0.4377838373184204,
+          "director_similarity": 0.0,
+          "writer_similarity": 0.0,
+          "cast_similarity": 0.0,
+          "crew_similarity": 0.0,
+          "metadata_similarity": 0.7,
+          "metadata_rank_percentile": 0.9739905232797693,
+          "tfidf_rank_percentile": 0.9877622377622378,
+          "transformer_rank_percentile": 0.9807692307692307,
+          "director_rank_percentile": 0.4998957029620359,
+          "writer_rank_percentile": 0.4990569374042202,
+          "cast_rank_percentile": 0.4905810258738084,
+          "crew_rank_percentile": 0.49842869527524925
+        },
+        {
+          "movie_id": 6993,
+          "title": "Hannah and Her Sisters (1986)",
+          "hybrid_score": 0.8408826289762728,
+          "positive_signals": 3,
+          "explanation": "shared genres: comedy, drama, romance; plot word overlap (TF-IDF cosine 0.051); plot semantic match (Transformer cosine 0.414)",
+          "evidence_coverage": 1.0,
+          "missing_signals": "",
+          "genre_similarity": 1.0,
+          "tag_similarity": 0.0,
+          "tfidf_similarity": 0.05087851617415161,
+          "transformer_similarity": 0.41410118341445923,
+          "director_similarity": 0.0,
+          "writer_similarity": 0.0,
+          "cast_similarity": 0.0,
+          "crew_similarity": 0.0,
+          "metadata_similarity": 0.7,
+          "metadata_rank_percentile": 0.9739905232797693,
+          "tfidf_rank_percentile": 0.9912587412587412,
+          "transformer_rank_percentile": 0.9632867132867133,
+          "director_rank_percentile": 0.4998957029620359,
+          "writer_rank_percentile": 0.4990569374042202,
+          "cast_rank_percentile": 0.4905810258738084,
+          "crew_rank_percentile": 0.49842869527524925
+        },
+        {
+          "movie_id": 1244,
+          "title": "Manhattan (1979)",
+          "hybrid_score": 0.8407369413305851,
+          "positive_signals": 3,
+          "explanation": "shared genres: comedy, drama, romance; plot word overlap (TF-IDF cosine 0.030); plot semantic match (Transformer cosine 0.486)",
+          "evidence_coverage": 1.0,
+          "missing_signals": "",
+          "genre_similarity": 1.0,
+          "tag_similarity": 0.0,
+          "tfidf_similarity": 0.029699816297773886,
+          "transformer_similarity": 0.48614153265953064,
+          "director_similarity": 0.0,
+          "writer_similarity": 0.0,
+          "cast_similarity": 0.0,
+          "crew_similarity": 0.0,
+          "metadata_similarity": 0.7,
+          "metadata_rank_percentile": 0.9739905232797693,
+          "tfidf_rank_percentile": 0.9434731934731935,
+          "transformer_rank_percentile": 0.9973776223776224,
+          "director_rank_percentile": 0.4998957029620359,
+          "writer_rank_percentile": 0.4990569374042202,
+          "cast_rank_percentile": 0.4905810258738084,
+          "crew_rank_percentile": 0.49842869527524925
+        }
+      ]
+    },
+    "5": {
+      "expected_title": "Father of the Bride Part II (1995)",
+      "title_matches_expected": true,
+      "movie_id": 5,
+      "title": "Father of the Bride Part II (1995)",
+      "usable_plot": true,
+      "phase5_metadata": [
+        {
+          "movie_id": 8695,
+          "title": "Bachelor and the Bobby-Soxer, The (1947)",
+          "release_year": 1947.0,
+          "similarity": 0.85,
+          "shared_genres": "comedy",
+          "shared_tags": "comedy, romantic"
+        },
+        {
+          "movie_id": 63479,
+          "title": "Sex Drive (2008)",
+          "release_year": 2008.0,
+          "similarity": 0.85,
+          "shared_genres": "comedy",
+          "shared_tags": "comedy, romantic"
+        },
+        {
+          "movie_id": 99106,
+          "title": "Guilt Trip, The (2012)",
+          "release_year": 2012.0,
+          "similarity": 0.85,
+          "shared_genres": "comedy",
+          "shared_tags": "comedy, romantic"
+        },
+        {
+          "movie_id": 63131,
+          "title": "Role Models (2008)",
+          "release_year": 2008.0,
+          "similarity": 0.8285714285714285,
+          "shared_genres": "comedy",
+          "shared_tags": "comedy, fantasy, romantic"
+        },
+        {
+          "movie_id": 585,
+          "title": "Brady Bunch Movie, The (1995)",
+          "release_year": 1995.0,
+          "similarity": 0.82,
+          "shared_genres": "comedy",
+          "shared_tags": "comedy, romantic"
+        }
+      ],
+      "phase6_tfidf": [
+        {
+          "movie_id": 1821,
+          "title": "Object of My Affection, The (1998)",
+          "release_year": 1998,
+          "similarity": 0.5732502278394804
+        },
+        {
+          "movie_id": 82499,
+          "title": "How Do You Know (2010)",
+          "release_year": 2010,
+          "similarity": 0.3403385490875765
+        },
+        {
+          "movie_id": 802,
+          "title": "Phenomenon (1996)",
+          "release_year": 1996,
+          "similarity": 0.30945805028845536
+        },
+        {
+          "movie_id": 27838,
+          "title": "Mean Creek (2004)",
+          "release_year": 2004,
+          "similarity": 0.3037818597946426
+        },
+        {
+          "movie_id": 7085,
+          "title": "Send Me No Flowers (1964)",
+          "release_year": 1964,
+          "similarity": 0.29027278705621845
+        }
+      ],
+      "phase7_transformer": [
+        {
+          "movie_id": 4893,
+          "title": "When a Stranger Calls (1979)",
+          "release_year": 1979,
+          "similarity": 0.5521208643913269
+        },
+        {
+          "movie_id": 43904,
+          "title": "When a Stranger Calls (2006)",
+          "release_year": 2006,
+          "similarity": 0.5521208643913269
+        },
+        {
+          "movie_id": 840,
+          "title": "House Arrest (1996)",
+          "release_year": 1996,
+          "similarity": 0.5411185026168823
+        },
+        {
+          "movie_id": 91653,
+          "title": "We Bought a Zoo (2011)",
+          "release_year": 2011,
+          "similarity": 0.5360785722732544
+        },
+        {
+          "movie_id": 2132,
+          "title": "Who's Afraid of Virginia Woolf? (1966)",
+          "release_year": 1966,
+          "similarity": 0.5350319147109985
+        }
+      ],
+      "phase9_hybrid": [
+        {
+          "movie_id": 830,
+          "title": "First Wives Club, The (1996)",
+          "hybrid_score": 0.8290360797075333,
+          "positive_signals": 4,
+          "explanation": "shared genres: comedy; plot word overlap (TF-IDF cosine 0.166); plot semantic match (Transformer cosine 0.374); shared cast member: Diane Keaton",
+          "evidence_coverage": 1.0,
+          "missing_signals": "",
+          "genre_similarity": 1.0,
+          "tag_similarity": 0.0,
+          "tfidf_similarity": 0.16621592875577734,
+          "transformer_similarity": 0.37381815910339355,
+          "director_similarity": 0.0,
+          "writer_similarity": 0.0,
+          "cast_similarity": 0.022222222222222223,
+          "crew_similarity": 0.0,
+          "metadata_similarity": 0.7,
+          "metadata_rank_percentile": 0.9103316852080758,
+          "tfidf_rank_percentile": 0.9915501165501166,
+          "transformer_rank_percentile": 0.8522727272727273,
+          "director_rank_percentile": 0.4997392574050897,
+          "writer_rank_percentile": 0.49929270305316514,
+          "cast_rank_percentile": 0.9816159782115297,
+          "crew_rank_percentile": 0.4934438664932813
+        },
+        {
+          "movie_id": 86833,
+          "title": "Bridesmaids (2011)",
+          "hybrid_score": 0.8254432113065505,
+          "positive_signals": 3,
+          "explanation": "shared genres: comedy; shared plot tags: comedy; plot word overlap (TF-IDF cosine 0.281); plot semantic match (Transformer cosine 0.455)",
+          "evidence_coverage": 1.0,
+          "missing_signals": "",
+          "genre_similarity": 1.0,
+          "tag_similarity": 0.1111111111111111,
+          "tfidf_similarity": 0.28126349486062263,
+          "transformer_similarity": 0.45542994141578674,
+          "director_similarity": 0.0,
+          "writer_similarity": 0.0,
+          "cast_similarity": 0.0,
+          "crew_similarity": 0.0,
+          "metadata_similarity": 0.7333333333333333,
+          "metadata_rank_percentile": 0.9198084054388134,
+          "tfidf_rank_percentile": 0.9985431235431236,
+          "transformer_rank_percentile": 0.9726107226107226,
+          "director_rank_percentile": 0.4997392574050897,
+          "writer_rank_percentile": 0.49929270305316514,
+          "cast_rank_percentile": 0.4900703586019065,
+          "crew_rank_percentile": 0.4934438664932813
+        },
+        {
+          "movie_id": 104218,
+          "title": "Grown Ups 2 (2013)",
+          "hybrid_score": 0.8242835880702896,
+          "positive_signals": 3,
+          "explanation": "shared genres: comedy; shared plot tags: comedy; plot word overlap (TF-IDF cosine 0.034); plot semantic match (Transformer cosine 0.474)",
+          "evidence_coverage": 1.0,
+          "missing_signals": "",
+          "genre_similarity": 1.0,
+          "tag_similarity": 0.25,
+          "tfidf_similarity": 0.03423211602211796,
+          "transformer_similarity": 0.4741530418395996,
+          "director_similarity": 0.0,
+          "writer_similarity": 0.0,
+          "cast_similarity": 0.0,
+          "crew_similarity": 0.0,
+          "metadata_similarity": 0.7749999999999999,
+          "metadata_rank_percentile": 0.9303152039555006,
+          "tfidf_rank_percentile": 0.9513403263403264,
+          "transformer_rank_percentile": 0.9854312354312355,
+          "director_rank_percentile": 0.4997392574050897,
+          "writer_rank_percentile": 0.49929270305316514,
+          "cast_rank_percentile": 0.4900703586019065,
+          "crew_rank_percentile": 0.4934438664932813
+        },
+        {
+          "movie_id": 585,
+          "title": "Brady Bunch Movie, The (1995)",
+          "hybrid_score": 0.8188710741318176,
+          "positive_signals": 3,
+          "explanation": "shared genres: comedy; shared plot tags: comedy, romantic; plot word overlap (TF-IDF cosine 0.036); plot semantic match (Transformer cosine 0.433)",
+          "evidence_coverage": 1.0,
+          "missing_signals": "",
+          "genre_similarity": 1.0,
+          "tag_similarity": 0.4,
+          "tfidf_similarity": 0.036491098753351596,
+          "transformer_similarity": 0.43295374512672424,
+          "director_similarity": 0.0,
+          "writer_similarity": 0.0,
+          "cast_similarity": 0.0,
+          "crew_similarity": 0.0,
+          "metadata_similarity": 0.82,
+          "metadata_rank_percentile": 0.9325298722702925,
+          "tfidf_rank_percentile": 0.9568764568764568,
+          "transformer_rank_percentile": 0.9533799533799534,
+          "director_rank_percentile": 0.4997392574050897,
+          "writer_rank_percentile": 0.49929270305316514,
+          "cast_rank_percentile": 0.4900703586019065,
+          "crew_rank_percentile": 0.4934438664932813
+        },
+        {
+          "movie_id": 91690,
+          "title": "Friends with Kids (2011)",
+          "hybrid_score": 0.8166943602400234,
+          "positive_signals": 3,
+          "explanation": "shared genres: comedy; shared plot tags: romantic; plot word overlap (TF-IDF cosine 0.026); plot semantic match (Transformer cosine 0.465)",
+          "evidence_coverage": 1.0,
+          "missing_signals": "",
+          "genre_similarity": 1.0,
+          "tag_similarity": 0.2,
+          "tfidf_similarity": 0.026055278505865243,
+          "transformer_similarity": 0.46528804302215576,
+          "director_similarity": 0.0,
+          "writer_similarity": 0.0,
+          "cast_similarity": 0.0,
+          "crew_similarity": 0.0,
+          "metadata_similarity": 0.76,
+          "metadata_rank_percentile": 0.927070457354759,
+          "tfidf_rank_percentile": 0.9184149184149184,
+          "transformer_rank_percentile": 0.9798951048951049,
+          "director_rank_percentile": 0.4997392574050897,
+          "writer_rank_percentile": 0.49929270305316514,
+          "cast_rank_percentile": 0.4900703586019065,
+          "crew_rank_percentile": 0.4934438664932813
+        }
+      ]
+    }
+  },
+  "broader_genre_diagnostics": {
+    "selection_rule": "Lowest movie_id with usable plot for each predefined genre list; overlaps deduplicated.",
+    "genre_list": [
+      "Action",
+      "Adventure",
+      "Animation",
+      "Children",
+      "Comedy",
+      "Crime",
+      "Documentary",
+      "Drama",
+      "Fantasy",
+      "Horror",
+      "Mystery",
+      "Romance",
+      "Sci-Fi",
+      "Thriller",
+      "War",
+      "Western"
+    ],
+    "query_count": 11,
+    "results": {
+      "9": {
+        "selected_genres": [
+          "Action"
+        ],
+        "movie_id": 9,
+        "title": "Sudden Death (1995)",
+        "usable_plot": true,
+        "phase5_metadata": [
+          {
+            "movie_id": 7704,
+            "title": "Delta Force, The (1986)",
+            "release_year": 1986.0,
+            "similarity": 0.9249999999999999,
+            "shared_genres": "action",
+            "shared_tags": "action, suspenseful, violence"
+          },
+          {
+            "movie_id": 4387,
+            "title": "Kiss of the Dragon (2001)",
+            "release_year": 2001.0,
+            "similarity": 0.85,
+            "shared_genres": "action",
+            "shared_tags": "action, suspenseful, violence"
+          },
+          {
+            "movie_id": 72874,
+            "title": "Peacekeeper, The (1997)",
+            "release_year": 1997.0,
+            "similarity": 0.85,
+            "shared_genres": "action",
+            "shared_tags": "suspenseful, violence"
+          },
+          {
+            "movie_id": 204,
+            "title": "Under Siege 2: Dark Territory (1995)",
+            "release_year": 1995.0,
+            "similarity": 0.7999999999999999,
+            "shared_genres": "action",
+            "shared_tags": "action, violence"
+          },
+          {
+            "movie_id": 667,
+            "title": "Bloodsport 2 (a.k.a. Bloodsport II: The Next Kumite) (1996)",
+            "release_year": 1996.0,
+            "similarity": 0.7999999999999999,
+            "shared_genres": "action",
+            "shared_tags": "violence"
+          }
+        ],
+        "phase6_tfidf": [
+          {
+            "movie_id": 4149,
+            "title": "Saving Silverman (Evil Woman) (2001)",
+            "release_year": 2001,
+            "similarity": 0.36941706236556976
+          },
+          {
+            "movie_id": 2837,
+            "title": "Bedrooms & Hallways (1998)",
+            "release_year": 1998,
+            "similarity": 0.11595620881916154
+          },
+          {
+            "movie_id": 31427,
+            "title": "Hide and Seek (2005)",
+            "release_year": 2005,
+            "similarity": 0.07676032615010768
+          },
+          {
+            "movie_id": 63222,
+            "title": "JCVD (2008)",
+            "release_year": 2008,
+            "similarity": 0.06843445578478062
+          },
+          {
+            "movie_id": 1979,
+            "title": "Friday the 13th Part VI: Jason Lives (1986)",
+            "release_year": 1986,
+            "similarity": 0.06676650208824611
+          }
+        ],
+        "phase7_transformer": [
+          {
+            "movie_id": 1598,
+            "title": "Desperate Measures (1998)",
+            "release_year": 1998,
+            "similarity": 0.5440772771835327
+          },
+          {
+            "movie_id": 1488,
+            "title": "Devil's Own, The (1997)",
+            "release_year": 1997,
+            "similarity": 0.523936927318573
+          },
+          {
+            "movie_id": 743,
+            "title": "Spy Hard (1996)",
+            "release_year": 1996,
+            "similarity": 0.5184462070465088
+          },
+          {
+            "movie_id": 1036,
+            "title": "Die Hard (1988)",
+            "release_year": 1988,
+            "similarity": 0.516063928604126
+          },
+          {
+            "movie_id": 3364,
+            "title": "Asphalt Jungle, The (1950)",
+            "release_year": 1950,
+            "similarity": 0.5152045488357544
+          }
+        ],
+        "phase9_hybrid": [
+          {
+            "movie_id": 4200,
+            "title": "Double Impact (1991)",
+            "hybrid_score": 0.8841226226585799,
+            "positive_signals": 4,
+            "explanation": "shared genres: action; shared plot tags: violence; plot word overlap (TF-IDF cosine 0.021); plot semantic match (Transformer cosine 0.461); shared cast member: Jean-Claude Van Damme",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 1.0,
+            "tag_similarity": 0.16666666666666666,
+            "tfidf_similarity": 0.020892411640513725,
+            "transformer_similarity": 0.4610750079154968,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.047619047619047616,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.75,
+            "metadata_rank_percentile": 0.994592088998764,
+            "tfidf_rank_percentile": 0.9653263403263403,
+            "transformer_rank_percentile": 0.986013986013986,
+            "director_rank_percentile": 0.4994785148101794,
+            "writer_rank_percentile": 0.49946952728987387,
+            "cast_rank_percentile": 0.9985814798002723,
+            "crew_rank_percentile": 0.4943649761595145
+          },
+          {
+            "movie_id": 91485,
+            "title": "Expendables 2, The (2012)",
+            "hybrid_score": 0.8592783175679987,
+            "positive_signals": 4,
+            "explanation": "shared genres: action; shared plot tags: action, violence; plot word overlap (TF-IDF cosine 0.015); plot semantic match (Transformer cosine 0.425); shared cast member: Jean-Claude Van Damme",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.5,
+            "tag_similarity": 0.2,
+            "tfidf_similarity": 0.01536690515719727,
+            "transformer_similarity": 0.42530566453933716,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.03225806451612903,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.41,
+            "metadata_rank_percentile": 0.9638957560774619,
+            "tfidf_rank_percentile": 0.9245337995337995,
+            "transformer_rank_percentile": 0.9522144522144522,
+            "director_rank_percentile": 0.4994785148101794,
+            "writer_rank_percentile": 0.49946952728987387,
+            "cast_rank_percentile": 0.9922265093054925,
+            "crew_rank_percentile": 0.4943649761595145
+          },
+          {
+            "movie_id": 63222,
+            "title": "JCVD (2008)",
+            "hybrid_score": 0.8524456742375894,
+            "positive_signals": 4,
+            "explanation": "shared genres: action; shared plot tags: violence; plot word overlap (TF-IDF cosine 0.068); plot semantic match (Transformer cosine 0.444); shared cast member: Jean-Claude Van Damme",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.3333333333333333,
+            "tag_similarity": 0.14285714285714285,
+            "tfidf_similarity": 0.06843445578478062,
+            "transformer_similarity": 0.44414371252059937,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.04,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.27619047619047615,
+            "metadata_rank_percentile": 0.8932323856613102,
+            "tfidf_rank_percentile": 0.9991258741258742,
+            "transformer_rank_percentile": 0.9749417249417249,
+            "director_rank_percentile": 0.4994785148101794,
+            "writer_rank_percentile": 0.49946952728987387,
+            "cast_rank_percentile": 0.9959146618247844,
+            "crew_rank_percentile": 0.4943649761595145
+          },
+          {
+            "movie_id": 204,
+            "title": "Under Siege 2: Dark Territory (1995)",
+            "hybrid_score": 0.8435292961157216,
+            "positive_signals": 3,
+            "explanation": "shared genres: action; shared plot tags: action, violence; plot word overlap (TF-IDF cosine 0.015); plot semantic match (Transformer cosine 0.472)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 1.0,
+            "tag_similarity": 0.3333333333333333,
+            "tfidf_similarity": 0.015351595005440664,
+            "transformer_similarity": 0.47179460525512695,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.7999999999999999,
+            "metadata_rank_percentile": 0.9958281829419036,
+            "tfidf_rank_percentile": 0.9242424242424242,
+            "transformer_rank_percentile": 0.9900932400932401,
+            "director_rank_percentile": 0.4994785148101794,
+            "writer_rank_percentile": 0.49946952728987387,
+            "cast_rank_percentile": 0.49375851112119834,
+            "crew_rank_percentile": 0.4943649761595145
+          },
+          {
+            "movie_id": 1497,
+            "title": "Double Team (1997)",
+            "hybrid_score": 0.8428594277219206,
+            "positive_signals": 4,
+            "explanation": "shared genres: action; shared plot tags: violence; plot word overlap (TF-IDF cosine 0.009); plot semantic match (Transformer cosine 0.486); shared cast member: Jean-Claude Van Damme",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 1.0,
+            "tag_similarity": 0.2,
+            "tfidf_similarity": 0.008921306321434732,
+            "transformer_similarity": 0.48573341965675354,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.034482758620689655,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.76,
+            "metadata_rank_percentile": 0.9949011124845488,
+            "tfidf_rank_percentile": 0.6995920745920746,
+            "transformer_rank_percentile": 0.993006993006993,
+            "director_rank_percentile": 0.4994785148101794,
+            "writer_rank_percentile": 0.49946952728987387,
+            "cast_rank_percentile": 0.99302088061734,
+            "crew_rank_percentile": 0.4943649761595145
+          }
+        ]
+      },
+      "13": {
+        "selected_genres": [
+          "Adventure",
+          "Animation",
+          "Children"
+        ],
+        "movie_id": 13,
+        "title": "Balto (1995)",
+        "usable_plot": true,
+        "phase5_metadata": [
+          {
+            "movie_id": 2089,
+            "title": "Rescuers Down Under, The (1990)",
+            "release_year": 1990.0,
+            "similarity": 0.7999999999999999,
+            "shared_genres": "adventure, animation, children",
+            "shared_tags": "cult"
+          },
+          {
+            "movie_id": 5109,
+            "title": "Return to Never Land (2002)",
+            "release_year": 2002.0,
+            "similarity": 0.7999999999999999,
+            "shared_genres": "adventure, animation, children",
+            "shared_tags": "psychedelic"
+          },
+          {
+            "movie_id": 2085,
+            "title": "101 Dalmatians (One Hundred and One Dalmatians) (1961)",
+            "release_year": 1961.0,
+            "similarity": 0.7,
+            "shared_genres": "adventure, animation, children",
+            "shared_tags": ""
+          },
+          {
+            "movie_id": 2899,
+            "title": "Gulliver's Travels (1939)",
+            "release_year": 1939.0,
+            "similarity": 0.7,
+            "shared_genres": "adventure, animation, children",
+            "shared_tags": ""
+          },
+          {
+            "movie_id": 3615,
+            "title": "Dinosaur (2000)",
+            "release_year": 2000.0,
+            "similarity": 0.7,
+            "shared_genres": "adventure, animation, children",
+            "shared_tags": ""
+          }
+        ],
+        "phase6_tfidf": [
+          {
+            "movie_id": 7444,
+            "title": "13 Going on 30 (2004)",
+            "release_year": 2004,
+            "similarity": 0.15305829394310647
+          },
+          {
+            "movie_id": 7061,
+            "title": "Dark Victory (1939)",
+            "release_year": 1939,
+            "similarity": 0.10449843584278087
+          },
+          {
+            "movie_id": 743,
+            "title": "Spy Hard (1996)",
+            "release_year": 1996,
+            "similarity": 0.09324234241318459
+          },
+          {
+            "movie_id": 67799,
+            "title": "The Butterfly Effect 3: Revelations (2009)",
+            "release_year": 2009,
+            "similarity": 0.0774764908617446
+          },
+          {
+            "movie_id": 78469,
+            "title": "A-Team, The (2010)",
+            "release_year": 2010,
+            "similarity": 0.0717968543154544
+          }
+        ],
+        "phase7_transformer": [
+          {
+            "movie_id": 6889,
+            "title": "Brother Bear (2003)",
+            "release_year": 2003,
+            "similarity": 0.4362563490867615
+          },
+          {
+            "movie_id": 6158,
+            "title": "Jungle Book 2, The (2003)",
+            "release_year": 2003,
+            "similarity": 0.43233275413513184
+          },
+          {
+            "movie_id": 33558,
+            "title": "Snow Walker, The (2003)",
+            "release_year": 2003,
+            "similarity": 0.4307739734649658
+          },
+          {
+            "movie_id": 2384,
+            "title": "Babe: Pig in the City (1998)",
+            "release_year": 1998,
+            "similarity": 0.42374908924102783
+          },
+          {
+            "movie_id": 4386,
+            "title": "Cats & Dogs (2001)",
+            "release_year": 2001,
+            "similarity": 0.4197337031364441
+          }
+        ],
+        "phase9_hybrid": [
+          {
+            "movie_id": 2142,
+            "title": "American Tail: Fievel Goes West, An (1991)",
+            "hybrid_score": 0.926737973629059,
+            "positive_signals": 5,
+            "explanation": "shared genres: adventure, animation, children; plot word overlap (TF-IDF cosine 0.013); plot semantic match (Transformer cosine 0.300); shared director: Simon Wells; shared selected crew: James Horner, Nick Fletcher, Steven Spielberg",
+            "evidence_coverage": 1.0,
+            "missing_signals": "cast",
+            "genre_similarity": 0.6,
+            "tag_similarity": 0.0,
+            "tfidf_similarity": 0.012679329770352167,
+            "transformer_similarity": 0.3002464771270752,
+            "director_similarity": 0.5,
+            "writer_similarity": 0.0,
+            "cast_similarity": null,
+            "crew_similarity": 0.375,
+            "metadata_similarity": 0.42,
+            "metadata_rank_percentile": 0.965698393077874,
+            "tfidf_rank_percentile": 0.914918414918415,
+            "transformer_rank_percentile": 0.9644522144522144,
+            "director_rank_percentile": 0.9997914059240718,
+            "writer_rank_percentile": 0.49982317576329127,
+            "cast_rank_percentile": null,
+            "crew_rank_percentile": 0.9998916341569137
+          },
+          {
+            "movie_id": 2077,
+            "title": "Journey of Natty Gann, The (1985)",
+            "hybrid_score": 0.8916661731491583,
+            "positive_signals": 4,
+            "explanation": "shared genres: adventure, children; plot word overlap (TF-IDF cosine 0.019); plot semantic match (Transformer cosine 0.377); shared selected crew: James Horner",
+            "evidence_coverage": 1.0,
+            "missing_signals": "cast",
+            "genre_similarity": 0.6666666666666666,
+            "tag_similarity": 0.0,
+            "tfidf_similarity": 0.019181551136460716,
+            "transformer_similarity": 0.377424955368042,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": null,
+            "crew_similarity": 0.125,
+            "metadata_similarity": 0.4666666666666666,
+            "metadata_rank_percentile": 0.969200659250103,
+            "tfidf_rank_percentile": 0.9755244755244755,
+            "transformer_rank_percentile": 0.9944638694638694,
+            "director_rank_percentile": 0.4997392574050897,
+            "writer_rank_percentile": 0.49982317576329127,
+            "cast_rank_percentile": null,
+            "crew_rank_percentile": 0.9973450368443867
+          },
+          {
+            "movie_id": 6889,
+            "title": "Brother Bear (2003)",
+            "hybrid_score": 0.8819388013624351,
+            "positive_signals": 3,
+            "explanation": "shared genres: adventure, animation, children; plot word overlap (TF-IDF cosine 0.023); plot semantic match (Transformer cosine 0.436)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "cast",
+            "genre_similarity": 1.0,
+            "tag_similarity": 0.0,
+            "tfidf_similarity": 0.02266887588694149,
+            "transformer_similarity": 0.4362563490867615,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": null,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.7,
+            "metadata_rank_percentile": 0.994180057684384,
+            "tfidf_rank_percentile": 0.9848484848484849,
+            "transformer_rank_percentile": 1.0,
+            "director_rank_percentile": 0.4997392574050897,
+            "writer_rank_percentile": 0.49982317576329127,
+            "cast_rank_percentile": null,
+            "crew_rank_percentile": 0.49111400086692675
+          },
+          {
+            "movie_id": 158,
+            "title": "Casper (1995)",
+            "hybrid_score": 0.8751143947261802,
+            "positive_signals": 4,
+            "explanation": "shared genres: adventure, children; shared plot tags: psychedelic; plot word overlap (TF-IDF cosine 0.012); plot semantic match (Transformer cosine 0.295); shared selected crew: James Horner, Steven Spielberg",
+            "evidence_coverage": 1.0,
+            "missing_signals": "cast",
+            "genre_similarity": 0.6666666666666666,
+            "tag_similarity": 0.14285714285714285,
+            "tfidf_similarity": 0.011718540643681458,
+            "transformer_similarity": 0.29489409923553467,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": null,
+            "crew_similarity": 0.15384615384615385,
+            "metadata_similarity": 0.5095238095238095,
+            "metadata_rank_percentile": 0.9842398022249691,
+            "tfidf_rank_percentile": 0.8956876456876457,
+            "transformer_rank_percentile": 0.9592074592074592,
+            "director_rank_percentile": 0.4997392574050897,
+            "writer_rank_percentile": 0.49982317576329127,
+            "cast_rank_percentile": null,
+            "crew_rank_percentile": 0.997941048981361
+          },
+          {
+            "movie_id": 3754,
+            "title": "Adventures of Rocky and Bullwinkle, The (2000)",
+            "hybrid_score": 0.87207756969212,
+            "positive_signals": 3,
+            "explanation": "shared genres: adventure, animation, children; plot word overlap (TF-IDF cosine 0.028); plot semantic match (Transformer cosine 0.405)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "cast",
+            "genre_similarity": 0.6,
+            "tag_similarity": 0.0,
+            "tfidf_similarity": 0.02835396217705698,
+            "transformer_similarity": 0.405336856842041,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": null,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.42,
+            "metadata_rank_percentile": 0.965698393077874,
+            "tfidf_rank_percentile": 0.9912587412587412,
+            "transformer_rank_percentile": 0.9976689976689976,
+            "director_rank_percentile": 0.4997392574050897,
+            "writer_rank_percentile": 0.49982317576329127,
+            "cast_rank_percentile": null,
+            "crew_rank_percentile": 0.49111400086692675
+          }
+        ]
+      },
+      "3": {
+        "selected_genres": [
+          "Comedy",
+          "Romance"
+        ],
+        "movie_id": 3,
+        "title": "Grumpier Old Men (1995)",
+        "usable_plot": true,
+        "phase5_metadata": [
+          {
+            "movie_id": 8809,
+            "title": "Danny Deckchair (2003)",
+            "release_year": 2003.0,
+            "similarity": 0.82,
+            "shared_genres": "comedy, romance",
+            "shared_tags": "comedy, prank"
+          },
+          {
+            "movie_id": 1569,
+            "title": "My Best Friend's Wedding (1997)",
+            "release_year": 1997.0,
+            "similarity": 0.7999999999999999,
+            "shared_genres": "comedy, romance",
+            "shared_tags": "comedy, revenge"
+          },
+          {
+            "movie_id": 2558,
+            "title": "Forces of Nature (1999)",
+            "release_year": 1999.0,
+            "similarity": 0.7999999999999999,
+            "shared_genres": "comedy, romance",
+            "shared_tags": "comedy"
+          },
+          {
+            "movie_id": 2935,
+            "title": "Lady Eve, The (1941)",
+            "release_year": 1941.0,
+            "similarity": 0.7999999999999999,
+            "shared_genres": "comedy, romance",
+            "shared_tags": "comedy, revenge"
+          },
+          {
+            "movie_id": 3614,
+            "title": "Honeymoon in Vegas (1992)",
+            "release_year": 1992.0,
+            "similarity": 0.7999999999999999,
+            "shared_genres": "comedy, romance",
+            "shared_tags": "comedy"
+          }
+        ],
+        "phase6_tfidf": [
+          {
+            "movie_id": 1921,
+            "title": "Pi (1998)",
+            "release_year": 1998,
+            "similarity": 0.29644831587521836
+          },
+          {
+            "movie_id": 2310,
+            "title": "Mighty, The (1998)",
+            "release_year": 1998,
+            "similarity": 0.274110835025607
+          },
+          {
+            "movie_id": 1696,
+            "title": "Bent (1997)",
+            "release_year": 1997,
+            "similarity": 0.2685492108072082
+          },
+          {
+            "movie_id": 49130,
+            "title": "Good Year, A (2006)",
+            "release_year": 2006,
+            "similarity": 0.2600312466357962
+          },
+          {
+            "movie_id": 1839,
+            "title": "My Giant (1998)",
+            "release_year": 1998,
+            "similarity": 0.25984406804920535
+          }
+        ],
+        "phase7_transformer": [
+          {
+            "movie_id": 6789,
+            "title": "Apartment, The (Appartement, L') (1996)",
+            "release_year": 1996,
+            "similarity": 0.5269509553909302
+          },
+          {
+            "movie_id": 5189,
+            "title": "Humanoids from the Deep (1980)",
+            "release_year": 1980,
+            "similarity": 0.5246705412864685
+          },
+          {
+            "movie_id": 31590,
+            "title": "Hands Off the Loot (Touchez pas au grisbi) (1954)",
+            "release_year": 1954,
+            "similarity": 0.5213803052902222
+          },
+          {
+            "movie_id": 1085,
+            "title": "Old Man and the Sea, The (1958)",
+            "release_year": 1958,
+            "similarity": 0.493196964263916
+          },
+          {
+            "movie_id": 3324,
+            "title": "Drowning Mona (2000)",
+            "release_year": 2000,
+            "similarity": 0.4908880889415741
+          }
+        ],
+        "phase9_hybrid": [
+          {
+            "movie_id": 4069,
+            "title": "Wedding Planner, The (2001)",
+            "hybrid_score": 0.8584085996821526,
+            "positive_signals": 4,
+            "explanation": "shared genres: comedy, romance; plot word overlap (TF-IDF cosine 0.019); plot semantic match (Transformer cosine 0.394); shared cast member: Kevin Pollak",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 1.0,
+            "tag_similarity": 0.0,
+            "tfidf_similarity": 0.01890127149439717,
+            "transformer_similarity": 0.39434176683425903,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.038461538461538464,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.7,
+            "metadata_rank_percentile": 0.9669859909353111,
+            "tfidf_rank_percentile": 0.8849067599067599,
+            "transformer_rank_percentile": 0.9734848484848485,
+            "director_rank_percentile": 0.4995828118481435,
+            "writer_rank_percentile": 0.4995284687021101,
+            "cast_rank_percentile": 0.990354062641852,
+            "crew_rank_percentile": 0.49078890333766795
+          },
+          {
+            "movie_id": 5077,
+            "title": "Cousins (1989)",
+            "hybrid_score": 0.847928359781138,
+            "positive_signals": 3,
+            "explanation": "shared genres: comedy, romance; shared plot tags: revenge; plot word overlap (TF-IDF cosine 0.138); plot semantic match (Transformer cosine 0.425)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 1.0,
+            "tag_similarity": 0.25,
+            "tfidf_similarity": 0.13793376275605784,
+            "transformer_similarity": 0.42545849084854126,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.7749999999999999,
+            "metadata_rank_percentile": 0.9765142150803461,
+            "tfidf_rank_percentile": 0.9932983682983683,
+            "transformer_rank_percentile": 0.990967365967366,
+            "director_rank_percentile": 0.4995828118481435,
+            "writer_rank_percentile": 0.4995284687021101,
+            "cast_rank_percentile": 0.49165910122560147,
+            "crew_rank_percentile": 0.49078890333766795
+          },
+          {
+            "movie_id": 47122,
+            "title": "John Tucker Must Die (2006)",
+            "hybrid_score": 0.8466979780903113,
+            "positive_signals": 3,
+            "explanation": "shared genres: comedy, romance; shared plot tags: revenge; plot word overlap (TF-IDF cosine 0.128); plot semantic match (Transformer cosine 0.422)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 1.0,
+            "tag_similarity": 0.2,
+            "tfidf_similarity": 0.12771282790220895,
+            "transformer_similarity": 0.4220127463340759,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.76,
+            "metadata_rank_percentile": 0.975123609394314,
+            "tfidf_rank_percentile": 0.990967365967366,
+            "transformer_rank_percentile": 0.9892191142191142,
+            "director_rank_percentile": 0.4995828118481435,
+            "writer_rank_percentile": 0.4995284687021101,
+            "cast_rank_percentile": 0.49165910122560147,
+            "crew_rank_percentile": 0.49078890333766795
+          },
+          {
+            "movie_id": 55245,
+            "title": "Good Luck Chuck (2007)",
+            "hybrid_score": 0.8445200468332701,
+            "positive_signals": 3,
+            "explanation": "shared genres: comedy, romance; shared plot tags: comedy; plot word overlap (TF-IDF cosine 0.042); plot semantic match (Transformer cosine 0.438)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 1.0,
+            "tag_similarity": 0.3333333333333333,
+            "tfidf_similarity": 0.04224733965685512,
+            "transformer_similarity": 0.43805351853370667,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.7999999999999999,
+            "metadata_rank_percentile": 0.9779048207663782,
+            "tfidf_rank_percentile": 0.965034965034965,
+            "transformer_rank_percentile": 0.9938811188811189,
+            "director_rank_percentile": 0.4995828118481435,
+            "writer_rank_percentile": 0.4995284687021101,
+            "cast_rank_percentile": 0.49165910122560147,
+            "crew_rank_percentile": 0.49078890333766795
+          },
+          {
+            "movie_id": 59421,
+            "title": "What Happens in Vegas... (2008)",
+            "hybrid_score": 0.8404325737377624,
+            "positive_signals": 3,
+            "explanation": "shared genres: comedy, romance; shared plot tags: comedy; plot word overlap (TF-IDF cosine 0.031); plot semantic match (Transformer cosine 0.442)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 1.0,
+            "tag_similarity": 0.16666666666666666,
+            "tfidf_similarity": 0.03117409853437035,
+            "transformer_similarity": 0.44199517369270325,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.75,
+            "metadata_rank_percentile": 0.9736299958796869,
+            "tfidf_rank_percentile": 0.946969696969697,
+            "transformer_rank_percentile": 0.99504662004662,
+            "director_rank_percentile": 0.4995828118481435,
+            "writer_rank_percentile": 0.4995284687021101,
+            "cast_rank_percentile": 0.49165910122560147,
+            "crew_rank_percentile": 0.49078890333766795
+          }
+        ]
+      },
+      "20": {
+        "selected_genres": [
+          "Crime",
+          "Thriller"
+        ],
+        "movie_id": 20,
+        "title": "Money Train (1995)",
+        "usable_plot": true,
+        "phase5_metadata": [
+          {
+            "movie_id": 7007,
+            "title": "Last Boy Scout, The (1991)",
+            "release_year": 1991.0,
+            "similarity": 0.8090909090909091,
+            "shared_genres": "action, comedy, crime, drama, thriller",
+            "shared_tags": "comedy, humor, murder, violence"
+          },
+          {
+            "movie_id": 5628,
+            "title": "Wasabi (2001)",
+            "release_year": 2001.0,
+            "similarity": 0.7999999999999999,
+            "shared_genres": "action, comedy, crime, drama, thriller",
+            "shared_tags": "comedy, violence"
+          },
+          {
+            "movie_id": 5678,
+            "title": "Formula 51 (2001)",
+            "release_year": 2001.0,
+            "similarity": 0.7599999999999999,
+            "shared_genres": "action, comedy, crime, thriller",
+            "shared_tags": "comedy, humor, murder, violence"
+          },
+          {
+            "movie_id": 4084,
+            "title": "Beverly Hills Cop II (1987)",
+            "release_year": 1987.0,
+            "similarity": 0.7314285714285713,
+            "shared_genres": "action, comedy, crime, thriller",
+            "shared_tags": "comedy, humor, murder, violence"
+          },
+          {
+            "movie_id": 7325,
+            "title": "Starsky & Hutch (2004)",
+            "release_year": 2004.0,
+            "similarity": 0.7314285714285713,
+            "shared_genres": "action, comedy, crime, thriller",
+            "shared_tags": "comedy, humor, murder, violence"
+          }
+        ],
+        "phase6_tfidf": [
+          {
+            "movie_id": 40959,
+            "title": "Ice Harvest, The (2005)",
+            "release_year": 2005,
+            "similarity": 0.2927125416689997
+          },
+          {
+            "movie_id": 1799,
+            "title": "Suicide Kings (1997)",
+            "release_year": 1997,
+            "similarity": 0.2860776263656176
+          },
+          {
+            "movie_id": 3752,
+            "title": "Me, Myself & Irene (2000)",
+            "release_year": 2000,
+            "similarity": 0.2713876187841826
+          },
+          {
+            "movie_id": 51931,
+            "title": "Reign Over Me (2007)",
+            "release_year": 2007,
+            "similarity": 0.25644315920981436
+          },
+          {
+            "movie_id": 165529,
+            "title": "Flowers for Algernon (2000)",
+            "release_year": 2000,
+            "similarity": 0.2491739860910439
+          }
+        ],
+        "phase7_transformer": [
+          {
+            "movie_id": 1799,
+            "title": "Suicide Kings (1997)",
+            "release_year": 1997,
+            "similarity": 0.6606764793395996
+          },
+          {
+            "movie_id": 8042,
+            "title": "Mean Streets (1973)",
+            "release_year": 1973,
+            "similarity": 0.6148284673690796
+          },
+          {
+            "movie_id": 6013,
+            "title": "Kangaroo Jack (2003)",
+            "release_year": 2003,
+            "similarity": 0.5643182396888733
+          },
+          {
+            "movie_id": 7041,
+            "title": "Trapped in Paradise (1994)",
+            "release_year": 1994,
+            "similarity": 0.5564029216766357
+          },
+          {
+            "movie_id": 5804,
+            "title": "Santa Clause 2, The (2002)",
+            "release_year": 2002,
+            "similarity": 0.5344740152359009
+          }
+        ],
+        "phase9_hybrid": [
+          {
+            "movie_id": 40959,
+            "title": "Ice Harvest, The (2005)",
+            "hybrid_score": 0.8539982685347731,
+            "positive_signals": 3,
+            "explanation": "shared genres: action, comedy, crime, thriller; shared plot tags: comedy, murder; plot word overlap (TF-IDF cosine 0.293); plot semantic match (Transformer cosine 0.508)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.8,
+            "tag_similarity": 0.25,
+            "tfidf_similarity": 0.2927125416689997,
+            "transformer_similarity": 0.5076138973236084,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.6349999999999999,
+            "metadata_rank_percentile": 0.9886176349402555,
+            "tfidf_rank_percentile": 1.0,
+            "transformer_rank_percentile": 0.9967948717948718,
+            "director_rank_percentile": 0.4996871088861076,
+            "writer_rank_percentile": 0.49929270305316514,
+            "cast_rank_percentile": 0.4830344984112574,
+            "crew_rank_percentile": 0.49604464672735155
+          },
+          {
+            "movie_id": 60647,
+            "title": "Transsiberian (2008)",
+            "hybrid_score": 0.8449894747396818,
+            "positive_signals": 4,
+            "explanation": "shared genres: crime, drama, thriller; shared plot tags: murder; plot word overlap (TF-IDF cosine 0.076); plot semantic match (Transformer cosine 0.361); shared cast member: Woody Harrelson",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.6,
+            "tag_similarity": 0.1111111111111111,
+            "tfidf_similarity": 0.07566227855333592,
+            "transformer_similarity": 0.3613179624080658,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.030303030303030304,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.4533333333333333,
+            "metadata_rank_percentile": 0.9316543057272353,
+            "tfidf_rank_percentile": 0.9778554778554779,
+            "transformer_rank_percentile": 0.8986013986013986,
+            "director_rank_percentile": 0.4996871088861076,
+            "writer_rank_percentile": 0.49929270305316514,
+            "cast_rank_percentile": 0.9902405810258738,
+            "crew_rank_percentile": 0.49604464672735155
+          },
+          {
+            "movie_id": 78,
+            "title": "Crossing Guard, The (1995)",
+            "hybrid_score": 0.8449157513403893,
+            "positive_signals": 3,
+            "explanation": "shared genres: action, crime, drama, thriller; shared plot tags: murder, romantic, violence; plot word overlap (TF-IDF cosine 0.105); plot semantic match (Transformer cosine 0.404)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.8,
+            "tag_similarity": 0.5,
+            "tfidf_similarity": 0.10521714144051054,
+            "transformer_similarity": 0.40411633253097534,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.71,
+            "metadata_rank_percentile": 0.9932014833127317,
+            "tfidf_rank_percentile": 0.9839743589743589,
+            "transformer_rank_percentile": 0.960081585081585,
+            "director_rank_percentile": 0.4996871088861076,
+            "writer_rank_percentile": 0.49929270305316514,
+            "cast_rank_percentile": 0.4830344984112574,
+            "crew_rank_percentile": 0.49604464672735155
+          },
+          {
+            "movie_id": 69306,
+            "title": "Taking of Pelham 1 2 3, The (2009)",
+            "hybrid_score": 0.8388113201308902,
+            "positive_signals": 3,
+            "explanation": "shared genres: crime, drama, thriller; shared plot tags: murder, violence; plot word overlap (TF-IDF cosine 0.075); plot semantic match (Transformer cosine 0.486)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.6,
+            "tag_similarity": 0.3333333333333333,
+            "tfidf_similarity": 0.07513808290474294,
+            "transformer_similarity": 0.48597216606140137,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.52,
+            "metadata_rank_percentile": 0.9565306963329213,
+            "tfidf_rank_percentile": 0.9772727272727273,
+            "transformer_rank_percentile": 0.9938811188811189,
+            "director_rank_percentile": 0.4996871088861076,
+            "writer_rank_percentile": 0.49929270305316514,
+            "cast_rank_percentile": 0.4830344984112574,
+            "crew_rank_percentile": 0.49604464672735155
+          },
+          {
+            "movie_id": 1752,
+            "title": "Hard Rain (1998)",
+            "hybrid_score": 0.8364453527649228,
+            "positive_signals": 3,
+            "explanation": "shared genres: action, crime, thriller; shared plot tags: murder, violence; plot word overlap (TF-IDF cosine 0.080); plot semantic match (Transformer cosine 0.441)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.6,
+            "tag_similarity": 0.3333333333333333,
+            "tfidf_similarity": 0.08036951583628042,
+            "transformer_similarity": 0.44093072414398193,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.52,
+            "metadata_rank_percentile": 0.9565306963329213,
+            "tfidf_rank_percentile": 0.9793123543123543,
+            "transformer_rank_percentile": 0.9816433566433567,
+            "director_rank_percentile": 0.4996871088861076,
+            "writer_rank_percentile": 0.49929270305316514,
+            "cast_rank_percentile": 0.4830344984112574,
+            "crew_rank_percentile": 0.49604464672735155
+          }
+        ]
+      },
+      "1192": {
+        "selected_genres": [
+          "Documentary"
+        ],
+        "movie_id": 1192,
+        "title": "Paris Is Burning (1990)",
+        "usable_plot": true,
+        "phase5_metadata": [
+          {
+            "movie_id": 77,
+            "title": "Nico Icon (1995)",
+            "release_year": 1995.0,
+            "similarity": 0.7,
+            "shared_genres": "documentary",
+            "shared_tags": ""
+          },
+          {
+            "movie_id": 99,
+            "title": "Heidi Fleiss: Hollywood Madam (1995)",
+            "release_year": 1995.0,
+            "similarity": 0.7,
+            "shared_genres": "documentary",
+            "shared_tags": ""
+          },
+          {
+            "movie_id": 108,
+            "title": "Catwalk (1996)",
+            "release_year": 1996.0,
+            "similarity": 0.7,
+            "shared_genres": "documentary",
+            "shared_tags": ""
+          },
+          {
+            "movie_id": 116,
+            "title": "Anne Frank Remembered (1995)",
+            "release_year": 1995.0,
+            "similarity": 0.7,
+            "shared_genres": "documentary",
+            "shared_tags": ""
+          },
+          {
+            "movie_id": 128,
+            "title": "Jupiter's Wife (1994)",
+            "release_year": 1994.0,
+            "similarity": 0.7,
+            "shared_genres": "documentary",
+            "shared_tags": ""
+          }
+        ],
+        "phase6_tfidf": [
+          {
+            "movie_id": 27708,
+            "title": "Helen of Troy (2003)",
+            "release_year": 2003,
+            "similarity": 0.14811936278186275
+          },
+          {
+            "movie_id": 26171,
+            "title": "Play Time (a.k.a. Playtime) (1967)",
+            "release_year": 1967,
+            "similarity": 0.09682531954056674
+          },
+          {
+            "movie_id": 5500,
+            "title": "Top Secret! (1984)",
+            "release_year": 1984,
+            "similarity": 0.09515445129319107
+          },
+          {
+            "movie_id": 6791,
+            "title": "Babette's Feast (Babettes gæstebud) (1987)",
+            "release_year": 1987,
+            "similarity": 0.09353313737029158
+          },
+          {
+            "movie_id": 7980,
+            "title": "Bridge Too Far, A (1977)",
+            "release_year": 1977,
+            "similarity": 0.09000230540825463
+          }
+        ],
+        "phase7_transformer": [
+          {
+            "movie_id": 67508,
+            "title": "Baader Meinhof Komplex, Der (2008)",
+            "release_year": 2008,
+            "similarity": 0.5863481163978577
+          },
+          {
+            "movie_id": 46855,
+            "title": "Army of Shadows (L'armée des ombres) (1969)",
+            "release_year": 1969,
+            "similarity": 0.5452751517295837
+          },
+          {
+            "movie_id": 4074,
+            "title": "Legend of Rita, The (Stille nach dem Schuß, Die) (1999)",
+            "release_year": 1999,
+            "similarity": 0.48706966638565063
+          },
+          {
+            "movie_id": 6706,
+            "title": "Taking Sides (2001)",
+            "release_year": 2001,
+            "similarity": 0.4715498089790344
+          },
+          {
+            "movie_id": 2106,
+            "title": "Swing Kids (1993)",
+            "release_year": 1993,
+            "similarity": 0.46323642134666443
+          }
+        ],
+        "phase9_hybrid": [
+          {
+            "movie_id": 1081,
+            "title": "Victor/Victoria (1982)",
+            "hybrid_score": 0.8807439805334134,
+            "positive_signals": 3,
+            "explanation": "shared plot tags: queer; plot word overlap (TF-IDF cosine 0.024); plot semantic match (Transformer cosine 0.295)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "writer, cast",
+            "genre_similarity": 0.0,
+            "tag_similarity": 1.0,
+            "tfidf_similarity": 0.02408687992807868,
+            "transformer_similarity": 0.2951642870903015,
+            "director_similarity": 0.0,
+            "writer_similarity": null,
+            "cast_similarity": null,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.3,
+            "metadata_rank_percentile": 0.9549340749896992,
+            "tfidf_rank_percentile": 0.9475524475524476,
+            "transformer_rank_percentile": 0.9597902097902098,
+            "director_rank_percentile": 0.5,
+            "writer_rank_percentile": null,
+            "cast_rank_percentile": null,
+            "crew_rank_percentile": 0.5
+          },
+          {
+            "movie_id": 68,
+            "title": "French Twist (Gazon maudit) (1995)",
+            "hybrid_score": 0.8417471246760924,
+            "positive_signals": 3,
+            "explanation": "shared plot tags: queer; plot word overlap (TF-IDF cosine 0.019); plot semantic match (Transformer cosine 0.218)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "writer, cast",
+            "genre_similarity": 0.0,
+            "tag_similarity": 1.0,
+            "tfidf_similarity": 0.018782893960850738,
+            "transformer_similarity": 0.217800572514534,
+            "director_similarity": 0.0,
+            "writer_similarity": null,
+            "cast_similarity": null,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.3,
+            "metadata_rank_percentile": 0.9549340749896992,
+            "tfidf_rank_percentile": 0.921037296037296,
+            "transformer_rank_percentile": 0.8266317016317016,
+            "director_rank_percentile": 0.5,
+            "writer_rank_percentile": null,
+            "cast_rank_percentile": null,
+            "crew_rank_percentile": 0.5
+          },
+          {
+            "movie_id": 69529,
+            "title": "Home (2009)",
+            "hybrid_score": 0.8357644621550679,
+            "positive_signals": 3,
+            "explanation": "shared genres: documentary; plot word overlap (TF-IDF cosine 0.013); plot semantic match (Transformer cosine 0.224)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "writer, cast",
+            "genre_similarity": 1.0,
+            "tag_similarity": 0.0,
+            "tfidf_similarity": 0.012849546967626463,
+            "transformer_similarity": 0.22434678673744202,
+            "director_similarity": 0.0,
+            "writer_similarity": null,
+            "cast_similarity": null,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.7,
+            "metadata_rank_percentile": 0.9664194478780387,
+            "tfidf_rank_percentile": 0.840034965034965,
+            "transformer_rank_percentile": 0.8444055944055944,
+            "director_rank_percentile": 0.5,
+            "writer_rank_percentile": null,
+            "cast_rank_percentile": null,
+            "crew_rank_percentile": 0.5
+          },
+          {
+            "movie_id": 53883,
+            "title": "Power of Nightmares, The: The Rise of the Politics of Fear (2004)",
+            "hybrid_score": 0.8274094450791206,
+            "positive_signals": 3,
+            "explanation": "shared genres: documentary; plot word overlap (TF-IDF cosine 0.042); plot semantic match (Transformer cosine 0.181)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "writer, cast",
+            "genre_similarity": 1.0,
+            "tag_similarity": 0.0,
+            "tfidf_similarity": 0.041756222605922294,
+            "transformer_similarity": 0.18096844851970673,
+            "director_similarity": 0.0,
+            "writer_similarity": null,
+            "cast_similarity": null,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.7,
+            "metadata_rank_percentile": 0.9664194478780387,
+            "tfidf_rank_percentile": 0.9822261072261073,
+            "transformer_rank_percentile": 0.7083333333333334,
+            "director_rank_percentile": 0.5,
+            "writer_rank_percentile": null,
+            "cast_rank_percentile": null,
+            "crew_rank_percentile": 0.5
+          },
+          {
+            "movie_id": 77455,
+            "title": "Exit Through the Gift Shop (2010)",
+            "hybrid_score": 0.8012744710181972,
+            "positive_signals": 3,
+            "explanation": "shared genres: documentary; plot word overlap (TF-IDF cosine 0.006); plot semantic match (Transformer cosine 0.326)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "writer, cast",
+            "genre_similarity": 0.5,
+            "tag_similarity": 0.0,
+            "tfidf_similarity": 0.006019676443633289,
+            "transformer_similarity": 0.32553622126579285,
+            "director_similarity": 0.0,
+            "writer_similarity": null,
+            "cast_similarity": null,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.35,
+            "metadata_rank_percentile": 0.9570972393901936,
+            "tfidf_rank_percentile": 0.49417249417249415,
+            "transformer_rank_percentile": 0.9755244755244755,
+            "director_rank_percentile": 0.5,
+            "writer_rank_percentile": null,
+            "cast_rank_percentile": null,
+            "crew_rank_percentile": 0.5
+          }
+        ]
+      },
+      "4": {
+        "selected_genres": [
+          "Drama"
+        ],
+        "movie_id": 4,
+        "title": "Waiting to Exhale (1995)",
+        "usable_plot": true,
+        "phase5_metadata": [
+          {
+            "movie_id": 1888,
+            "title": "Hope Floats (1998)",
+            "release_year": 1998.0,
+            "similarity": 0.7999999999999999,
+            "shared_genres": "comedy, drama, romance",
+            "shared_tags": "revenge"
+          },
+          {
+            "movie_id": 80586,
+            "title": "Flipped (2010)",
+            "release_year": 2010.0,
+            "similarity": 0.7999999999999999,
+            "shared_genres": "comedy, drama, romance",
+            "shared_tags": "revenge"
+          },
+          {
+            "movie_id": 909,
+            "title": "Apartment, The (1960)",
+            "release_year": 1960.0,
+            "similarity": 0.7749999999999999,
+            "shared_genres": "comedy, drama, romance",
+            "shared_tags": "revenge"
+          },
+          {
+            "movie_id": 1395,
+            "title": "Tin Men (1987)",
+            "release_year": 1987.0,
+            "similarity": 0.7666666666666666,
+            "shared_genres": "comedy, drama",
+            "shared_tags": "revenge"
+          },
+          {
+            "movie_id": 6367,
+            "title": "Down with Love (2003)",
+            "release_year": 2003.0,
+            "similarity": 0.7666666666666666,
+            "shared_genres": "comedy, romance",
+            "shared_tags": "revenge"
+          }
+        ],
+        "phase6_tfidf": [
+          {
+            "movie_id": 6124,
+            "title": "Savannah Smiles (1982)",
+            "release_year": 1982,
+            "similarity": 0.16165364358479906
+          },
+          {
+            "movie_id": 1027,
+            "title": "Robin Hood: Prince of Thieves (1991)",
+            "release_year": 1991,
+            "similarity": 0.14946313642547077
+          },
+          {
+            "movie_id": 5499,
+            "title": "Robin and Marian (1976)",
+            "release_year": 1976,
+            "similarity": 0.14209141303953035
+          },
+          {
+            "movie_id": 940,
+            "title": "Adventures of Robin Hood, The (1938)",
+            "release_year": 1938,
+            "similarity": 0.13667782707576617
+          },
+          {
+            "movie_id": 520,
+            "title": "Robin Hood: Men in Tights (1993)",
+            "release_year": 1993,
+            "similarity": 0.13506340572368244
+          }
+        ],
+        "phase7_transformer": [
+          {
+            "movie_id": 6549,
+            "title": "How to Deal (2003)",
+            "release_year": 2003,
+            "similarity": 0.5674481987953186
+          },
+          {
+            "movie_id": 4474,
+            "title": "Beaches (1988)",
+            "release_year": 1988,
+            "similarity": 0.5127331614494324
+          },
+          {
+            "movie_id": 4130,
+            "title": "Maid to Order (1987)",
+            "release_year": 1987,
+            "similarity": 0.5111735463142395
+          },
+          {
+            "movie_id": 2428,
+            "title": "Faculty, The (1998)",
+            "release_year": 1998,
+            "similarity": 0.5034304857254028
+          },
+          {
+            "movie_id": 4920,
+            "title": "Now, Voyager (1942)",
+            "release_year": 1942,
+            "similarity": 0.4989784359931946
+          }
+        ],
+        "phase9_hybrid": [
+          {
+            "movie_id": 1888,
+            "title": "Hope Floats (1998)",
+            "hybrid_score": 0.9047590067970938,
+            "positive_signals": 5,
+            "explanation": "shared genres: comedy, drama, romance; shared plot tags: revenge; plot word overlap (TF-IDF cosine 0.025); plot semantic match (Transformer cosine 0.452); shared director: Forest Whitaker",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 1.0,
+            "tag_similarity": 0.3333333333333333,
+            "tfidf_similarity": 0.024616369841266063,
+            "transformer_similarity": 0.4519231617450714,
+            "director_similarity": 1.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.1111111111111111,
+            "metadata_similarity": 0.7999999999999999,
+            "metadata_rank_percentile": 0.9835702513391018,
+            "tfidf_rank_percentile": 0.8945221445221445,
+            "transformer_rank_percentile": 0.990967365967366,
+            "director_rank_percentile": 0.999947851481018,
+            "writer_rank_percentile": 0.4990569374042202,
+            "cast_rank_percentile": 0.4905810258738084,
+            "crew_rank_percentile": 0.9984828781967924
+          },
+          {
+            "movie_id": 51903,
+            "title": "I Think I Love My Wife (2007)",
+            "hybrid_score": 0.87197907697524,
+            "positive_signals": 4,
+            "explanation": "shared genres: comedy, drama, romance; plot word overlap (TF-IDF cosine 0.029); plot semantic match (Transformer cosine 0.444); shared cast member: Wendell Pierce",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 1.0,
+            "tag_similarity": 0.0,
+            "tfidf_similarity": 0.029031712239738425,
+            "transformer_similarity": 0.4435052275657654,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.034482758620689655,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.7,
+            "metadata_rank_percentile": 0.9739905232797693,
+            "tfidf_rank_percentile": 0.9382284382284383,
+            "transformer_rank_percentile": 0.9851398601398601,
+            "director_rank_percentile": 0.4998957029620359,
+            "writer_rank_percentile": 0.4990569374042202,
+            "cast_rank_percentile": 0.9873467998184294,
+            "crew_rank_percentile": 0.49842869527524925
+          },
+          {
+            "movie_id": 3825,
+            "title": "Coyote Ugly (2000)",
+            "hybrid_score": 0.844169342262986,
+            "positive_signals": 3,
+            "explanation": "shared genres: comedy, drama, romance; plot word overlap (TF-IDF cosine 0.044); plot semantic match (Transformer cosine 0.438)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 1.0,
+            "tag_similarity": 0.0,
+            "tfidf_similarity": 0.044448402220642086,
+            "transformer_similarity": 0.4377838373184204,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.7,
+            "metadata_rank_percentile": 0.9739905232797693,
+            "tfidf_rank_percentile": 0.9877622377622378,
+            "transformer_rank_percentile": 0.9807692307692307,
+            "director_rank_percentile": 0.4998957029620359,
+            "writer_rank_percentile": 0.4990569374042202,
+            "cast_rank_percentile": 0.4905810258738084,
+            "crew_rank_percentile": 0.49842869527524925
+          },
+          {
+            "movie_id": 6993,
+            "title": "Hannah and Her Sisters (1986)",
+            "hybrid_score": 0.8408826289762728,
+            "positive_signals": 3,
+            "explanation": "shared genres: comedy, drama, romance; plot word overlap (TF-IDF cosine 0.051); plot semantic match (Transformer cosine 0.414)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 1.0,
+            "tag_similarity": 0.0,
+            "tfidf_similarity": 0.05087851617415161,
+            "transformer_similarity": 0.41410118341445923,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.7,
+            "metadata_rank_percentile": 0.9739905232797693,
+            "tfidf_rank_percentile": 0.9912587412587412,
+            "transformer_rank_percentile": 0.9632867132867133,
+            "director_rank_percentile": 0.4998957029620359,
+            "writer_rank_percentile": 0.4990569374042202,
+            "cast_rank_percentile": 0.4905810258738084,
+            "crew_rank_percentile": 0.49842869527524925
+          },
+          {
+            "movie_id": 1244,
+            "title": "Manhattan (1979)",
+            "hybrid_score": 0.8407369413305851,
+            "positive_signals": 3,
+            "explanation": "shared genres: comedy, drama, romance; plot word overlap (TF-IDF cosine 0.030); plot semantic match (Transformer cosine 0.486)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 1.0,
+            "tag_similarity": 0.0,
+            "tfidf_similarity": 0.029699816297773886,
+            "transformer_similarity": 0.48614153265953064,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.7,
+            "metadata_rank_percentile": 0.9739905232797693,
+            "tfidf_rank_percentile": 0.9434731934731935,
+            "transformer_rank_percentile": 0.9973776223776224,
+            "director_rank_percentile": 0.4998957029620359,
+            "writer_rank_percentile": 0.4990569374042202,
+            "cast_rank_percentile": 0.4905810258738084,
+            "crew_rank_percentile": 0.49842869527524925
+          }
+        ]
+      },
+      "29": {
+        "selected_genres": [
+          "Fantasy"
+        ],
+        "movie_id": 29,
+        "title": "City of Lost Children, The (Cité des enfants perdus, La) (1995)",
+        "usable_plot": true,
+        "phase5_metadata": [
+          {
+            "movie_id": 4874,
+            "title": "K-PAX (2001)",
+            "release_year": 2001.0,
+            "similarity": 0.6199999999999999,
+            "shared_genres": "drama, fantasy, mystery, sci-fi",
+            "shared_tags": "atmospheric, comedy, murder"
+          },
+          {
+            "movie_id": 7123,
+            "title": "Naked Lunch (1991)",
+            "release_year": 1991.0,
+            "similarity": 0.5599999999999999,
+            "shared_genres": "drama, fantasy, mystery, sci-fi",
+            "shared_tags": ""
+          },
+          {
+            "movie_id": 147372,
+            "title": "Doctor Who: Last Christmas (2014)",
+            "release_year": 2014.0,
+            "similarity": 0.5599999999999999,
+            "shared_genres": "adventure, drama, fantasy, sci-fi",
+            "shared_tags": ""
+          },
+          {
+            "movie_id": 7099,
+            "title": "Nausicaä of the Valley of the Wind (Kaze no tani no Naushika) (1984)",
+            "release_year": 1984.0,
+            "similarity": 0.5095238095238095,
+            "shared_genres": "adventure, drama, fantasy, sci-fi",
+            "shared_tags": "murder, sci-fi"
+          },
+          {
+            "movie_id": 96832,
+            "title": "Holy Motors (2012)",
+            "release_year": 2012.0,
+            "similarity": 0.5095238095238095,
+            "shared_genres": "drama, fantasy, mystery, sci-fi",
+            "shared_tags": "murder, psychedelic"
+          }
+        ],
+        "phase6_tfidf": [
+          {
+            "movie_id": 8154,
+            "title": "Dolce Vita, La (1960)",
+            "release_year": 1960,
+            "similarity": 0.15008557087125196
+          },
+          {
+            "movie_id": 2925,
+            "title": "Conformist, The (Conformista, Il) (1970)",
+            "release_year": 1970,
+            "similarity": 0.13583822012045288
+          },
+          {
+            "movie_id": 90374,
+            "title": "Martha Marcy May Marlene (2011)",
+            "release_year": 2011,
+            "similarity": 0.09025917696794211
+          },
+          {
+            "movie_id": 47202,
+            "title": "Secret Life of Words, The (2005)",
+            "release_year": 2005,
+            "similarity": 0.08891589396687369
+          },
+          {
+            "movie_id": 7988,
+            "title": "Space Truckers (1996)",
+            "release_year": 1996,
+            "similarity": 0.07835798044843845
+          }
+        ],
+        "phase7_transformer": [
+          {
+            "movie_id": 2310,
+            "title": "Mighty, The (1998)",
+            "release_year": 1998,
+            "similarity": 0.563485324382782
+          },
+          {
+            "movie_id": 1866,
+            "title": "Big Hit, The (1998)",
+            "release_year": 1998,
+            "similarity": 0.5194121599197388
+          },
+          {
+            "movie_id": 99750,
+            "title": "Iceman, The (2012)",
+            "release_year": 2012,
+            "similarity": 0.5075299143791199
+          },
+          {
+            "movie_id": 76301,
+            "title": "Emperor's New Groove 2: Kronk's New Groove, The (2005)",
+            "release_year": 2005,
+            "similarity": 0.506497323513031
+          },
+          {
+            "movie_id": 94011,
+            "title": "Big Bang, The (2011)",
+            "release_year": 2011,
+            "similarity": 0.5064103603363037
+          }
+        ],
+        "phase9_hybrid": [
+          {
+            "movie_id": 1175,
+            "title": "Delicatessen (1991)",
+            "hybrid_score": 0.9005695412246879,
+            "positive_signals": 7,
+            "explanation": "shared genres: drama; shared plot tags: alternate reality, atmospheric, comedy, dark, murder, psychedelic; plot word overlap (TF-IDF cosine 0.016); plot semantic match (Transformer cosine 0.345); shared director: Jean-Pierre Jeunet, Marc Caro",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.14285714285714285,
+            "tag_similarity": 0.35294117647058826,
+            "tfidf_similarity": 0.016090559360205477,
+            "transformer_similarity": 0.3447645306587219,
+            "director_similarity": 1.0,
+            "writer_similarity": 0.75,
+            "cast_similarity": 0.09090909090909091,
+            "crew_similarity": 0.1875,
+            "metadata_similarity": 0.20588235294117646,
+            "metadata_rank_percentile": 0.8551709929954676,
+            "tfidf_rank_percentile": 0.9592074592074592,
+            "transformer_rank_percentile": 0.8015734265734266,
+            "director_rank_percentile": 1.0,
+            "writer_rank_percentile": 1.0,
+            "cast_rank_percentile": 0.9998865183840218,
+            "crew_rank_percentile": 1.0
+          },
+          {
+            "movie_id": 53453,
+            "title": "Starcrash (a.k.a. Star Crash) (1978)",
+            "hybrid_score": 0.826008858883682,
+            "positive_signals": 3,
+            "explanation": "shared genres: adventure, fantasy, sci-fi; plot word overlap (TF-IDF cosine 0.011); plot semantic match (Transformer cosine 0.459)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.5,
+            "tag_similarity": 0.0,
+            "tfidf_similarity": 0.010505150059675884,
+            "transformer_similarity": 0.4590103328227997,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.35,
+            "metadata_rank_percentile": 0.9698187062216729,
+            "tfidf_rank_percentile": 0.8648018648018648,
+            "transformer_rank_percentile": 0.993006993006993,
+            "director_rank_percentile": 0.4997392574050897,
+            "writer_rank_percentile": 0.49976423435105505,
+            "cast_rank_percentile": 0.49472310485701315,
+            "crew_rank_percentile": 0.4963155613350672
+          },
+          {
+            "movie_id": 6969,
+            "title": "Dernier Combat, Le (Last Battle, The) (1983)",
+            "hybrid_score": 0.8224043988608043,
+            "positive_signals": 3,
+            "explanation": "shared genres: drama, sci-fi; shared plot tags: avant garde, violence; plot word overlap (TF-IDF cosine 0.013); plot semantic match (Transformer cosine 0.463)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.4,
+            "tag_similarity": 0.16666666666666666,
+            "tfidf_similarity": 0.012775273383337222,
+            "transformer_similarity": 0.46313759684562683,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.32999999999999996,
+            "metadata_rank_percentile": 0.9330964153275649,
+            "tfidf_rank_percentile": 0.9187062937062938,
+            "transformer_rank_percentile": 0.9941724941724942,
+            "director_rank_percentile": 0.4997392574050897,
+            "writer_rank_percentile": 0.49976423435105505,
+            "cast_rank_percentile": 0.49472310485701315,
+            "crew_rank_percentile": 0.4963155613350672
+          },
+          {
+            "movie_id": 1726,
+            "title": "Postman, The (1997)",
+            "hybrid_score": 0.8202647533806149,
+            "positive_signals": 3,
+            "explanation": "shared genres: adventure, drama, sci-fi; shared plot tags: murder, violence; plot word overlap (TF-IDF cosine 0.027); plot semantic match (Transformer cosine 0.365)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.5,
+            "tag_similarity": 0.125,
+            "tfidf_similarity": 0.02671605583803998,
+            "transformer_similarity": 0.36479222774505615,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.38749999999999996,
+            "metadata_rank_percentile": 0.9730634528224145,
+            "tfidf_rank_percentile": 0.9906759906759907,
+            "transformer_rank_percentile": 0.8703379953379954,
+            "director_rank_percentile": 0.4997392574050897,
+            "writer_rank_percentile": 0.49976423435105505,
+            "cast_rank_percentile": 0.49472310485701315,
+            "crew_rank_percentile": 0.4963155613350672
+          },
+          {
+            "movie_id": 27706,
+            "title": "Lemony Snicket's A Series of Unfortunate Events (2004)",
+            "hybrid_score": 0.8159958712532654,
+            "positive_signals": 3,
+            "explanation": "shared genres: adventure, fantasy; shared plot tags: bleak, comedy, murder, psychedelic; plot word overlap (TF-IDF cosine 0.022); plot semantic match (Transformer cosine 0.421)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.2857142857142857,
+            "tag_similarity": 0.25,
+            "tfidf_similarity": 0.02225139622013124,
+            "transformer_similarity": 0.4211673140525818,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.27499999999999997,
+            "metadata_rank_percentile": 0.8945199835187474,
+            "tfidf_rank_percentile": 0.9842657342657343,
+            "transformer_rank_percentile": 0.9769813519813519,
+            "director_rank_percentile": 0.4997392574050897,
+            "writer_rank_percentile": 0.49976423435105505,
+            "cast_rank_percentile": 0.49472310485701315,
+            "crew_rank_percentile": 0.4963155613350672
+          }
+        ]
+      },
+      "22": {
+        "selected_genres": [
+          "Horror",
+          "Mystery"
+        ],
+        "movie_id": 22,
+        "title": "Copycat (1995)",
+        "usable_plot": true,
+        "phase5_metadata": [
+          {
+            "movie_id": 1422,
+            "title": "Murder at 1600 (1997)",
+            "release_year": 1997.0,
+            "similarity": 0.7314285714285713,
+            "shared_genres": "crime, drama, mystery, thriller",
+            "shared_tags": "murder, neo noir, suspenseful, violence"
+          },
+          {
+            "movie_id": 1834,
+            "title": "Spanish Prisoner, The (1997)",
+            "release_year": 1997.0,
+            "similarity": 0.6885714285714285,
+            "shared_genres": "crime, drama, mystery, thriller",
+            "shared_tags": "murder, mystery, neo noir"
+          },
+          {
+            "movie_id": 48142,
+            "title": "Black Dahlia, The (2006)",
+            "release_year": 2006.0,
+            "similarity": 0.6799999999999999,
+            "shared_genres": "crime, drama, mystery, thriller",
+            "shared_tags": "murder, mystery, neo noir, violence"
+          },
+          {
+            "movie_id": 52604,
+            "title": "Fracture (2007)",
+            "release_year": 2007.0,
+            "similarity": 0.6690909090909091,
+            "shared_genres": "crime, drama, mystery, thriller",
+            "shared_tags": "murder, neo noir, suspenseful, violence"
+          },
+          {
+            "movie_id": 4383,
+            "title": "Crimson Rivers, The (Rivières pourpres, Les) (2000)",
+            "release_year": 2000.0,
+            "similarity": 0.6599999999999999,
+            "shared_genres": "crime, drama, mystery, thriller",
+            "shared_tags": "murder, mystery, suspenseful"
+          }
+        ],
+        "phase6_tfidf": [
+          {
+            "movie_id": 8362,
+            "title": "Raising Helen (2004)",
+            "release_year": 2004,
+            "similarity": 0.3757569593913853
+          },
+          {
+            "movie_id": 47566,
+            "title": "Born to Kill (1947)",
+            "release_year": 1947,
+            "similarity": 0.29900067150472887
+          },
+          {
+            "movie_id": 606,
+            "title": "Candyman: Farewell to the Flesh (1995)",
+            "release_year": 1995,
+            "similarity": 0.29258512125611924
+          },
+          {
+            "movie_id": 27708,
+            "title": "Helen of Troy (2003)",
+            "release_year": 2003,
+            "similarity": 0.24461125831451364
+          },
+          {
+            "movie_id": 4661,
+            "title": "Sea of Love (1989)",
+            "release_year": 1989,
+            "similarity": 0.24403944739259675
+          }
+        ],
+        "phase7_transformer": [
+          {
+            "movie_id": 47566,
+            "title": "Born to Kill (1947)",
+            "release_year": 1947,
+            "similarity": 0.6332436203956604
+          },
+          {
+            "movie_id": 27473,
+            "title": "American Psycho II: All American Girl (2002)",
+            "release_year": 2002,
+            "similarity": 0.5877864956855774
+          },
+          {
+            "movie_id": 5268,
+            "title": "No Such Thing (2001)",
+            "release_year": 2001,
+            "similarity": 0.5853511095046997
+          },
+          {
+            "movie_id": 8362,
+            "title": "Raising Helen (2004)",
+            "release_year": 2004,
+            "similarity": 0.5630190372467041
+          },
+          {
+            "movie_id": 2803,
+            "title": "Pelican Brief, The (1993)",
+            "release_year": 1993,
+            "similarity": 0.559853196144104
+          }
+        ],
+        "phase9_hybrid": [
+          {
+            "movie_id": 4661,
+            "title": "Sea of Love (1989)",
+            "hybrid_score": 0.8470819906639195,
+            "positive_signals": 3,
+            "explanation": "shared genres: crime, drama, thriller; shared plot tags: murder, mystery, neo noir; plot word overlap (TF-IDF cosine 0.244); plot semantic match (Transformer cosine 0.519)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.6,
+            "tag_similarity": 0.375,
+            "tfidf_similarity": 0.24403944739259675,
+            "transformer_similarity": 0.5191094875335693,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.5325,
+            "metadata_rank_percentile": 0.9684281005356407,
+            "tfidf_rank_percentile": 0.9988344988344988,
+            "transformer_rank_percentile": 0.9953379953379954,
+            "director_rank_percentile": 0.49979140592407173,
+            "writer_rank_percentile": 0.49982317576329127,
+            "cast_rank_percentile": 0.4911484339536995,
+            "crew_rank_percentile": 0.49203511053315996
+          },
+          {
+            "movie_id": 4865,
+            "title": "From Hell (2001)",
+            "hybrid_score": 0.8443623462786386,
+            "positive_signals": 3,
+            "explanation": "shared genres: crime, horror, mystery, thriller; shared plot tags: horror, murder, mystery, violence; plot word overlap (TF-IDF cosine 0.021); plot semantic match (Transformer cosine 0.528)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.8,
+            "tag_similarity": 0.2222222222222222,
+            "tfidf_similarity": 0.020859179526555673,
+            "transformer_similarity": 0.5278925895690918,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.6266666666666666,
+            "metadata_rank_percentile": 0.9924804285125669,
+            "tfidf_rank_percentile": 0.9283216783216783,
+            "transformer_rank_percentile": 0.997086247086247,
+            "director_rank_percentile": 0.49979140592407173,
+            "writer_rank_percentile": 0.49982317576329127,
+            "cast_rank_percentile": 0.4911484339536995,
+            "crew_rank_percentile": 0.49203511053315996
+          },
+          {
+            "movie_id": 5556,
+            "title": "FearDotCom (a.k.a. Fear.com) (a.k.a. Fear Dot Com) (2002)",
+            "hybrid_score": 0.8428104288923578,
+            "positive_signals": 3,
+            "explanation": "shared genres: crime, horror, thriller; shared plot tags: murder, neo noir, violence; plot word overlap (TF-IDF cosine 0.030); plot semantic match (Transformer cosine 0.535)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.6,
+            "tag_similarity": 0.375,
+            "tfidf_similarity": 0.030288105740383365,
+            "transformer_similarity": 0.5352280735969543,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.5325,
+            "metadata_rank_percentile": 0.9684281005356407,
+            "tfidf_rank_percentile": 0.9685314685314685,
+            "transformer_rank_percentile": 0.997960372960373,
+            "director_rank_percentile": 0.49979140592407173,
+            "writer_rank_percentile": 0.49982317576329127,
+            "cast_rank_percentile": 0.4911484339536995,
+            "crew_rank_percentile": 0.49203511053315996
+          },
+          {
+            "movie_id": 6323,
+            "title": "Identity (2003)",
+            "hybrid_score": 0.8410817774449177,
+            "positive_signals": 3,
+            "explanation": "shared genres: crime, horror, mystery, thriller; shared plot tags: murder, mystery, suspenseful, violence; plot word overlap (TF-IDF cosine 0.019); plot semantic match (Transformer cosine 0.512)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.8,
+            "tag_similarity": 0.3076923076923077,
+            "tfidf_similarity": 0.018933600551337474,
+            "transformer_similarity": 0.5123249292373657,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.6523076923076923,
+            "metadata_rank_percentile": 0.9930469715698393,
+            "tfidf_rank_percentile": 0.9114219114219114,
+            "transformer_rank_percentile": 0.9935897435897436,
+            "director_rank_percentile": 0.49979140592407173,
+            "writer_rank_percentile": 0.49982317576329127,
+            "cast_rank_percentile": 0.4911484339536995,
+            "crew_rank_percentile": 0.49203511053315996
+          },
+          {
+            "movie_id": 4383,
+            "title": "Crimson Rivers, The (Rivières pourpres, Les) (2000)",
+            "hybrid_score": 0.8394676447708345,
+            "positive_signals": 3,
+            "explanation": "shared genres: crime, drama, mystery, thriller; shared plot tags: murder, mystery, suspenseful; plot word overlap (TF-IDF cosine 0.027); plot semantic match (Transformer cosine 0.442)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.8,
+            "tag_similarity": 0.3333333333333333,
+            "tfidf_similarity": 0.0274605339276145,
+            "transformer_similarity": 0.44232842326164246,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.6599999999999999,
+            "metadata_rank_percentile": 0.9932014833127317,
+            "tfidf_rank_percentile": 0.9594988344988346,
+            "transformer_rank_percentile": 0.951048951048951,
+            "director_rank_percentile": 0.49979140592407173,
+            "writer_rank_percentile": 0.49982317576329127,
+            "cast_rank_percentile": 0.4911484339536995,
+            "crew_rank_percentile": 0.49203511053315996
+          }
+        ]
+      },
+      "24": {
+        "selected_genres": [
+          "Sci-Fi"
+        ],
+        "movie_id": 24,
+        "title": "Powder (1995)",
+        "usable_plot": true,
+        "phase5_metadata": [
+          {
+            "movie_id": 4713,
+            "title": "Altered States (1980)",
+            "release_year": 1980.0,
+            "similarity": 0.7666666666666666,
+            "shared_genres": "drama, sci-fi",
+            "shared_tags": "cult, romantic"
+          },
+          {
+            "movie_id": 6184,
+            "title": "Man Who Fell to Earth, The (1976)",
+            "release_year": 1976.0,
+            "similarity": 0.7428571428571428,
+            "shared_genres": "drama, sci-fi",
+            "shared_tags": "cult"
+          },
+          {
+            "movie_id": 2010,
+            "title": "Metropolis (1927)",
+            "release_year": 1927.0,
+            "similarity": 0.7374999999999999,
+            "shared_genres": "drama, sci-fi",
+            "shared_tags": "cult"
+          },
+          {
+            "movie_id": 1301,
+            "title": "Forbidden Planet (1956)",
+            "release_year": 1956.0,
+            "similarity": 0.7,
+            "shared_genres": "drama, sci-fi",
+            "shared_tags": ""
+          },
+          {
+            "movie_id": 1584,
+            "title": "Contact (1997)",
+            "release_year": 1997.0,
+            "similarity": 0.7,
+            "shared_genres": "drama, sci-fi",
+            "shared_tags": ""
+          }
+        ],
+        "phase6_tfidf": [
+          {
+            "movie_id": 96114,
+            "title": "Brake (2012)",
+            "release_year": 2012,
+            "similarity": 0.5157237831313568
+          },
+          {
+            "movie_id": 34162,
+            "title": "Wedding Crashers (2005)",
+            "release_year": 2005,
+            "similarity": 0.47336800919292604
+          },
+          {
+            "movie_id": 99005,
+            "title": "Fire with Fire (2012)",
+            "release_year": 2012,
+            "similarity": 0.36840005391191977
+          },
+          {
+            "movie_id": 56389,
+            "title": "My Blueberry Nights (2007)",
+            "release_year": 2007,
+            "similarity": 0.23018587788314998
+          },
+          {
+            "movie_id": 4143,
+            "title": "Valentine (2001)",
+            "release_year": 2001,
+            "similarity": 0.16386194525152664
+          }
+        ],
+        "phase7_transformer": [
+          {
+            "movie_id": 99005,
+            "title": "Fire with Fire (2012)",
+            "release_year": 2012,
+            "similarity": 0.49177178740501404
+          },
+          {
+            "movie_id": 26854,
+            "title": "Darkman II: Return of Durant, The (1995)",
+            "release_year": 1995,
+            "similarity": 0.4698967933654785
+          },
+          {
+            "movie_id": 60074,
+            "title": "Hancock (2008)",
+            "release_year": 2008,
+            "similarity": 0.46909868717193604
+          },
+          {
+            "movie_id": 34150,
+            "title": "Fantastic Four (2005)",
+            "release_year": 2005,
+            "similarity": 0.4527814984321594
+          },
+          {
+            "movie_id": 7202,
+            "title": "Beyond Re-Animator (2003)",
+            "release_year": 2003,
+            "similarity": 0.44684723019599915
+          }
+        ],
+        "phase9_hybrid": [
+          {
+            "movie_id": 110730,
+            "title": "Transcendence (2014)",
+            "hybrid_score": 0.8233059077927573,
+            "positive_signals": 3,
+            "explanation": "shared genres: drama, sci-fi; shared plot tags: flashback, romantic; plot word overlap (TF-IDF cosine 0.016); plot semantic match (Transformer cosine 0.353)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.6666666666666666,
+            "tag_similarity": 0.4,
+            "tfidf_similarity": 0.015651910205620966,
+            "transformer_similarity": 0.3526654839515686,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.5866666666666667,
+            "metadata_rank_percentile": 0.9926349402554594,
+            "tfidf_rank_percentile": 0.8528554778554779,
+            "transformer_rank_percentile": 0.9557109557109557,
+            "director_rank_percentile": 0.49984355444305384,
+            "writer_rank_percentile": 0.49988211717552755,
+            "cast_rank_percentile": 0.4924534725374489,
+            "crew_rank_percentile": 0.491222366710013
+          },
+          {
+            "movie_id": 536,
+            "title": "Simple Twist of Fate, A (1994)",
+            "hybrid_score": 0.8148743208383025,
+            "positive_signals": 3,
+            "explanation": "shared genres: drama; shared plot tags: romantic; plot word overlap (TF-IDF cosine 0.029); plot semantic match (Transformer cosine 0.385)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.5,
+            "tag_similarity": 0.2,
+            "tfidf_similarity": 0.029214991004590192,
+            "transformer_similarity": 0.38498809933662415,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.41,
+            "metadata_rank_percentile": 0.9003399258343634,
+            "tfidf_rank_percentile": 0.9586247086247086,
+            "transformer_rank_percentile": 0.9831002331002331,
+            "director_rank_percentile": 0.49984355444305384,
+            "writer_rank_percentile": 0.49988211717552755,
+            "cast_rank_percentile": 0.4924534725374489,
+            "crew_rank_percentile": 0.491222366710013
+          },
+          {
+            "movie_id": 89039,
+            "title": "Another Earth (2011)",
+            "hybrid_score": 0.8117322507123017,
+            "positive_signals": 3,
+            "explanation": "shared genres: drama, sci-fi; shared plot tags: flashback, romantic; plot word overlap (TF-IDF cosine 0.038); plot semantic match (Transformer cosine 0.290)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.6666666666666666,
+            "tag_similarity": 0.2222222222222222,
+            "tfidf_similarity": 0.03794004412438063,
+            "transformer_similarity": 0.28964126110076904,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.5333333333333333,
+            "metadata_rank_percentile": 0.9922229089410796,
+            "tfidf_rank_percentile": 0.9761072261072261,
+            "transformer_rank_percentile": 0.8141025641025641,
+            "director_rank_percentile": 0.49984355444305384,
+            "writer_rank_percentile": 0.49988211717552755,
+            "cast_rank_percentile": 0.4924534725374489,
+            "crew_rank_percentile": 0.491222366710013
+          },
+          {
+            "movie_id": 51931,
+            "title": "Reign Over Me (2007)",
+            "hybrid_score": 0.8115876075515892,
+            "positive_signals": 3,
+            "explanation": "shared genres: drama; shared plot tags: flashback, romantic; plot word overlap (TF-IDF cosine 0.023); plot semantic match (Transformer cosine 0.383)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.5,
+            "tag_similarity": 0.2,
+            "tfidf_similarity": 0.023370239210704108,
+            "transformer_similarity": 0.38343346118927,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.41,
+            "metadata_rank_percentile": 0.9003399258343634,
+            "tfidf_rank_percentile": 0.9396853146853147,
+            "transformer_rank_percentile": 0.9819347319347319,
+            "director_rank_percentile": 0.49984355444305384,
+            "writer_rank_percentile": 0.49988211717552755,
+            "cast_rank_percentile": 0.4924534725374489,
+            "crew_rank_percentile": 0.491222366710013
+          },
+          {
+            "movie_id": 64716,
+            "title": "Seven Pounds (2008)",
+            "hybrid_score": 0.8038350871012938,
+            "positive_signals": 3,
+            "explanation": "shared genres: drama; shared plot tags: flashback, romantic; plot word overlap (TF-IDF cosine 0.016); plot semantic match (Transformer cosine 0.393)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.5,
+            "tag_similarity": 0.2857142857142857,
+            "tfidf_similarity": 0.01644750740400393,
+            "transformer_similarity": 0.3929661810398102,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.43571428571428567,
+            "metadata_rank_percentile": 0.907292954264524,
+            "tfidf_rank_percentile": 0.87004662004662,
+            "transformer_rank_percentile": 0.9865967365967366,
+            "director_rank_percentile": 0.49984355444305384,
+            "writer_rank_percentile": 0.49988211717552755,
+            "cast_rank_percentile": 0.4924534725374489,
+            "crew_rank_percentile": 0.491222366710013
+          }
+        ]
+      },
+      "41": {
+        "selected_genres": [
+          "War"
+        ],
+        "movie_id": 41,
+        "title": "Richard III (1995)",
+        "usable_plot": true,
+        "phase5_metadata": [
+          {
+            "movie_id": 31973,
+            "title": "Germany Year Zero (Germania anno zero) (Deutschland im Jahre Null) (1948)",
+            "release_year": 1948.0,
+            "similarity": 0.85,
+            "shared_genres": "drama, war",
+            "shared_tags": "murder"
+          },
+          {
+            "movie_id": 3811,
+            "title": "Breaker Morant (1980)",
+            "release_year": 1980.0,
+            "similarity": 0.7999999999999999,
+            "shared_genres": "drama, war",
+            "shared_tags": "murder, tragedy"
+          },
+          {
+            "movie_id": 5107,
+            "title": "Hart's War (2002)",
+            "release_year": 2002.0,
+            "similarity": 0.7999999999999999,
+            "shared_genres": "drama, war",
+            "shared_tags": "murder"
+          },
+          {
+            "movie_id": 31702,
+            "title": "Turtles Can Fly (Lakposhtha hâm parvaz mikonand) (2004)",
+            "release_year": 2004.0,
+            "similarity": 0.7999999999999999,
+            "shared_genres": "drama, war",
+            "shared_tags": "murder"
+          },
+          {
+            "movie_id": 1217,
+            "title": "Ran (1985)",
+            "release_year": 1985.0,
+            "similarity": 0.7857142857142857,
+            "shared_genres": "drama, war",
+            "shared_tags": "murder, tragedy"
+          }
+        ],
+        "phase6_tfidf": [
+          {
+            "movie_id": 40412,
+            "title": "Dead Man's Shoes (2004)",
+            "release_year": 2004,
+            "similarity": 0.3277723023384857
+          },
+          {
+            "movie_id": 8695,
+            "title": "Bachelor and the Bobby-Soxer, The (1947)",
+            "release_year": 1947,
+            "similarity": 0.2665485584142624
+          },
+          {
+            "movie_id": 1286,
+            "title": "Somewhere in Time (1980)",
+            "release_year": 1980,
+            "similarity": 0.26095247605821664
+          },
+          {
+            "movie_id": 5312,
+            "title": "Murder by Numbers (2002)",
+            "release_year": 2002,
+            "similarity": 0.21956000191439973
+          },
+          {
+            "movie_id": 49822,
+            "title": "Good Shepherd, The (2006)",
+            "release_year": 2006,
+            "similarity": 0.20442805442836035
+          }
+        ],
+        "phase7_transformer": [
+          {
+            "movie_id": 7005,
+            "title": "King Ralph (1991)",
+            "release_year": 1991,
+            "similarity": 0.45442500710487366
+          },
+          {
+            "movie_id": 1949,
+            "title": "Man for All Seasons, A (1966)",
+            "release_year": 1966,
+            "similarity": 0.4532482922077179
+          },
+          {
+            "movie_id": 40966,
+            "title": "Libertine, The (2004)",
+            "release_year": 2004,
+            "similarity": 0.44562435150146484
+          },
+          {
+            "movie_id": 66915,
+            "title": "Rock-A-Doodle (1991)",
+            "release_year": 1991,
+            "similarity": 0.44328951835632324
+          },
+          {
+            "movie_id": 93208,
+            "title": "Mickey's The Prince and the Pauper (1990)",
+            "release_year": 1990,
+            "similarity": 0.4360559582710266
+          }
+        ],
+        "phase9_hybrid": [
+          {
+            "movie_id": 1224,
+            "title": "Henry V (1989)",
+            "hybrid_score": 0.8524550571468295,
+            "positive_signals": 4,
+            "explanation": "shared genres: drama, war; shared plot tags: tragedy; plot word overlap (TF-IDF cosine 0.076); plot semantic match (Transformer cosine 0.430); shared cast member: Edward Jewesbury",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.5,
+            "tag_similarity": 0.14285714285714285,
+            "tfidf_similarity": 0.07585563274319036,
+            "transformer_similarity": 0.42950713634490967,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.015873015873015872,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.39285714285714285,
+            "metadata_rank_percentile": 0.8889575607746188,
+            "tfidf_rank_percentile": 0.9868881118881119,
+            "transformer_rank_percentile": 0.997960372960373,
+            "director_rank_percentile": 0.49984355444305384,
+            "writer_rank_percentile": 0.5,
+            "cast_rank_percentile": 0.9695301861098502,
+            "crew_rank_percentile": 0.4976159514521023
+          },
+          {
+            "movie_id": 26150,
+            "title": "Andrei Rublev (Andrey Rublyov) (1969)",
+            "hybrid_score": 0.8356195318883606,
+            "positive_signals": 3,
+            "explanation": "shared genres: drama, war; shared plot tags: murder; plot word overlap (TF-IDF cosine 0.031); plot semantic match (Transformer cosine 0.283)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 1.0,
+            "tag_similarity": 0.125,
+            "tfidf_similarity": 0.03147034669026304,
+            "transformer_similarity": 0.28257614374160767,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.7374999999999999,
+            "metadata_rank_percentile": 0.9902142562834776,
+            "tfidf_rank_percentile": 0.9428904428904429,
+            "transformer_rank_percentile": 0.9516317016317016,
+            "director_rank_percentile": 0.49984355444305384,
+            "writer_rank_percentile": 0.5,
+            "cast_rank_percentile": 0.483374943259192,
+            "crew_rank_percentile": 0.4976159514521023
+          },
+          {
+            "movie_id": 57147,
+            "title": "Cassandra's Dream (2007)",
+            "hybrid_score": 0.8353547362619232,
+            "positive_signals": 4,
+            "explanation": "shared genres: drama; shared plot tags: murder, tragedy; plot word overlap (TF-IDF cosine 0.025); plot semantic match (Transformer cosine 0.323); shared cast member: Jim Carter",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.25,
+            "tag_similarity": 0.6666666666666666,
+            "tfidf_similarity": 0.02505551649494987,
+            "transformer_similarity": 0.32337895035743713,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.025,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.375,
+            "metadata_rank_percentile": 0.8833951380304903,
+            "tfidf_rank_percentile": 0.909965034965035,
+            "transformer_rank_percentile": 0.9801864801864801,
+            "director_rank_percentile": 0.49984355444305384,
+            "writer_rank_percentile": 0.5,
+            "cast_rank_percentile": 0.983942351339083,
+            "crew_rank_percentile": 0.4976159514521023
+          },
+          {
+            "movie_id": 40966,
+            "title": "Libertine, The (2004)",
+            "hybrid_score": 0.8340182715911794,
+            "positive_signals": 3,
+            "explanation": "shared genres: drama; shared plot tags: murder; plot word overlap (TF-IDF cosine 0.048); plot semantic match (Transformer cosine 0.446)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.5,
+            "tag_similarity": 0.5,
+            "tfidf_similarity": 0.04758499759036763,
+            "transformer_similarity": 0.44562435150146484,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.5,
+            "metadata_rank_percentile": 0.9404614750721055,
+            "tfidf_rank_percentile": 0.9729020979020979,
+            "transformer_rank_percentile": 0.9994172494172494,
+            "director_rank_percentile": 0.49984355444305384,
+            "writer_rank_percentile": 0.5,
+            "cast_rank_percentile": 0.483374943259192,
+            "crew_rank_percentile": 0.4976159514521023
+          },
+          {
+            "movie_id": 2336,
+            "title": "Elizabeth (1998)",
+            "hybrid_score": 0.8293956866867553,
+            "positive_signals": 4,
+            "explanation": "shared genres: drama; shared plot tags: murder; plot word overlap (TF-IDF cosine 0.106); plot semantic match (Transformer cosine 0.245); shared cast member: Edward Hardwicke",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.5,
+            "tag_similarity": 0.14285714285714285,
+            "tfidf_similarity": 0.10582700709928951,
+            "transformer_similarity": 0.2449551671743393,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.021739130434782608,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.39285714285714285,
+            "metadata_rank_percentile": 0.8889575607746188,
+            "tfidf_rank_percentile": 0.9944638694638694,
+            "transformer_rank_percentile": 0.8851981351981352,
+            "director_rank_percentile": 0.49984355444305384,
+            "writer_rank_percentile": 0.5,
+            "cast_rank_percentile": 0.9771901951883795,
+            "crew_rank_percentile": 0.4976159514521023
+          }
+        ]
+      },
+      "210": {
+        "selected_genres": [
+          "Western"
+        ],
+        "movie_id": 210,
+        "title": "Wild Bill (1995)",
+        "usable_plot": true,
+        "phase5_metadata": [
+          {
+            "movie_id": 6429,
+            "title": "Winchester '73 (1950)",
+            "release_year": 1950.0,
+            "similarity": 0.82,
+            "shared_genres": "western",
+            "shared_tags": "cult, revenge"
+          },
+          {
+            "movie_id": 383,
+            "title": "Wyatt Earp (1994)",
+            "release_year": 1994.0,
+            "similarity": 0.7857142857142857,
+            "shared_genres": "western",
+            "shared_tags": "cult, flashback"
+          },
+          {
+            "movie_id": 6386,
+            "title": "Nevada Smith (1966)",
+            "release_year": 1966.0,
+            "similarity": 0.76,
+            "shared_genres": "western",
+            "shared_tags": "revenge"
+          },
+          {
+            "movie_id": 5699,
+            "title": "Tom Horn (1980)",
+            "release_year": 1980.0,
+            "similarity": 0.75,
+            "shared_genres": "western",
+            "shared_tags": "cult"
+          },
+          {
+            "movie_id": 7889,
+            "title": "Pat Garrett and Billy the Kid (1973)",
+            "release_year": 1973.0,
+            "similarity": 0.75,
+            "shared_genres": "western",
+            "shared_tags": "flashback"
+          }
+        ],
+        "phase6_tfidf": [
+          {
+            "movie_id": 5810,
+            "title": "8 Mile (2002)",
+            "release_year": 2002,
+            "similarity": 0.30441693538154063
+          },
+          {
+            "movie_id": 2468,
+            "title": "Jumpin' Jack Flash (1986)",
+            "release_year": 1986,
+            "similarity": 0.3035316132900368
+          },
+          {
+            "movie_id": 4683,
+            "title": "Wizard, The (1989)",
+            "release_year": 1989,
+            "similarity": 0.2913437626864759
+          },
+          {
+            "movie_id": 4990,
+            "title": "Jimmy Neutron: Boy Genius (2001)",
+            "release_year": 2001,
+            "similarity": 0.2837738365646326
+          },
+          {
+            "movie_id": 61818,
+            "title": "Crow, The: Wicked Prayer (2005)",
+            "release_year": 2005,
+            "similarity": 0.2790554125171721
+          }
+        ],
+        "phase7_transformer": [
+          {
+            "movie_id": 34523,
+            "title": "The Chumscrubber (2005)",
+            "release_year": 2005,
+            "similarity": 0.639694333076477
+          },
+          {
+            "movie_id": 93193,
+            "title": "Red Hill (2010)",
+            "release_year": 2010,
+            "similarity": 0.6103278398513794
+          },
+          {
+            "movie_id": 1336,
+            "title": "Body Parts (1991)",
+            "release_year": 1991,
+            "similarity": 0.6090705394744873
+          },
+          {
+            "movie_id": 1885,
+            "title": "Opposite of Sex, The (1998)",
+            "release_year": 1998,
+            "similarity": 0.6081570386886597
+          },
+          {
+            "movie_id": 26313,
+            "title": "California Split (1974)",
+            "release_year": 1974,
+            "similarity": 0.6057708263397217
+          }
+        ],
+        "phase9_hybrid": [
+          {
+            "movie_id": 3019,
+            "title": "Drugstore Cowboy (1989)",
+            "hybrid_score": 0.8733526879923019,
+            "positive_signals": 4,
+            "explanation": "shared plot tags: cult, flashback; plot word overlap (TF-IDF cosine 0.037); plot semantic match (Transformer cosine 0.514); shared cast member: James Remar",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.0,
+            "tag_similarity": 0.2857142857142857,
+            "tfidf_similarity": 0.037032462924093366,
+            "transformer_similarity": 0.5140619874000549,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.03225806451612903,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.0857142857142857,
+            "metadata_rank_percentile": 0.9647198187062217,
+            "tfidf_rank_percentile": 0.9638694638694638,
+            "transformer_rank_percentile": 0.9848484848484849,
+            "director_rank_percentile": 0.49937421777221525,
+            "writer_rank_percentile": 0.49929270305316514,
+            "cast_rank_percentile": 0.9950635497049478,
+            "crew_rank_percentile": 0.4979952319029042
+          },
+          {
+            "movie_id": 93193,
+            "title": "Red Hill (2010)",
+            "hybrid_score": 0.8544428123832803,
+            "positive_signals": 3,
+            "explanation": "shared genres: western; shared plot tags: flashback, revenge; plot word overlap (TF-IDF cosine 0.260); plot semantic match (Transformer cosine 0.610)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.3333333333333333,
+            "tag_similarity": 0.2857142857142857,
+            "tfidf_similarity": 0.2604136816270241,
+            "transformer_similarity": 0.6103278398513794,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.319047619047619,
+            "metadata_rank_percentile": 0.9889266584260403,
+            "tfidf_rank_percentile": 0.9985431235431236,
+            "transformer_rank_percentile": 0.9997086247086248,
+            "director_rank_percentile": 0.49937421777221525,
+            "writer_rank_percentile": 0.49929270305316514,
+            "cast_rank_percentile": 0.4813890149795733,
+            "crew_rank_percentile": 0.4979952319029042
+          },
+          {
+            "movie_id": 5874,
+            "title": "Friday After Next (2002)",
+            "hybrid_score": 0.8432383699365635,
+            "positive_signals": 3,
+            "explanation": "shared plot tags: flashback, revenge; plot word overlap (TF-IDF cosine 0.033); plot semantic match (Transformer cosine 0.531)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.0,
+            "tag_similarity": 0.5,
+            "tfidf_similarity": 0.0329098702667859,
+            "transformer_similarity": 0.5308904051780701,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.15,
+            "metadata_rank_percentile": 0.9818191182529872,
+            "tfidf_rank_percentile": 0.9548368298368298,
+            "transformer_rank_percentile": 0.9915501165501166,
+            "director_rank_percentile": 0.49937421777221525,
+            "writer_rank_percentile": 0.49929270305316514,
+            "cast_rank_percentile": 0.4813890149795733,
+            "crew_rank_percentile": 0.4979952319029042
+          },
+          {
+            "movie_id": 168266,
+            "title": "T2: Trainspotting (2017)",
+            "hybrid_score": 0.8431159923141859,
+            "positive_signals": 3,
+            "explanation": "shared plot tags: flashback, revenge; plot word overlap (TF-IDF cosine 0.041); plot semantic match (Transformer cosine 0.503)",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.0,
+            "tag_similarity": 0.5,
+            "tfidf_similarity": 0.041158602429473994,
+            "transformer_similarity": 0.5028021335601807,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.0,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.15,
+            "metadata_rank_percentile": 0.9818191182529872,
+            "tfidf_rank_percentile": 0.9696969696969697,
+            "transformer_rank_percentile": 0.9801864801864801,
+            "director_rank_percentile": 0.49937421777221525,
+            "writer_rank_percentile": 0.49929270305316514,
+            "cast_rank_percentile": 0.4813890149795733,
+            "crew_rank_percentile": 0.4979952319029042
+          },
+          {
+            "movie_id": 4031,
+            "title": "All the Pretty Horses (2000)",
+            "hybrid_score": 0.8410869501203175,
+            "positive_signals": 4,
+            "explanation": "shared genres: western; plot word overlap (TF-IDF cosine 0.028); plot semantic match (Transformer cosine 0.404); shared cast member: Bruce Dern",
+            "evidence_coverage": 1.0,
+            "missing_signals": "",
+            "genre_similarity": 0.3333333333333333,
+            "tag_similarity": 0.0,
+            "tfidf_similarity": 0.028308660034130954,
+            "transformer_similarity": 0.40381112694740295,
+            "director_similarity": 0.0,
+            "writer_similarity": 0.0,
+            "cast_similarity": 0.02857142857142857,
+            "crew_similarity": 0.0,
+            "metadata_similarity": 0.2333333333333333,
+            "metadata_rank_percentile": 0.9849608570251339,
+            "tfidf_rank_percentile": 0.9376456876456877,
+            "transformer_rank_percentile": 0.828088578088578,
+            "director_rank_percentile": 0.49937421777221525,
+            "writer_rank_percentile": 0.49929270305316514,
+            "cast_rank_percentile": 0.9884248751702224,
+            "crew_rank_percentile": 0.4979952319029042
+          }
+        ]
+      }
+    }
+  },
+  "no_plot_metadata_query": {
+    "movie_id": 1,
+    "title": "Toy Story (1995)",
+    "usable_plot": false,
+    "phase5_metadata": [
+      {
+        "movie_id": 2294,
+        "title": "Antz (1998)",
+        "release_year": 1998.0,
+        "similarity": 1.0,
+        "shared_genres": "adventure, animation, children, comedy, fantasy",
+        "shared_tags": ""
+      },
+      {
+        "movie_id": 3114,
+        "title": "Toy Story 2 (1999)",
+        "release_year": 1999.0,
+        "similarity": 1.0,
+        "shared_genres": "adventure, animation, children, comedy, fantasy",
+        "shared_tags": ""
+      },
+      {
+        "movie_id": 3754,
+        "title": "Adventures of Rocky and Bullwinkle, The (2000)",
+        "release_year": 2000.0,
+        "similarity": 1.0,
+        "shared_genres": "adventure, animation, children, comedy, fantasy",
+        "shared_tags": ""
+      },
+      {
+        "movie_id": 4016,
+        "title": "Emperor's New Groove, The (2000)",
+        "release_year": 2000.0,
+        "similarity": 1.0,
+        "shared_genres": "adventure, animation, children, comedy, fantasy",
+        "shared_tags": ""
+      },
+      {
+        "movie_id": 4886,
+        "title": "Monsters, Inc. (2001)",
+        "release_year": 2001.0,
+        "similarity": 1.0,
+        "shared_genres": "adventure, animation, children, comedy, fantasy",
+        "shared_tags": ""
+      }
+    ],
+    "phase6_tfidf": {
+      "unavailable": "query has no usable plot"
+    },
+    "phase7_transformer": {
+      "unavailable": "query has no usable plot"
+    },
+    "phase9_hybrid": [
+      {
+        "movie_id": 3114,
+        "title": "Toy Story 2 (1999)",
+        "hybrid_score": 0.9991458761523335,
+        "positive_signals": 4,
+        "explanation": "shared genres: adventure, animation, children, comedy, fantasy; shared director: John Lasseter; shared writer: Andrew Stanton; shared selected crew: Lee Unkrich, Randy Newman",
+        "evidence_coverage": 1.0,
+        "missing_signals": "tfidf, transformer, cast",
+        "genre_similarity": 1.0,
+        "tag_similarity": null,
+        "tfidf_similarity": null,
+        "transformer_similarity": null,
+        "director_similarity": 0.3333333333333333,
+        "writer_similarity": 0.1,
+        "cast_similarity": null,
+        "crew_similarity": 0.2222222222222222,
+        "metadata_similarity": 1.0,
+        "metadata_rank_percentile": 0.999433340201937,
+        "tfidf_rank_percentile": null,
+        "transformer_rank_percentile": null,
+        "director_rank_percentile": 0.9995828118481435,
+        "writer_rank_percentile": 0.9966992809147707,
+        "cast_rank_percentile": null,
+        "crew_rank_percentile": 0.9998916341569137
+      },
+      {
+        "movie_id": 2355,
+        "title": "Bug's Life, A (1998)",
+        "hybrid_score": 0.9961721850521049,
+        "positive_signals": 4,
+        "explanation": "shared genres: adventure, animation, children, comedy; shared director: John Lasseter; shared writer: Andrew Stanton; shared selected crew: Lee Unkrich, Randy Newman",
+        "evidence_coverage": 1.0,
+        "missing_signals": "tfidf, transformer, cast",
+        "genre_similarity": 0.8,
+        "tag_similarity": null,
+        "tfidf_similarity": null,
+        "transformer_similarity": null,
+        "director_similarity": 0.5,
+        "writer_similarity": 0.125,
+        "cast_similarity": null,
+        "crew_similarity": 0.25,
+        "metadata_similarity": 0.7999999999999999,
+        "metadata_rank_percentile": 0.9942818874922729,
+        "tfidf_rank_percentile": null,
+        "transformer_rank_percentile": null,
+        "director_rank_percentile": 0.9997914059240718,
+        "writer_rank_percentile": 0.9979959919839679,
+        "cast_rank_percentile": null,
+        "crew_rank_percentile": 1.0
+      },
+      {
+        "movie_id": 45517,
+        "title": "Cars (2006)",
+        "hybrid_score": 0.986505532325618,
+        "positive_signals": 4,
+        "explanation": "shared genres: animation, children, comedy; shared director: John Lasseter; shared writer: Joe Ranft, John Lasseter; shared selected crew: Randy Newman",
+        "evidence_coverage": 1.0,
+        "missing_signals": "tfidf, transformer, cast",
+        "genre_similarity": 0.6,
+        "tag_similarity": null,
+        "tfidf_similarity": null,
+        "transformer_similarity": null,
+        "director_similarity": 0.5,
+        "writer_similarity": 0.18181818181818182,
+        "cast_similarity": null,
+        "crew_similarity": 0.14285714285714285,
+        "metadata_similarity": 0.6,
+        "metadata_rank_percentile": 0.978466927673604,
+        "tfidf_rank_percentile": null,
+        "transformer_rank_percentile": null,
+        "director_rank_percentile": 0.9997914059240718,
+        "writer_rank_percentile": 0.9992927030531652,
+        "cast_rank_percentile": null,
+        "crew_rank_percentile": 0.9992414390983961
+      },
+      {
+        "movie_id": 42191,
+        "title": "Luxo Jr. (1986)",
+        "hybrid_score": 0.9243854720065775,
+        "positive_signals": 3,
+        "explanation": "shared genres: animation, children; shared director: John Lasseter; shared writer: John Lasseter",
+        "evidence_coverage": 1.0,
+        "missing_signals": "tfidf, transformer, cast",
+        "genre_similarity": 0.4,
+        "tag_similarity": null,
+        "tfidf_similarity": null,
+        "transformer_similarity": null,
+        "director_similarity": 1.0,
+        "writer_similarity": 0.14285714285714285,
+        "cast_similarity": null,
+        "crew_similarity": 0.0,
+        "metadata_similarity": 0.39999999999999997,
+        "metadata_rank_percentile": 0.9369462188337111,
+        "tfidf_rank_percentile": null,
+        "transformer_rank_percentile": null,
+        "director_rank_percentile": 1.0,
+        "writer_rank_percentile": 0.9988211717552753,
+        "cast_rank_percentile": null,
+        "crew_rank_percentile": 0.498320329432163
+      },
+      {
+        "movie_id": 4886,
+        "title": "Monsters, Inc. (2001)",
+        "hybrid_score": 0.9082179429766133,
+        "positive_signals": 3,
+        "explanation": "shared genres: adventure, animation, children, comedy, fantasy; shared writer: Andrew Stanton; shared selected crew: Randy Newman",
+        "evidence_coverage": 1.0,
+        "missing_signals": "tfidf, transformer, cast",
+        "genre_similarity": 1.0,
+        "tag_similarity": null,
+        "tfidf_similarity": null,
+        "transformer_similarity": null,
+        "director_similarity": 0.0,
+        "writer_similarity": 0.1,
+        "cast_similarity": null,
+        "crew_similarity": 0.14285714285714285,
+        "metadata_similarity": 1.0,
+        "metadata_rank_percentile": 0.999433340201937,
+        "tfidf_rank_percentile": null,
+        "transformer_rank_percentile": null,
+        "director_rank_percentile": 0.4997392574050897,
+        "writer_rank_percentile": 0.9966992809147707,
+        "cast_rank_percentile": null,
+        "crew_rank_percentile": 0.9992414390983961
+      }
+    ]
+  },
+  "chunked_plot_experiment": {
+    "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+    "model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "phase7_max_sequence_length": 256,
+    "chunk_size_wordpieces": 224,
+    "overlap_wordpieces": 48,
+    "long_plot_count": 3400,
+    "chunks_encoded": 17548,
+    "short_plot_vectors_reused": 34,
+    "cache_reused": true,
+    "representative_long_plots": [
+      {
+        "movie_id": 1445,
+        "title": "McHale's Navy (1997)",
+        "wordpiece_count": 8900,
+        "exceeds_phase7_limit": true,
+        "phase7_single_input_top5": [
+          {
+            "movie_id": 2427,
+            "title": "Thin Red Line, The (1998)",
+            "cosine": 0.43276965618133545
+          },
+          {
+            "movie_id": 1894,
+            "title": "Six Days Seven Nights (1998)",
+            "cosine": 0.4248172640800476
+          },
+          {
+            "movie_id": 35807,
+            "title": "Teahouse of the August Moon, The (1956)",
+            "cosine": 0.41998597979545593
+          },
+          {
+            "movie_id": 122092,
+            "title": "Guy X (2005)",
+            "cosine": 0.4174925982952118
+          },
+          {
+            "movie_id": 42946,
+            "title": "Project A ('A' gai waak) (1983)",
+            "cosine": 0.413088858127594
+          }
+        ],
+        "chunked_experiment_top5": [
+          {
+            "movie_id": 3643,
+            "title": "Fighting Seabees, The (1944)",
+            "cosine": 0.5704010725021362
+          },
+          {
+            "movie_id": 2427,
+            "title": "Thin Red Line, The (1998)",
+            "cosine": 0.5535313487052917
+          },
+          {
+            "movie_id": 1663,
+            "title": "Stripes (1981)",
+            "cosine": 0.5520888566970825
+          },
+          {
+            "movie_id": 4353,
+            "title": "Uncommon Valor (1983)",
+            "cosine": 0.5443885326385498
+          },
+          {
+            "movie_id": 94018,
+            "title": "Battleship (2012)",
+            "cosine": 0.533389687538147
+          }
+        ],
+        "top5_overlap_count": 1,
+        "top5_overlap_fraction": 0.2
+      },
+      {
+        "movie_id": 8724,
+        "title": "Leopard, The (Gattopardo, Il) (1963)",
+        "wordpiece_count": 5563,
+        "exceeds_phase7_limit": true,
+        "phase7_single_input_top5": [
+          {
+            "movie_id": 4727,
+            "title": "Captain Corelli's Mandolin (2001)",
+            "cosine": 0.49177849292755127
+          },
+          {
+            "movie_id": 109191,
+            "title": "Winter's Tale (2014)",
+            "cosine": 0.4817032814025879
+          },
+          {
+            "movie_id": 583,
+            "title": "Dear Diary (Caro Diario) (1994)",
+            "cosine": 0.4757586717605591
+          },
+          {
+            "movie_id": 3992,
+            "title": "Malèna (2000)",
+            "cosine": 0.46799328923225403
+          },
+          {
+            "movie_id": 3580,
+            "title": "Up at the Villa (2000)",
+            "cosine": 0.45696428418159485
+          }
+        ],
+        "chunked_experiment_top5": [
+          {
+            "movie_id": 109191,
+            "title": "Winter's Tale (2014)",
+            "cosine": 0.6494894623756409
+          },
+          {
+            "movie_id": 3719,
+            "title": "Love's Labour's Lost (2000)",
+            "cosine": 0.6256623268127441
+          },
+          {
+            "movie_id": 7024,
+            "title": "Salo, or The 120 Days of Sodom (Salò o le 120 giornate di Sodoma) (1976)",
+            "cosine": 0.6050510406494141
+          },
+          {
+            "movie_id": 7089,
+            "title": "Amarcord (1973)",
+            "cosine": 0.6005395650863647
+          },
+          {
+            "movie_id": 7767,
+            "title": "Best of Youth, The (La meglio gioventù) (2003)",
+            "cosine": 0.5974081754684448
+          }
+        ],
+        "top5_overlap_count": 1,
+        "top5_overlap_fraction": 0.2
+      },
+      {
+        "movie_id": 108795,
+        "title": "Wonder Woman (2009)",
+        "wordpiece_count": 4917,
+        "exceeds_phase7_limit": true,
+        "phase7_single_input_top5": [
+          {
+            "movie_id": 6031,
+            "title": "Imitation of Life (1959)",
+            "cosine": 0.40241044759750366
+          },
+          {
+            "movie_id": 5497,
+            "title": "Our Man Flint (1965)",
+            "cosine": 0.38841623067855835
+          },
+          {
+            "movie_id": 104419,
+            "title": "Justice League: Crisis on Two Earths (2010)",
+            "cosine": 0.3781880736351013
+          },
+          {
+            "movie_id": 900,
+            "title": "American in Paris, An (1951)",
+            "cosine": 0.3695276379585266
+          },
+          {
+            "movie_id": 2847,
+            "title": "Only Angels Have Wings (1939)",
+            "cosine": 0.3649042248725891
+          }
+        ],
+        "chunked_experiment_top5": [
+          {
+            "movie_id": 3877,
+            "title": "Supergirl (1984)",
+            "cosine": 0.5030845403671265
+          },
+          {
+            "movie_id": 1825,
+            "title": "The Players Club (1998)",
+            "cosine": 0.49238789081573486
+          },
+          {
+            "movie_id": 4356,
+            "title": "Gentlemen Prefer Blondes (1953)",
+            "cosine": 0.4882936477661133
+          },
+          {
+            "movie_id": 8778,
+            "title": "Sherlock Holmes: Dressed to Kill (1946)",
+            "cosine": 0.48302605748176575
+          },
+          {
+            "movie_id": 132800,
+            "title": "Welcome to Me (2014)",
+            "cosine": 0.46912652254104614
+          }
+        ],
+        "top5_overlap_count": 0,
+        "top5_overlap_fraction": 0.0
+      },
+      {
+        "movie_id": 73,
+        "title": "Misérables, Les (1995)",
+        "wordpiece_count": 4671,
+        "exceeds_phase7_limit": true,
+        "phase7_single_input_top5": [
+          {
+            "movie_id": 1873,
+            "title": "Misérables, Les (1998)",
+            "cosine": 1.0
+          },
+          {
+            "movie_id": 99149,
+            "title": "Misérables, Les (2012)",
+            "cosine": 1.0
+          },
+          {
+            "movie_id": 99532,
+            "title": "Misérables, Les (2000)",
+            "cosine": 1.0
+          },
+          {
+            "movie_id": 26052,
+            "title": "Pickpocket (1959)",
+            "cosine": 0.5832527875900269
+          },
+          {
+            "movie_id": 6920,
+            "title": "Cercle Rouge, Le (Red Circle, The) (1970)",
+            "cosine": 0.5336583852767944
+          }
+        ],
+        "chunked_experiment_top5": [
+          {
+            "movie_id": 1873,
+            "title": "Misérables, Les (1998)",
+            "cosine": 1.0
+          },
+          {
+            "movie_id": 99149,
+            "title": "Misérables, Les (2012)",
+            "cosine": 1.0
+          },
+          {
+            "movie_id": 99532,
+            "title": "Misérables, Les (2000)",
+            "cosine": 1.0
+          },
+          {
+            "movie_id": 5064,
+            "title": "The Count of Monte Cristo (2002)",
+            "cosine": 0.6543446183204651
+          },
+          {
+            "movie_id": 65596,
+            "title": "Mesrine: Killer Instinct (L'instinct de mort) (2008)",
+            "cosine": 0.6309328079223633
+          }
+        ],
+        "top5_overlap_count": 3,
+        "top5_overlap_fraction": 0.6
+      },
+      {
+        "movie_id": 1873,
+        "title": "Misérables, Les (1998)",
+        "wordpiece_count": 4671,
+        "exceeds_phase7_limit": true,
+        "phase7_single_input_top5": [
+          {
+            "movie_id": 73,
+            "title": "Misérables, Les (1995)",
+            "cosine": 1.0
+          },
+          {
+            "movie_id": 99149,
+            "title": "Misérables, Les (2012)",
+            "cosine": 1.0
+          },
+          {
+            "movie_id": 99532,
+            "title": "Misérables, Les (2000)",
+            "cosine": 1.0
+          },
+          {
+            "movie_id": 26052,
+            "title": "Pickpocket (1959)",
+            "cosine": 0.5832527875900269
+          },
+          {
+            "movie_id": 6920,
+            "title": "Cercle Rouge, Le (Red Circle, The) (1970)",
+            "cosine": 0.5336583852767944
+          }
+        ],
+        "chunked_experiment_top5": [
+          {
+            "movie_id": 73,
+            "title": "Misérables, Les (1995)",
+            "cosine": 1.0
+          },
+          {
+            "movie_id": 99149,
+            "title": "Misérables, Les (2012)",
+            "cosine": 1.0
+          },
+          {
+            "movie_id": 99532,
+            "title": "Misérables, Les (2000)",
+            "cosine": 1.0
+          },
+          {
+            "movie_id": 5064,
+            "title": "The Count of Monte Cristo (2002)",
+            "cosine": 0.6543446183204651
+          },
+          {
+            "movie_id": 65596,
+            "title": "Mesrine: Killer Instinct (L'instinct de mort) (2008)",
+            "cosine": 0.6309328079223633
+          }
+        ],
+        "top5_overlap_count": 3,
+        "top5_overlap_fraction": 0.6
+      }
+    ]
+  }
+}

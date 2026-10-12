@@ -1,0 +1,3390 @@
+{
+  "phase": "Phase 14.2: Targeted Story-Relevance Experiments",
+  "label_provenance": "ai_assisted_suggestion",
+  "label_interpretation": "AI-assisted plot-based suggestions; not independent human judgments",
+  "dataset": {
+    "path": "data/audit/phase14_2_story_relevance_pairs.csv",
+    "total_pairs": 80,
+    "usable_labeled_pairs": 73,
+    "needs_review_pairs": 7,
+    "missing_plot_pairs": 0,
+    "label_provenance": "ai_assisted_suggestion; uncertain pairs are explicitly flagged ai_assisted_needs_review",
+    "label_counts": {
+      "0": 17,
+      "1": 41,
+      "2": 15
+    },
+    "needs_review_pair_ids": [
+      "P142-008",
+      "P142-024",
+      "P142-032",
+      "P142-056",
+      "P142-057",
+      "P142-072",
+      "P142-077"
+    ],
+    "split_groups": {
+      "development": 6,
+      "locked_audit": 4
+    },
+    "split_pairs": {
+      "development": 45,
+      "locked_audit": 28
+    },
+    "split_total_pairs_including_review": {
+      "development": 48,
+      "locked_audit": 32
+    },
+    "unique_query_groups": 10,
+    "review_rows_excluded_from_metrics": true
+  },
+  "approaches": {
+    "phase9_story_gate": {
+      "fixed_floor": 0.2,
+      "uses_test_partition": false
+    },
+    "name_discounted_tfidf": {
+      "shared_likely_person_name_discount": 0.8,
+      "heuristic": "capitalized multiword phrases and person name preceding actor parentheses"
+    },
+    "chunk_aggregation": {
+      "mean": "existing normalized mean-document chunk vector",
+      "max": "maximum pairwise chunk cosine",
+      "top2_mean": "mean of two strongest pairwise chunk cosines"
+    }
+  },
+  "metrics": {
+    "development": {
+      "phase9_baseline": {
+        "labeled_pairs": 45,
+        "query_groups": 6,
+        "relevance_counts": {
+          "0": 12,
+          "1": 22,
+          "2": 11
+        },
+        "pairwise_accuracy_grade2_vs_grade0": 0.9375,
+        "ndcg_at_5": 0.8486833397708144,
+        "per_query_ndcg_at_5": {
+          "3": 0.7606395682357036,
+          "4": 0.774487192150212,
+          "5": 1.0,
+          "20": 0.7226197476513831,
+          "22": 0.9125299483251055,
+          "44": 0.9218235822624828
+        },
+        "unrelated_in_top5_of_labeled_candidates": 2,
+        "plausible_labeled_pairs_below_top5": 5,
+        "pairwise_comparisons": 16
+      },
+      "tfidf_plot_only": {
+        "labeled_pairs": 45,
+        "query_groups": 6,
+        "relevance_counts": {
+          "0": 12,
+          "1": 22,
+          "2": 11
+        },
+        "pairwise_accuracy_grade2_vs_grade0": 0.125,
+        "ndcg_at_5": 0.5680240453107169,
+        "per_query_ndcg_at_5": {
+          "3": 0.5143371794949736,
+          "4": 0.27033757566317346,
+          "5": 1.0,
+          "20": 0.446882433422507,
+          "22": 0.4051288831454935,
+          "44": 0.7714582001381546
+        },
+        "unrelated_in_top5_of_labeled_candidates": 9,
+        "plausible_labeled_pairs_below_top5": 12,
+        "pairwise_comparisons": 16
+      },
+      "transformer_plot_only": {
+        "labeled_pairs": 45,
+        "query_groups": 6,
+        "relevance_counts": {
+          "0": 12,
+          "1": 22,
+          "2": 11
+        },
+        "pairwise_accuracy_grade2_vs_grade0": 0.5625,
+        "ndcg_at_5": 0.7115304467891325,
+        "per_query_ndcg_at_5": {
+          "3": 0.787702056960637,
+          "4": 0.8198025393486036,
+          "5": 0.4468535299918563,
+          "20": 0.6549176226839696,
+          "22": 0.5599069317497284,
+          "44": 1.0
+        },
+        "unrelated_in_top5_of_labeled_candidates": 6,
+        "plausible_labeled_pairs_below_top5": 9,
+        "pairwise_comparisons": 16
+      },
+      "name_discounted_tfidf": {
+        "labeled_pairs": 45,
+        "query_groups": 6,
+        "relevance_counts": {
+          "0": 12,
+          "1": 22,
+          "2": 11
+        },
+        "pairwise_accuracy_grade2_vs_grade0": 0.1875,
+        "ndcg_at_5": 0.6179465427229042,
+        "per_query_ndcg_at_5": {
+          "3": 0.5143371794949736,
+          "4": 0.28846960730298726,
+          "5": 1.0,
+          "20": 0.446882433422507,
+          "22": 0.5854902818327059,
+          "44": 0.8724997542842517
+        },
+        "unrelated_in_top5_of_labeled_candidates": 8,
+        "plausible_labeled_pairs_below_top5": 11,
+        "pairwise_comparisons": 16
+      },
+      "phase9_story_gate": {
+        "labeled_pairs": 45,
+        "query_groups": 6,
+        "relevance_counts": {
+          "0": 12,
+          "1": 22,
+          "2": 11
+        },
+        "pairwise_accuracy_grade2_vs_grade0": 0.9375,
+        "ndcg_at_5": 0.8444194480903181,
+        "per_query_ndcg_at_5": {
+          "3": 0.7606395682357036,
+          "4": 0.774487192150212,
+          "5": 1.0,
+          "20": 0.7226197476513831,
+          "22": 0.8869465982421281,
+          "44": 0.9218235822624828
+        },
+        "unrelated_in_top5_of_labeled_candidates": 2,
+        "plausible_labeled_pairs_below_top5": 5,
+        "pairwise_comparisons": 16
+      },
+      "chunked_mean": {
+        "labeled_pairs": 45,
+        "query_groups": 6,
+        "relevance_counts": {
+          "0": 12,
+          "1": 22,
+          "2": 11
+        },
+        "pairwise_accuracy_grade2_vs_grade0": 0.625,
+        "ndcg_at_5": 0.6640373756686414,
+        "per_query_ndcg_at_5": {
+          "3": 0.5654495432396527,
+          "4": 0.5341963214909641,
+          "5": 0.7227265726449519,
+          "20": 0.6549176226839696,
+          "22": 0.5069341939523102,
+          "44": 1.0
+        },
+        "unrelated_in_top5_of_labeled_candidates": 6,
+        "plausible_labeled_pairs_below_top5": 9,
+        "pairwise_comparisons": 16
+      },
+      "chunked_max_pair": {
+        "labeled_pairs": 45,
+        "query_groups": 6,
+        "relevance_counts": {
+          "0": 12,
+          "1": 22,
+          "2": 11
+        },
+        "pairwise_accuracy_grade2_vs_grade0": 0.6875,
+        "ndcg_at_5": 0.7317560696603179,
+        "per_query_ndcg_at_5": {
+          "3": 0.592512031964586,
+          "4": 0.511871076652115,
+          "5": 1.0,
+          "20": 0.6549176226839696,
+          "22": 0.6312356866612376,
+          "44": 1.0
+        },
+        "unrelated_in_top5_of_labeled_candidates": 3,
+        "plausible_labeled_pairs_below_top5": 6,
+        "pairwise_comparisons": 16
+      },
+      "chunked_top2_mean": {
+        "labeled_pairs": 45,
+        "query_groups": 6,
+        "relevance_counts": {
+          "0": 12,
+          "1": 22,
+          "2": 11
+        },
+        "pairwise_accuracy_grade2_vs_grade0": 0.625,
+        "ndcg_at_5": 0.7192429760859781,
+        "per_query_ndcg_at_5": {
+          "3": 0.5143371794949736,
+          "4": 0.5341963214909641,
+          "5": 1.0,
+          "20": 0.6356886688686928,
+          "22": 0.6312356866612376,
+          "44": 1.0
+        },
+        "unrelated_in_top5_of_labeled_candidates": 3,
+        "plausible_labeled_pairs_below_top5": 6,
+        "pairwise_comparisons": 16
+      }
+    },
+    "locked_audit": {
+      "phase9_baseline": {
+        "labeled_pairs": 28,
+        "query_groups": 4,
+        "relevance_counts": {
+          "0": 5,
+          "1": 19,
+          "2": 4
+        },
+        "pairwise_accuracy_grade2_vs_grade0": 1.0,
+        "ndcg_at_5": 0.8117868461246892,
+        "per_query_ndcg_at_5": {
+          "13": 0.7698986984637216,
+          "29": 0.7860137352654724,
+          "41": 1.0,
+          "73": 0.6912349507695627
+        },
+        "unrelated_in_top5_of_labeled_candidates": 1,
+        "plausible_labeled_pairs_below_top5": 4,
+        "pairwise_comparisons": 5
+      },
+      "tfidf_plot_only": {
+        "labeled_pairs": 28,
+        "query_groups": 4,
+        "relevance_counts": {
+          "0": 5,
+          "1": 19,
+          "2": 4
+        },
+        "pairwise_accuracy_grade2_vs_grade0": 0.6,
+        "ndcg_at_5": 0.7317725560335133,
+        "per_query_ndcg_at_5": {
+          "13": 0.26625042940766924,
+          "29": 1.0,
+          "41": 0.6608397947263839,
+          "73": 1.0
+        },
+        "unrelated_in_top5_of_labeled_candidates": 3,
+        "plausible_labeled_pairs_below_top5": 6,
+        "pairwise_comparisons": 5
+      },
+      "transformer_plot_only": {
+        "labeled_pairs": 28,
+        "query_groups": 4,
+        "relevance_counts": {
+          "0": 5,
+          "1": 19,
+          "2": 4
+        },
+        "pairwise_accuracy_grade2_vs_grade0": 1.0,
+        "ndcg_at_5": 0.8518843303240642,
+        "per_query_ndcg_at_5": {
+          "13": 0.850834274847108,
+          "29": 0.7860137352654724,
+          "41": 0.830419897363192,
+          "73": 0.9402694138204842
+        },
+        "unrelated_in_top5_of_labeled_candidates": 3,
+        "plausible_labeled_pairs_below_top5": 6,
+        "pairwise_comparisons": 5
+      },
+      "name_discounted_tfidf": {
+        "labeled_pairs": 28,
+        "query_groups": 4,
+        "relevance_counts": {
+          "0": 5,
+          "1": 19,
+          "2": 4
+        },
+        "pairwise_accuracy_grade2_vs_grade0": 0.6,
+        "ndcg_at_5": 0.7741675816927154,
+        "per_query_ndcg_at_5": {
+          "13": 0.26625042940766924,
+          "29": 1.0,
+          "41": 0.830419897363192,
+          "73": 1.0
+        },
+        "unrelated_in_top5_of_labeled_candidates": 3,
+        "plausible_labeled_pairs_below_top5": 6,
+        "pairwise_comparisons": 5
+      },
+      "phase9_story_gate": {
+        "labeled_pairs": 28,
+        "query_groups": 4,
+        "relevance_counts": {
+          "0": 5,
+          "1": 19,
+          "2": 4
+        },
+        "pairwise_accuracy_grade2_vs_grade0": 1.0,
+        "ndcg_at_5": 0.8373800456468681,
+        "per_query_ndcg_at_5": {
+          "13": 0.7698986984637216,
+          "29": 0.7860137352654724,
+          "41": 1.0,
+          "73": 0.7936077488582781
+        },
+        "unrelated_in_top5_of_labeled_candidates": 1,
+        "plausible_labeled_pairs_below_top5": 4,
+        "pairwise_comparisons": 5
+      },
+      "chunked_mean": {
+        "labeled_pairs": 28,
+        "query_groups": 4,
+        "relevance_counts": {
+          "0": 5,
+          "1": 19,
+          "2": 4
+        },
+        "pairwise_accuracy_grade2_vs_grade0": 1.0,
+        "ndcg_at_5": 0.8094893046648621,
+        "per_query_ndcg_at_5": {
+          "13": 0.850834274847108,
+          "29": 0.6608397947263839,
+          "41": 0.7860137352654724,
+          "73": 0.9402694138204842
+        },
+        "unrelated_in_top5_of_labeled_candidates": 3,
+        "plausible_labeled_pairs_below_top5": 6,
+        "pairwise_comparisons": 5
+      },
+      "chunked_max_pair": {
+        "labeled_pairs": 28,
+        "query_groups": 4,
+        "relevance_counts": {
+          "0": 5,
+          "1": 19,
+          "2": 4
+        },
+        "pairwise_accuracy_grade2_vs_grade0": 1.0,
+        "ndcg_at_5": 0.8272366315187059,
+        "per_query_ndcg_at_5": {
+          "13": 0.9218235822624828,
+          "29": 0.7860137352654724,
+          "41": 0.6608397947263839,
+          "73": 0.9402694138204842
+        },
+        "unrelated_in_top5_of_labeled_candidates": 4,
+        "plausible_labeled_pairs_below_top5": 7,
+        "pairwise_comparisons": 5
+      },
+      "chunked_top2_mean": {
+        "labeled_pairs": 28,
+        "query_groups": 4,
+        "relevance_counts": {
+          "0": 5,
+          "1": 19,
+          "2": 4
+        },
+        "pairwise_accuracy_grade2_vs_grade0": 1.0,
+        "ndcg_at_5": 0.8272366315187059,
+        "per_query_ndcg_at_5": {
+          "13": 0.9218235822624828,
+          "29": 0.7860137352654724,
+          "41": 0.6608397947263839,
+          "73": 0.9402694138204842
+        },
+        "unrelated_in_top5_of_labeled_candidates": 4,
+        "plausible_labeled_pairs_below_top5": 7,
+        "pairwise_comparisons": 5
+      }
+    }
+  },
+  "paired_per_query_ndcg_differences_vs_phase9": {
+    "phase9_baseline": {
+      "development": {
+        "3": 0.0,
+        "4": 0.0,
+        "5": 0.0,
+        "20": 0.0,
+        "22": 0.0,
+        "44": 0.0
+      },
+      "locked_audit": {
+        "13": 0.0,
+        "29": 0.0,
+        "41": 0.0,
+        "73": 0.0
+      }
+    },
+    "tfidf_plot_only": {
+      "development": {
+        "3": -0.24630238874072996,
+        "4": -0.5041496164870385,
+        "5": 0.0,
+        "20": -0.27573731422887615,
+        "22": -0.5074010651796119,
+        "44": -0.15036538212432826
+      },
+      "locked_audit": {
+        "13": -0.5036482690560524,
+        "29": 0.21398626473452764,
+        "41": -0.3391602052736161,
+        "73": 0.30876504923043735
+      }
+    },
+    "transformer_plot_only": {
+      "development": {
+        "3": 0.027062488724933442,
+        "4": 0.04531534719839159,
+        "5": -0.5531464700081437,
+        "20": -0.06770212496741357,
+        "22": -0.3526230165753771,
+        "44": 0.07817641773751716
+      },
+      "locked_audit": {
+        "13": 0.08093557638338644,
+        "29": 0.0,
+        "41": -0.169580102636808,
+        "73": 0.24903446305092158
+      }
+    },
+    "name_discounted_tfidf": {
+      "development": {
+        "3": -0.24630238874072996,
+        "4": -0.48601758484722474,
+        "5": 0.0,
+        "20": -0.27573731422887615,
+        "22": -0.32703966649239957,
+        "44": -0.049323827978231094
+      },
+      "locked_audit": {
+        "13": -0.5036482690560524,
+        "29": 0.21398626473452764,
+        "41": -0.169580102636808,
+        "73": 0.30876504923043735
+      }
+    },
+    "phase9_story_gate": {
+      "development": {
+        "3": 0.0,
+        "4": 0.0,
+        "5": 0.0,
+        "20": 0.0,
+        "22": -0.025583350082977407,
+        "44": 0.0
+      },
+      "locked_audit": {
+        "13": 0.0,
+        "29": 0.0,
+        "41": 0.0,
+        "73": 0.10237279808871547
+      }
+    },
+    "chunked_mean": {
+      "development": {
+        "3": -0.19519002499605087,
+        "4": -0.24029087065924792,
+        "5": -0.2772734273550481,
+        "20": -0.06770212496741357,
+        "22": -0.40559575437279527,
+        "44": 0.07817641773751716
+      },
+      "locked_audit": {
+        "13": 0.08093557638338644,
+        "29": -0.12517394053908848,
+        "41": -0.21398626473452764,
+        "73": 0.24903446305092158
+      }
+    },
+    "chunked_max_pair": {
+      "development": {
+        "3": -0.16812753627111754,
+        "4": -0.26261611549809705,
+        "5": 0.0,
+        "20": -0.06770212496741357,
+        "22": -0.28129426166386784,
+        "44": 0.07817641773751716
+      },
+      "locked_audit": {
+        "13": 0.15192488379876123,
+        "29": 0.0,
+        "41": -0.3391602052736161,
+        "73": 0.24903446305092158
+      }
+    },
+    "chunked_top2_mean": {
+      "development": {
+        "3": -0.24630238874072996,
+        "4": -0.24029087065924792,
+        "5": 0.0,
+        "20": -0.08693107878269035,
+        "22": -0.28129426166386784,
+        "44": 0.07817641773751716
+      },
+      "locked_audit": {
+        "13": 0.15192488379876123,
+        "29": 0.0,
+        "41": -0.3391602052736161,
+        "73": 0.24903446305092158
+      }
+    }
+  },
+  "per_query_examples": [
+    {
+      "split": "development",
+      "query_movie_id": 3,
+      "query_title": "Grumpier Old Men (1995)",
+      "labeled_candidates": 7,
+      "rankings": {
+        "phase9_baseline": [
+          {
+            "candidate_movie_id": 4069,
+            "candidate_title": "Wedding Planner, The (2001)",
+            "relevance": 0,
+            "score": 0.8584085996821526
+          },
+          {
+            "candidate_movie_id": 5077,
+            "candidate_title": "Cousins (1989)",
+            "relevance": 1,
+            "score": 0.847928359781138
+          },
+          {
+            "candidate_movie_id": 55245,
+            "candidate_title": "Good Luck Chuck (2007)",
+            "relevance": 1,
+            "score": 0.8445200468332701
+          },
+          {
+            "candidate_movie_id": 34162,
+            "candidate_title": "Wedding Crashers (2005)",
+            "relevance": 1,
+            "score": 0.8302985411037298
+          },
+          {
+            "candidate_movie_id": 2671,
+            "candidate_title": "Notting Hill (1999)",
+            "relevance": 1,
+            "score": 0.8298082814663749
+          }
+        ],
+        "tfidf_plot_only": [
+          {
+            "candidate_movie_id": 1921,
+            "candidate_title": "Pi (1998)",
+            "relevance": 0,
+            "score": 0.29644831587521836
+          },
+          {
+            "candidate_movie_id": 1839,
+            "candidate_title": "My Giant (1998)",
+            "relevance": 0,
+            "score": 0.25984406804920535
+          },
+          {
+            "candidate_movie_id": 5077,
+            "candidate_title": "Cousins (1989)",
+            "relevance": 1,
+            "score": 0.13793376275605784
+          },
+          {
+            "candidate_movie_id": 34162,
+            "candidate_title": "Wedding Crashers (2005)",
+            "relevance": 1,
+            "score": 0.10122084111424069
+          },
+          {
+            "candidate_movie_id": 2671,
+            "candidate_title": "Notting Hill (1999)",
+            "relevance": 1,
+            "score": 0.04553549311771715
+          }
+        ],
+        "transformer_plot_only": [
+          {
+            "candidate_movie_id": 55245,
+            "candidate_title": "Good Luck Chuck (2007)",
+            "relevance": 1,
+            "score": 0.43805351853370667
+          },
+          {
+            "candidate_movie_id": 5077,
+            "candidate_title": "Cousins (1989)",
+            "relevance": 1,
+            "score": 0.42545849084854126
+          },
+          {
+            "candidate_movie_id": 4069,
+            "candidate_title": "Wedding Planner, The (2001)",
+            "relevance": 0,
+            "score": 0.39434176683425903
+          },
+          {
+            "candidate_movie_id": 1921,
+            "candidate_title": "Pi (1998)",
+            "relevance": 0,
+            "score": 0.3766380250453949
+          },
+          {
+            "candidate_movie_id": 2671,
+            "candidate_title": "Notting Hill (1999)",
+            "relevance": 1,
+            "score": 0.36325180530548096
+          }
+        ],
+        "name_discounted_tfidf": [
+          {
+            "candidate_movie_id": 1921,
+            "candidate_title": "Pi (1998)",
+            "relevance": 0,
+            "score": 0.06330685309331674
+          },
+          {
+            "candidate_movie_id": 1839,
+            "candidate_title": "My Giant (1998)",
+            "relevance": 0,
+            "score": 0.056127564791803
+          },
+          {
+            "candidate_movie_id": 2671,
+            "candidate_title": "Notting Hill (1999)",
+            "relevance": 1,
+            "score": 0.045535493117717166
+          },
+          {
+            "candidate_movie_id": 55245,
+            "candidate_title": "Good Luck Chuck (2007)",
+            "relevance": 1,
+            "score": 0.042247339656855114
+          },
+          {
+            "candidate_movie_id": 5077,
+            "candidate_title": "Cousins (1989)",
+            "relevance": 1,
+            "score": 0.038295289092546175
+          }
+        ],
+        "phase9_story_gate": [
+          {
+            "candidate_movie_id": 4069,
+            "candidate_title": "Wedding Planner, The (2001)",
+            "relevance": 0,
+            "score": 0.8506048851395875
+          },
+          {
+            "candidate_movie_id": 5077,
+            "candidate_title": "Cousins (1989)",
+            "relevance": 1,
+            "score": 0.8433823569198405
+          },
+          {
+            "candidate_movie_id": 34162,
+            "candidate_title": "Wedding Crashers (2005)",
+            "relevance": 1,
+            "score": 0.821589115847397
+          },
+          {
+            "candidate_movie_id": 55245,
+            "candidate_title": "Good Luck Chuck (2007)",
+            "relevance": 1,
+            "score": 0.8208971084603115
+          },
+          {
+            "candidate_movie_id": 2671,
+            "candidate_title": "Notting Hill (1999)",
+            "relevance": 1,
+            "score": 0.8129800016324414
+          }
+        ],
+        "chunked_mean": [
+          {
+            "candidate_movie_id": 1839,
+            "candidate_title": "My Giant (1998)",
+            "relevance": 0,
+            "score": 0.6421135663986206
+          },
+          {
+            "candidate_movie_id": 5077,
+            "candidate_title": "Cousins (1989)",
+            "relevance": 1,
+            "score": 0.49921661615371704
+          },
+          {
+            "candidate_movie_id": 4069,
+            "candidate_title": "Wedding Planner, The (2001)",
+            "relevance": 0,
+            "score": 0.4989520013332367
+          },
+          {
+            "candidate_movie_id": 34162,
+            "candidate_title": "Wedding Crashers (2005)",
+            "relevance": 1,
+            "score": 0.49340182542800903
+          },
+          {
+            "candidate_movie_id": 2671,
+            "candidate_title": "Notting Hill (1999)",
+            "relevance": 1,
+            "score": 0.4796936511993408
+          }
+        ],
+        "chunked_max_pair": [
+          {
+            "candidate_movie_id": 1839,
+            "candidate_title": "My Giant (1998)",
+            "relevance": 0,
+            "score": 0.6483570337295532
+          },
+          {
+            "candidate_movie_id": 2671,
+            "candidate_title": "Notting Hill (1999)",
+            "relevance": 1,
+            "score": 0.5581824779510498
+          },
+          {
+            "candidate_movie_id": 34162,
+            "candidate_title": "Wedding Crashers (2005)",
+            "relevance": 1,
+            "score": 0.5453210473060608
+          },
+          {
+            "candidate_movie_id": 4069,
+            "candidate_title": "Wedding Planner, The (2001)",
+            "relevance": 0,
+            "score": 0.5433002710342407
+          },
+          {
+            "candidate_movie_id": 5077,
+            "candidate_title": "Cousins (1989)",
+            "relevance": 1,
+            "score": 0.526088535785675
+          }
+        ],
+        "chunked_top2_mean": [
+          {
+            "candidate_movie_id": 1839,
+            "candidate_title": "My Giant (1998)",
+            "relevance": 0,
+            "score": 0.636947751045227
+          },
+          {
+            "candidate_movie_id": 4069,
+            "candidate_title": "Wedding Planner, The (2001)",
+            "relevance": 0,
+            "score": 0.5375926494598389
+          },
+          {
+            "candidate_movie_id": 2671,
+            "candidate_title": "Notting Hill (1999)",
+            "relevance": 1,
+            "score": 0.5360274314880371
+          },
+          {
+            "candidate_movie_id": 34162,
+            "candidate_title": "Wedding Crashers (2005)",
+            "relevance": 1,
+            "score": 0.5307530164718628
+          },
+          {
+            "candidate_movie_id": 5077,
+            "candidate_title": "Cousins (1989)",
+            "relevance": 1,
+            "score": 0.5032790303230286
+          }
+        ]
+      }
+    },
+    {
+      "split": "development",
+      "query_movie_id": 4,
+      "query_title": "Waiting to Exhale (1995)",
+      "labeled_candidates": 8,
+      "rankings": {
+        "phase9_baseline": [
+          {
+            "candidate_movie_id": 1888,
+            "candidate_title": "Hope Floats (1998)",
+            "relevance": 1,
+            "score": 0.9047590067970938
+          },
+          {
+            "candidate_movie_id": 3825,
+            "candidate_title": "Coyote Ugly (2000)",
+            "relevance": 1,
+            "score": 0.844169342262986
+          },
+          {
+            "candidate_movie_id": 218,
+            "candidate_title": "Boys on the Side (1995)",
+            "relevance": 2,
+            "score": 0.7954185967168139
+          },
+          {
+            "candidate_movie_id": 4474,
+            "candidate_title": "Beaches (1988)",
+            "relevance": 2,
+            "score": 0.7874395887038134
+          },
+          {
+            "candidate_movie_id": 1678,
+            "candidate_title": "Joy Luck Club, The (1993)",
+            "relevance": 1,
+            "score": 0.7543198621323215
+          }
+        ],
+        "tfidf_plot_only": [
+          {
+            "candidate_movie_id": 6124,
+            "candidate_title": "Savannah Smiles (1982)",
+            "relevance": 0,
+            "score": 0.16165364358479906
+          },
+          {
+            "candidate_movie_id": 1027,
+            "candidate_title": "Robin Hood: Prince of Thieves (1991)",
+            "relevance": 0,
+            "score": 0.14946313642547077
+          },
+          {
+            "candidate_movie_id": 5499,
+            "candidate_title": "Robin and Marian (1976)",
+            "relevance": 0,
+            "score": 0.14209141303953035
+          },
+          {
+            "candidate_movie_id": 218,
+            "candidate_title": "Boys on the Side (1995)",
+            "relevance": 2,
+            "score": 0.10634480139977641
+          },
+          {
+            "candidate_movie_id": 3825,
+            "candidate_title": "Coyote Ugly (2000)",
+            "relevance": 1,
+            "score": 0.044448402220642086
+          }
+        ],
+        "transformer_plot_only": [
+          {
+            "candidate_movie_id": 4474,
+            "candidate_title": "Beaches (1988)",
+            "relevance": 2,
+            "score": 0.5127331614494324
+          },
+          {
+            "candidate_movie_id": 6124,
+            "candidate_title": "Savannah Smiles (1982)",
+            "relevance": 0,
+            "score": 0.4528964161872864
+          },
+          {
+            "candidate_movie_id": 1888,
+            "candidate_title": "Hope Floats (1998)",
+            "relevance": 1,
+            "score": 0.4519231617450714
+          },
+          {
+            "candidate_movie_id": 3825,
+            "candidate_title": "Coyote Ugly (2000)",
+            "relevance": 1,
+            "score": 0.4377838373184204
+          },
+          {
+            "candidate_movie_id": 218,
+            "candidate_title": "Boys on the Side (1995)",
+            "relevance": 2,
+            "score": 0.40562695264816284
+          }
+        ],
+        "name_discounted_tfidf": [
+          {
+            "candidate_movie_id": 6124,
+            "candidate_title": "Savannah Smiles (1982)",
+            "relevance": 0,
+            "score": 0.16165364358479908
+          },
+          {
+            "candidate_movie_id": 3825,
+            "candidate_title": "Coyote Ugly (2000)",
+            "relevance": 1,
+            "score": 0.04444840222064205
+          },
+          {
+            "candidate_movie_id": 5499,
+            "candidate_title": "Robin and Marian (1976)",
+            "relevance": 0,
+            "score": 0.041969137820901975
+          },
+          {
+            "candidate_movie_id": 1027,
+            "candidate_title": "Robin Hood: Prince of Thieves (1991)",
+            "relevance": 0,
+            "score": 0.03990306166998439
+          },
+          {
+            "candidate_movie_id": 4474,
+            "candidate_title": "Beaches (1988)",
+            "relevance": 2,
+            "score": 0.03871753689142343
+          }
+        ],
+        "phase9_story_gate": [
+          {
+            "candidate_movie_id": 1888,
+            "candidate_title": "Hope Floats (1998)",
+            "relevance": 1,
+            "score": 0.9047590067970938
+          },
+          {
+            "candidate_movie_id": 3825,
+            "candidate_title": "Coyote Ugly (2000)",
+            "relevance": 1,
+            "score": 0.8359047473037681
+          },
+          {
+            "candidate_movie_id": 218,
+            "candidate_title": "Boys on the Side (1995)",
+            "relevance": 2,
+            "score": 0.7943061231549723
+          },
+          {
+            "candidate_movie_id": 4474,
+            "candidate_title": "Beaches (1988)",
+            "relevance": 2,
+            "score": 0.7771606570097777
+          },
+          {
+            "candidate_movie_id": 1678,
+            "candidate_title": "Joy Luck Club, The (1993)",
+            "relevance": 1,
+            "score": 0.7388466341911457
+          }
+        ],
+        "chunked_mean": [
+          {
+            "candidate_movie_id": 1888,
+            "candidate_title": "Hope Floats (1998)",
+            "relevance": 1,
+            "score": 0.6179978847503662
+          },
+          {
+            "candidate_movie_id": 6124,
+            "candidate_title": "Savannah Smiles (1982)",
+            "relevance": 0,
+            "score": 0.5567349195480347
+          },
+          {
+            "candidate_movie_id": 4474,
+            "candidate_title": "Beaches (1988)",
+            "relevance": 2,
+            "score": 0.5073043704032898
+          },
+          {
+            "candidate_movie_id": 3825,
+            "candidate_title": "Coyote Ugly (2000)",
+            "relevance": 1,
+            "score": 0.48549240827560425
+          },
+          {
+            "candidate_movie_id": 1678,
+            "candidate_title": "Joy Luck Club, The (1993)",
+            "relevance": 1,
+            "score": 0.4822060465812683
+          }
+        ],
+        "chunked_max_pair": [
+          {
+            "candidate_movie_id": 1888,
+            "candidate_title": "Hope Floats (1998)",
+            "relevance": 1,
+            "score": 0.5821786522865295
+          },
+          {
+            "candidate_movie_id": 6124,
+            "candidate_title": "Savannah Smiles (1982)",
+            "relevance": 0,
+            "score": 0.540934145450592
+          },
+          {
+            "candidate_movie_id": 1678,
+            "candidate_title": "Joy Luck Club, The (1993)",
+            "relevance": 1,
+            "score": 0.4934738278388977
+          },
+          {
+            "candidate_movie_id": 4474,
+            "candidate_title": "Beaches (1988)",
+            "relevance": 2,
+            "score": 0.4905695915222168
+          },
+          {
+            "candidate_movie_id": 3825,
+            "candidate_title": "Coyote Ugly (2000)",
+            "relevance": 1,
+            "score": 0.4810519218444824
+          }
+        ],
+        "chunked_top2_mean": [
+          {
+            "candidate_movie_id": 1888,
+            "candidate_title": "Hope Floats (1998)",
+            "relevance": 1,
+            "score": 0.5737179517745972
+          },
+          {
+            "candidate_movie_id": 6124,
+            "candidate_title": "Savannah Smiles (1982)",
+            "relevance": 0,
+            "score": 0.525897204875946
+          },
+          {
+            "candidate_movie_id": 4474,
+            "candidate_title": "Beaches (1988)",
+            "relevance": 2,
+            "score": 0.49022698402404785
+          },
+          {
+            "candidate_movie_id": 3825,
+            "candidate_title": "Coyote Ugly (2000)",
+            "relevance": 1,
+            "score": 0.4793771803379059
+          },
+          {
+            "candidate_movie_id": 1678,
+            "candidate_title": "Joy Luck Club, The (1993)",
+            "relevance": 1,
+            "score": 0.45579952001571655
+          }
+        ]
+      }
+    },
+    {
+      "split": "development",
+      "query_movie_id": 5,
+      "query_title": "Father of the Bride Part II (1995)",
+      "labeled_candidates": 7,
+      "rankings": {
+        "phase9_baseline": [
+          {
+            "candidate_movie_id": 830,
+            "candidate_title": "First Wives Club, The (1996)",
+            "relevance": 1,
+            "score": 0.8290360797075333
+          },
+          {
+            "candidate_movie_id": 86833,
+            "candidate_title": "Bridesmaids (2011)",
+            "relevance": 1,
+            "score": 0.8254432113065505
+          },
+          {
+            "candidate_movie_id": 91690,
+            "candidate_title": "Friends with Kids (2011)",
+            "relevance": 1,
+            "score": 0.8166943602400234
+          },
+          {
+            "candidate_movie_id": 1821,
+            "candidate_title": "Object of My Affection, The (1998)",
+            "relevance": 1,
+            "score": 0.7887770848907332
+          },
+          {
+            "candidate_movie_id": 840,
+            "candidate_title": "House Arrest (1996)",
+            "relevance": 1,
+            "score": 0.7813832838010112
+          }
+        ],
+        "tfidf_plot_only": [
+          {
+            "candidate_movie_id": 1821,
+            "candidate_title": "Object of My Affection, The (1998)",
+            "relevance": 1,
+            "score": 0.5732502278394804
+          },
+          {
+            "candidate_movie_id": 86833,
+            "candidate_title": "Bridesmaids (2011)",
+            "relevance": 1,
+            "score": 0.28126349486062263
+          },
+          {
+            "candidate_movie_id": 830,
+            "candidate_title": "First Wives Club, The (1996)",
+            "relevance": 1,
+            "score": 0.16621592875577734
+          },
+          {
+            "candidate_movie_id": 840,
+            "candidate_title": "House Arrest (1996)",
+            "relevance": 1,
+            "score": 0.03142696313927519
+          },
+          {
+            "candidate_movie_id": 91690,
+            "candidate_title": "Friends with Kids (2011)",
+            "relevance": 1,
+            "score": 0.026055278505865243
+          }
+        ],
+        "transformer_plot_only": [
+          {
+            "candidate_movie_id": 4893,
+            "candidate_title": "When a Stranger Calls (1979)",
+            "relevance": 0,
+            "score": 0.5521208643913269
+          },
+          {
+            "candidate_movie_id": 43904,
+            "candidate_title": "When a Stranger Calls (2006)",
+            "relevance": 0,
+            "score": 0.5521208643913269
+          },
+          {
+            "candidate_movie_id": 840,
+            "candidate_title": "House Arrest (1996)",
+            "relevance": 1,
+            "score": 0.5411185026168823
+          },
+          {
+            "candidate_movie_id": 1821,
+            "candidate_title": "Object of My Affection, The (1998)",
+            "relevance": 1,
+            "score": 0.4658980369567871
+          },
+          {
+            "candidate_movie_id": 91690,
+            "candidate_title": "Friends with Kids (2011)",
+            "relevance": 1,
+            "score": 0.4652880132198334
+          }
+        ],
+        "name_discounted_tfidf": [
+          {
+            "candidate_movie_id": 1821,
+            "candidate_title": "Object of My Affection, The (1998)",
+            "relevance": 1,
+            "score": 0.35774279943274745
+          },
+          {
+            "candidate_movie_id": 86833,
+            "candidate_title": "Bridesmaids (2011)",
+            "relevance": 1,
+            "score": 0.2812634948606227
+          },
+          {
+            "candidate_movie_id": 830,
+            "candidate_title": "First Wives Club, The (1996)",
+            "relevance": 1,
+            "score": 0.16621592875577731
+          },
+          {
+            "candidate_movie_id": 840,
+            "candidate_title": "House Arrest (1996)",
+            "relevance": 1,
+            "score": 0.0314269631392752
+          },
+          {
+            "candidate_movie_id": 91690,
+            "candidate_title": "Friends with Kids (2011)",
+            "relevance": 1,
+            "score": 0.026055278505865257
+          }
+        ],
+        "phase9_story_gate": [
+          {
+            "candidate_movie_id": 86833,
+            "candidate_title": "Bridesmaids (2011)",
+            "relevance": 1,
+            "score": 0.8244811562817177
+          },
+          {
+            "candidate_movie_id": 830,
+            "candidate_title": "First Wives Club, The (1996)",
+            "relevance": 1,
+            "score": 0.8234318731081118
+          },
+          {
+            "candidate_movie_id": 91690,
+            "candidate_title": "Friends with Kids (2011)",
+            "relevance": 1,
+            "score": 0.8096506093475103
+          },
+          {
+            "candidate_movie_id": 1821,
+            "candidate_title": "Object of My Affection, The (1998)",
+            "relevance": 1,
+            "score": 0.7887770848907332
+          },
+          {
+            "candidate_movie_id": 840,
+            "candidate_title": "House Arrest (1996)",
+            "relevance": 1,
+            "score": 0.7759190650331721
+          }
+        ],
+        "chunked_mean": [
+          {
+            "candidate_movie_id": 1821,
+            "candidate_title": "Object of My Affection, The (1998)",
+            "relevance": 1,
+            "score": 0.7233265042304993
+          },
+          {
+            "candidate_movie_id": 840,
+            "candidate_title": "House Arrest (1996)",
+            "relevance": 1,
+            "score": 0.5873152017593384
+          },
+          {
+            "candidate_movie_id": 91690,
+            "candidate_title": "Friends with Kids (2011)",
+            "relevance": 1,
+            "score": 0.5812448263168335
+          },
+          {
+            "candidate_movie_id": 43904,
+            "candidate_title": "When a Stranger Calls (2006)",
+            "relevance": 0,
+            "score": 0.5632375478744507
+          },
+          {
+            "candidate_movie_id": 4893,
+            "candidate_title": "When a Stranger Calls (1979)",
+            "relevance": 0,
+            "score": 0.5632374882698059
+          }
+        ],
+        "chunked_max_pair": [
+          {
+            "candidate_movie_id": 1821,
+            "candidate_title": "Object of My Affection, The (1998)",
+            "relevance": 1,
+            "score": 0.6397178173065186
+          },
+          {
+            "candidate_movie_id": 840,
+            "candidate_title": "House Arrest (1996)",
+            "relevance": 1,
+            "score": 0.5694918036460876
+          },
+          {
+            "candidate_movie_id": 830,
+            "candidate_title": "First Wives Club, The (1996)",
+            "relevance": 1,
+            "score": 0.5351856350898743
+          },
+          {
+            "candidate_movie_id": 86833,
+            "candidate_title": "Bridesmaids (2011)",
+            "relevance": 1,
+            "score": 0.5229955911636353
+          },
+          {
+            "candidate_movie_id": 91690,
+            "candidate_title": "Friends with Kids (2011)",
+            "relevance": 1,
+            "score": 0.5191817283630371
+          }
+        ],
+        "chunked_top2_mean": [
+          {
+            "candidate_movie_id": 1821,
+            "candidate_title": "Object of My Affection, The (1998)",
+            "relevance": 1,
+            "score": 0.6164952516555786
+          },
+          {
+            "candidate_movie_id": 840,
+            "candidate_title": "House Arrest (1996)",
+            "relevance": 1,
+            "score": 0.5615266561508179
+          },
+          {
+            "candidate_movie_id": 830,
+            "candidate_title": "First Wives Club, The (1996)",
+            "relevance": 1,
+            "score": 0.5319994688034058
+          },
+          {
+            "candidate_movie_id": 91690,
+            "candidate_title": "Friends with Kids (2011)",
+            "relevance": 1,
+            "score": 0.5112334489822388
+          },
+          {
+            "candidate_movie_id": 86833,
+            "candidate_title": "Bridesmaids (2011)",
+            "relevance": 1,
+            "score": 0.510844349861145
+          }
+        ]
+      }
+    },
+    {
+      "split": "locked_audit",
+      "query_movie_id": 13,
+      "query_title": "Balto (1995)",
+      "labeled_candidates": 7,
+      "rankings": {
+        "phase9_baseline": [
+          {
+            "candidate_movie_id": 2142,
+            "candidate_title": "American Tail: Fievel Goes West, An (1991)",
+            "relevance": 1,
+            "score": 0.926737973629059
+          },
+          {
+            "candidate_movie_id": 2077,
+            "candidate_title": "Journey of Natty Gann, The (1985)",
+            "relevance": 1,
+            "score": 0.8916661731491583
+          },
+          {
+            "candidate_movie_id": 6889,
+            "candidate_title": "Brother Bear (2003)",
+            "relevance": 1,
+            "score": 0.8819388013624351
+          },
+          {
+            "candidate_movie_id": 33558,
+            "candidate_title": "Snow Walker, The (2003)",
+            "relevance": 2,
+            "score": 0.8202318295812976
+          },
+          {
+            "candidate_movie_id": 34,
+            "candidate_title": "Babe (1995)",
+            "relevance": 1,
+            "score": 0.8111521995339256
+          }
+        ],
+        "tfidf_plot_only": [
+          {
+            "candidate_movie_id": 7444,
+            "candidate_title": "13 Going on 30 (2004)",
+            "relevance": 0,
+            "score": 0.15305829394310647
+          },
+          {
+            "candidate_movie_id": 743,
+            "candidate_title": "Spy Hard (1996)",
+            "relevance": 0,
+            "score": 0.09324234241318459
+          },
+          {
+            "candidate_movie_id": 6889,
+            "candidate_title": "Brother Bear (2003)",
+            "relevance": 1,
+            "score": 0.02266887588694149
+          },
+          {
+            "candidate_movie_id": 2077,
+            "candidate_title": "Journey of Natty Gann, The (1985)",
+            "relevance": 1,
+            "score": 0.019181551136460716
+          },
+          {
+            "candidate_movie_id": 2142,
+            "candidate_title": "American Tail: Fievel Goes West, An (1991)",
+            "relevance": 1,
+            "score": 0.012679329770352167
+          }
+        ],
+        "transformer_plot_only": [
+          {
+            "candidate_movie_id": 6889,
+            "candidate_title": "Brother Bear (2003)",
+            "relevance": 1,
+            "score": 0.4362563192844391
+          },
+          {
+            "candidate_movie_id": 33558,
+            "candidate_title": "Snow Walker, The (2003)",
+            "relevance": 2,
+            "score": 0.43077394366264343
+          },
+          {
+            "candidate_movie_id": 34,
+            "candidate_title": "Babe (1995)",
+            "relevance": 1,
+            "score": 0.41331279277801514
+          },
+          {
+            "candidate_movie_id": 2077,
+            "candidate_title": "Journey of Natty Gann, The (1985)",
+            "relevance": 1,
+            "score": 0.377424955368042
+          },
+          {
+            "candidate_movie_id": 2142,
+            "candidate_title": "American Tail: Fievel Goes West, An (1991)",
+            "relevance": 1,
+            "score": 0.3002464771270752
+          }
+        ],
+        "name_discounted_tfidf": [
+          {
+            "candidate_movie_id": 7444,
+            "candidate_title": "13 Going on 30 (2004)",
+            "relevance": 0,
+            "score": 0.1530582939431064
+          },
+          {
+            "candidate_movie_id": 743,
+            "candidate_title": "Spy Hard (1996)",
+            "relevance": 0,
+            "score": 0.09324234241318449
+          },
+          {
+            "candidate_movie_id": 6889,
+            "candidate_title": "Brother Bear (2003)",
+            "relevance": 1,
+            "score": 0.022668875886941456
+          },
+          {
+            "candidate_movie_id": 2077,
+            "candidate_title": "Journey of Natty Gann, The (1985)",
+            "relevance": 1,
+            "score": 0.019181551136460695
+          },
+          {
+            "candidate_movie_id": 2142,
+            "candidate_title": "American Tail: Fievel Goes West, An (1991)",
+            "relevance": 1,
+            "score": 0.012679329770352153
+          }
+        ],
+        "phase9_story_gate": [
+          {
+            "candidate_movie_id": 2077,
+            "candidate_title": "Journey of Natty Gann, The (1985)",
+            "relevance": 1,
+            "score": 0.8910426303707324
+          },
+          {
+            "candidate_movie_id": 6889,
+            "candidate_title": "Brother Bear (2003)",
+            "relevance": 1,
+            "score": 0.8778271985588807
+          },
+          {
+            "candidate_movie_id": 2142,
+            "candidate_title": "American Tail: Fievel Goes West, An (1991)",
+            "relevance": 1,
+            "score": 0.8636593050277338
+          },
+          {
+            "candidate_movie_id": 33558,
+            "candidate_title": "Snow Walker, The (2003)",
+            "relevance": 2,
+            "score": 0.8181286710439096
+          },
+          {
+            "candidate_movie_id": 34,
+            "candidate_title": "Babe (1995)",
+            "relevance": 1,
+            "score": 0.8085050827988499
+          }
+        ],
+        "chunked_mean": [
+          {
+            "candidate_movie_id": 2077,
+            "candidate_title": "Journey of Natty Gann, The (1985)",
+            "relevance": 1,
+            "score": 0.5305501222610474
+          },
+          {
+            "candidate_movie_id": 33558,
+            "candidate_title": "Snow Walker, The (2003)",
+            "relevance": 2,
+            "score": 0.504460871219635
+          },
+          {
+            "candidate_movie_id": 34,
+            "candidate_title": "Babe (1995)",
+            "relevance": 1,
+            "score": 0.5000686645507812
+          },
+          {
+            "candidate_movie_id": 6889,
+            "candidate_title": "Brother Bear (2003)",
+            "relevance": 1,
+            "score": 0.4923085570335388
+          },
+          {
+            "candidate_movie_id": 2142,
+            "candidate_title": "American Tail: Fievel Goes West, An (1991)",
+            "relevance": 1,
+            "score": 0.3848421275615692
+          }
+        ],
+        "chunked_max_pair": [
+          {
+            "candidate_movie_id": 33558,
+            "candidate_title": "Snow Walker, The (2003)",
+            "relevance": 2,
+            "score": 0.4745464026927948
+          },
+          {
+            "candidate_movie_id": 2077,
+            "candidate_title": "Journey of Natty Gann, The (1985)",
+            "relevance": 1,
+            "score": 0.44706299901008606
+          },
+          {
+            "candidate_movie_id": 6889,
+            "candidate_title": "Brother Bear (2003)",
+            "relevance": 1,
+            "score": 0.43878665566444397
+          },
+          {
+            "candidate_movie_id": 34,
+            "candidate_title": "Babe (1995)",
+            "relevance": 1,
+            "score": 0.43304508924484253
+          },
+          {
+            "candidate_movie_id": 7444,
+            "candidate_title": "13 Going on 30 (2004)",
+            "relevance": 0,
+            "score": 0.43257054686546326
+          }
+        ],
+        "chunked_top2_mean": [
+          {
+            "candidate_movie_id": 33558,
+            "candidate_title": "Snow Walker, The (2003)",
+            "relevance": 2,
+            "score": 0.458051860332489
+          },
+          {
+            "candidate_movie_id": 2077,
+            "candidate_title": "Journey of Natty Gann, The (1985)",
+            "relevance": 1,
+            "score": 0.4392051100730896
+          },
+          {
+            "candidate_movie_id": 6889,
+            "candidate_title": "Brother Bear (2003)",
+            "relevance": 1,
+            "score": 0.4384516775608063
+          },
+          {
+            "candidate_movie_id": 34,
+            "candidate_title": "Babe (1995)",
+            "relevance": 1,
+            "score": 0.4305489659309387
+          },
+          {
+            "candidate_movie_id": 7444,
+            "candidate_title": "13 Going on 30 (2004)",
+            "relevance": 0,
+            "score": 0.42834290862083435
+          }
+        ]
+      }
+    },
+    {
+      "split": "development",
+      "query_movie_id": 20,
+      "query_title": "Money Train (1995)",
+      "labeled_candidates": 7,
+      "rankings": {
+        "phase9_baseline": [
+          {
+            "candidate_movie_id": 40959,
+            "candidate_title": "Ice Harvest, The (2005)",
+            "relevance": 1,
+            "score": 0.8539982685347731
+          },
+          {
+            "candidate_movie_id": 69306,
+            "candidate_title": "Taking of Pelham 1 2 3, The (2009)",
+            "relevance": 2,
+            "score": 0.8388113201308902
+          },
+          {
+            "candidate_movie_id": 1752,
+            "candidate_title": "Hard Rain (1998)",
+            "relevance": 2,
+            "score": 0.8364453527649228
+          },
+          {
+            "candidate_movie_id": 8042,
+            "candidate_title": "Mean Streets (1973)",
+            "relevance": 1,
+            "score": 0.830625806633263
+          },
+          {
+            "candidate_movie_id": 1799,
+            "candidate_title": "Suicide Kings (1997)",
+            "relevance": 1,
+            "score": 0.8103027028071246
+          }
+        ],
+        "tfidf_plot_only": [
+          {
+            "candidate_movie_id": 40959,
+            "candidate_title": "Ice Harvest, The (2005)",
+            "relevance": 1,
+            "score": 0.2927125416689997
+          },
+          {
+            "candidate_movie_id": 1799,
+            "candidate_title": "Suicide Kings (1997)",
+            "relevance": 1,
+            "score": 0.2860776263656176
+          },
+          {
+            "candidate_movie_id": 3752,
+            "candidate_title": "Me, Myself & Irene (2000)",
+            "relevance": 0,
+            "score": 0.2713876187841826
+          },
+          {
+            "candidate_movie_id": 8042,
+            "candidate_title": "Mean Streets (1973)",
+            "relevance": 1,
+            "score": 0.2421024805306347
+          },
+          {
+            "candidate_movie_id": 1752,
+            "candidate_title": "Hard Rain (1998)",
+            "relevance": 2,
+            "score": 0.08036951583628042
+          }
+        ],
+        "transformer_plot_only": [
+          {
+            "candidate_movie_id": 1799,
+            "candidate_title": "Suicide Kings (1997)",
+            "relevance": 1,
+            "score": 0.6606764793395996
+          },
+          {
+            "candidate_movie_id": 8042,
+            "candidate_title": "Mean Streets (1973)",
+            "relevance": 1,
+            "score": 0.6148284673690796
+          },
+          {
+            "candidate_movie_id": 7041,
+            "candidate_title": "Trapped in Paradise (1994)",
+            "relevance": 2,
+            "score": 0.5564029216766357
+          },
+          {
+            "candidate_movie_id": 40959,
+            "candidate_title": "Ice Harvest, The (2005)",
+            "relevance": 1,
+            "score": 0.5076138973236084
+          },
+          {
+            "candidate_movie_id": 69306,
+            "candidate_title": "Taking of Pelham 1 2 3, The (2009)",
+            "relevance": 2,
+            "score": 0.48597222566604614
+          }
+        ],
+        "name_discounted_tfidf": [
+          {
+            "candidate_movie_id": 40959,
+            "candidate_title": "Ice Harvest, The (2005)",
+            "relevance": 1,
+            "score": 0.291701352574248
+          },
+          {
+            "candidate_movie_id": 1799,
+            "candidate_title": "Suicide Kings (1997)",
+            "relevance": 1,
+            "score": 0.2860776263656175
+          },
+          {
+            "candidate_movie_id": 3752,
+            "candidate_title": "Me, Myself & Irene (2000)",
+            "relevance": 0,
+            "score": 0.2711803543690611
+          },
+          {
+            "candidate_movie_id": 8042,
+            "candidate_title": "Mean Streets (1973)",
+            "relevance": 1,
+            "score": 0.24162612055369123
+          },
+          {
+            "candidate_movie_id": 1752,
+            "candidate_title": "Hard Rain (1998)",
+            "relevance": 2,
+            "score": 0.08036951583628046
+          }
+        ],
+        "phase9_story_gate": [
+          {
+            "candidate_movie_id": 40959,
+            "candidate_title": "Ice Harvest, The (2005)",
+            "relevance": 1,
+            "score": 0.8539982685347731
+          },
+          {
+            "candidate_movie_id": 69306,
+            "candidate_title": "Taking of Pelham 1 2 3, The (2009)",
+            "relevance": 2,
+            "score": 0.8333365609319008
+          },
+          {
+            "candidate_movie_id": 1752,
+            "candidate_title": "Hard Rain (1998)",
+            "relevance": 2,
+            "score": 0.8305960845637697
+          },
+          {
+            "candidate_movie_id": 8042,
+            "candidate_title": "Mean Streets (1973)",
+            "relevance": 1,
+            "score": 0.8296577112875366
+          },
+          {
+            "candidate_movie_id": 1799,
+            "candidate_title": "Suicide Kings (1997)",
+            "relevance": 1,
+            "score": 0.8101138210582185
+          }
+        ],
+        "chunked_mean": [
+          {
+            "candidate_movie_id": 1799,
+            "candidate_title": "Suicide Kings (1997)",
+            "relevance": 1,
+            "score": 0.6882849931716919
+          },
+          {
+            "candidate_movie_id": 40959,
+            "candidate_title": "Ice Harvest, The (2005)",
+            "relevance": 1,
+            "score": 0.681982159614563
+          },
+          {
+            "candidate_movie_id": 7041,
+            "candidate_title": "Trapped in Paradise (1994)",
+            "relevance": 2,
+            "score": 0.6599164605140686
+          },
+          {
+            "candidate_movie_id": 8042,
+            "candidate_title": "Mean Streets (1973)",
+            "relevance": 1,
+            "score": 0.6522320508956909
+          },
+          {
+            "candidate_movie_id": 69306,
+            "candidate_title": "Taking of Pelham 1 2 3, The (2009)",
+            "relevance": 2,
+            "score": 0.5992065668106079
+          }
+        ],
+        "chunked_max_pair": [
+          {
+            "candidate_movie_id": 1799,
+            "candidate_title": "Suicide Kings (1997)",
+            "relevance": 1,
+            "score": 0.6495656967163086
+          },
+          {
+            "candidate_movie_id": 40959,
+            "candidate_title": "Ice Harvest, The (2005)",
+            "relevance": 1,
+            "score": 0.621406078338623
+          },
+          {
+            "candidate_movie_id": 7041,
+            "candidate_title": "Trapped in Paradise (1994)",
+            "relevance": 2,
+            "score": 0.5906294584274292
+          },
+          {
+            "candidate_movie_id": 8042,
+            "candidate_title": "Mean Streets (1973)",
+            "relevance": 1,
+            "score": 0.5864237546920776
+          },
+          {
+            "candidate_movie_id": 1752,
+            "candidate_title": "Hard Rain (1998)",
+            "relevance": 2,
+            "score": 0.5823045372962952
+          }
+        ],
+        "chunked_top2_mean": [
+          {
+            "candidate_movie_id": 1799,
+            "candidate_title": "Suicide Kings (1997)",
+            "relevance": 1,
+            "score": 0.6367272138595581
+          },
+          {
+            "candidate_movie_id": 40959,
+            "candidate_title": "Ice Harvest, The (2005)",
+            "relevance": 1,
+            "score": 0.6036804914474487
+          },
+          {
+            "candidate_movie_id": 8042,
+            "candidate_title": "Mean Streets (1973)",
+            "relevance": 1,
+            "score": 0.5805617570877075
+          },
+          {
+            "candidate_movie_id": 1752,
+            "candidate_title": "Hard Rain (1998)",
+            "relevance": 2,
+            "score": 0.5800267457962036
+          },
+          {
+            "candidate_movie_id": 7041,
+            "candidate_title": "Trapped in Paradise (1994)",
+            "relevance": 2,
+            "score": 0.5716902613639832
+          }
+        ]
+      }
+    },
+    {
+      "split": "development",
+      "query_movie_id": 22,
+      "query_title": "Copycat (1995)",
+      "labeled_candidates": 8,
+      "rankings": {
+        "phase9_baseline": [
+          {
+            "candidate_movie_id": 4661,
+            "candidate_title": "Sea of Love (1989)",
+            "relevance": 2,
+            "score": 0.8470819906639195
+          },
+          {
+            "candidate_movie_id": 4865,
+            "candidate_title": "From Hell (2001)",
+            "relevance": 2,
+            "score": 0.8443623462786386
+          },
+          {
+            "candidate_movie_id": 6323,
+            "candidate_title": "Identity (2003)",
+            "relevance": 2,
+            "score": 0.8410817774449177
+          },
+          {
+            "candidate_movie_id": 8369,
+            "candidate_title": "Mindhunters (2004)",
+            "relevance": 2,
+            "score": 0.8368316096069872
+          },
+          {
+            "candidate_movie_id": 47566,
+            "candidate_title": "Born to Kill (1947)",
+            "relevance": 1,
+            "score": 0.8055898898516705
+          }
+        ],
+        "tfidf_plot_only": [
+          {
+            "candidate_movie_id": 8362,
+            "candidate_title": "Raising Helen (2004)",
+            "relevance": 0,
+            "score": 0.3757569593913853
+          },
+          {
+            "candidate_movie_id": 47566,
+            "candidate_title": "Born to Kill (1947)",
+            "relevance": 1,
+            "score": 0.29900067150472887
+          },
+          {
+            "candidate_movie_id": 606,
+            "candidate_title": "Candyman: Farewell to the Flesh (1995)",
+            "relevance": 1,
+            "score": 0.29258512125611924
+          },
+          {
+            "candidate_movie_id": 4661,
+            "candidate_title": "Sea of Love (1989)",
+            "relevance": 2,
+            "score": 0.24403944739259675
+          },
+          {
+            "candidate_movie_id": 2488,
+            "candidate_title": "Peeping Tom (1960)",
+            "relevance": 2,
+            "score": 0.18062447866822856
+          }
+        ],
+        "transformer_plot_only": [
+          {
+            "candidate_movie_id": 47566,
+            "candidate_title": "Born to Kill (1947)",
+            "relevance": 1,
+            "score": 0.6332436203956604
+          },
+          {
+            "candidate_movie_id": 8362,
+            "candidate_title": "Raising Helen (2004)",
+            "relevance": 0,
+            "score": 0.5630190372467041
+          },
+          {
+            "candidate_movie_id": 4865,
+            "candidate_title": "From Hell (2001)",
+            "relevance": 2,
+            "score": 0.5278926491737366
+          },
+          {
+            "candidate_movie_id": 4661,
+            "candidate_title": "Sea of Love (1989)",
+            "relevance": 2,
+            "score": 0.5191094875335693
+          },
+          {
+            "candidate_movie_id": 6323,
+            "candidate_title": "Identity (2003)",
+            "relevance": 2,
+            "score": 0.5123249292373657
+          }
+        ],
+        "name_discounted_tfidf": [
+          {
+            "candidate_movie_id": 2488,
+            "candidate_title": "Peeping Tom (1960)",
+            "relevance": 2,
+            "score": 0.18062447866822828
+          },
+          {
+            "candidate_movie_id": 8362,
+            "candidate_title": "Raising Helen (2004)",
+            "relevance": 0,
+            "score": 0.08162273035977646
+          },
+          {
+            "candidate_movie_id": 47566,
+            "candidate_title": "Born to Kill (1947)",
+            "relevance": 1,
+            "score": 0.0796897344435201
+          },
+          {
+            "candidate_movie_id": 4661,
+            "candidate_title": "Sea of Love (1989)",
+            "relevance": 2,
+            "score": 0.06840760746123523
+          },
+          {
+            "candidate_movie_id": 606,
+            "candidate_title": "Candyman: Farewell to the Flesh (1995)",
+            "relevance": 1,
+            "score": 0.06593021455756565
+          }
+        ],
+        "phase9_story_gate": [
+          {
+            "candidate_movie_id": 4661,
+            "candidate_title": "Sea of Love (1989)",
+            "relevance": 2,
+            "score": 0.8468845356544408
+          },
+          {
+            "candidate_movie_id": 8369,
+            "candidate_title": "Mindhunters (2004)",
+            "relevance": 2,
+            "score": 0.8342957562445419
+          },
+          {
+            "candidate_movie_id": 47566,
+            "candidate_title": "Born to Kill (1947)",
+            "relevance": 1,
+            "score": 0.8055898898516705
+          },
+          {
+            "candidate_movie_id": 6323,
+            "candidate_title": "Identity (2003)",
+            "relevance": 2,
+            "score": 0.8018705057691641
+          },
+          {
+            "candidate_movie_id": 4865,
+            "candidate_title": "From Hell (2001)",
+            "relevance": 2,
+            "score": 0.7959443655829406
+          }
+        ],
+        "chunked_mean": [
+          {
+            "candidate_movie_id": 47566,
+            "candidate_title": "Born to Kill (1947)",
+            "relevance": 1,
+            "score": 0.7191277146339417
+          },
+          {
+            "candidate_movie_id": 4661,
+            "candidate_title": "Sea of Love (1989)",
+            "relevance": 2,
+            "score": 0.6862351298332214
+          },
+          {
+            "candidate_movie_id": 8362,
+            "candidate_title": "Raising Helen (2004)",
+            "relevance": 0,
+            "score": 0.6539980173110962
+          },
+          {
+            "candidate_movie_id": 606,
+            "candidate_title": "Candyman: Farewell to the Flesh (1995)",
+            "relevance": 1,
+            "score": 0.6350037455558777
+          },
+          {
+            "candidate_movie_id": 8369,
+            "candidate_title": "Mindhunters (2004)",
+            "relevance": 2,
+            "score": 0.593825101852417
+          }
+        ],
+        "chunked_max_pair": [
+          {
+            "candidate_movie_id": 606,
+            "candidate_title": "Candyman: Farewell to the Flesh (1995)",
+            "relevance": 1,
+            "score": 0.6366480588912964
+          },
+          {
+            "candidate_movie_id": 47566,
+            "candidate_title": "Born to Kill (1947)",
+            "relevance": 1,
+            "score": 0.6340565085411072
+          },
+          {
+            "candidate_movie_id": 4661,
+            "candidate_title": "Sea of Love (1989)",
+            "relevance": 2,
+            "score": 0.5888805985450745
+          },
+          {
+            "candidate_movie_id": 6323,
+            "candidate_title": "Identity (2003)",
+            "relevance": 2,
+            "score": 0.5784022212028503
+          },
+          {
+            "candidate_movie_id": 8369,
+            "candidate_title": "Mindhunters (2004)",
+            "relevance": 2,
+            "score": 0.5709371566772461
+          }
+        ],
+        "chunked_top2_mean": [
+          {
+            "candidate_movie_id": 606,
+            "candidate_title": "Candyman: Farewell to the Flesh (1995)",
+            "relevance": 1,
+            "score": 0.6351590156555176
+          },
+          {
+            "candidate_movie_id": 47566,
+            "candidate_title": "Born to Kill (1947)",
+            "relevance": 1,
+            "score": 0.6284849643707275
+          },
+          {
+            "candidate_movie_id": 4661,
+            "candidate_title": "Sea of Love (1989)",
+            "relevance": 2,
+            "score": 0.5858795642852783
+          },
+          {
+            "candidate_movie_id": 2488,
+            "candidate_title": "Peeping Tom (1960)",
+            "relevance": 2,
+            "score": 0.5533195734024048
+          },
+          {
+            "candidate_movie_id": 6323,
+            "candidate_title": "Identity (2003)",
+            "relevance": 2,
+            "score": 0.5485539436340332
+          }
+        ]
+      }
+    },
+    {
+      "split": "locked_audit",
+      "query_movie_id": 29,
+      "query_title": "City of Lost Children, The (Cité des enfants perdus, La) (1995)",
+      "labeled_candidates": 7,
+      "rankings": {
+        "phase9_baseline": [
+          {
+            "candidate_movie_id": 1175,
+            "candidate_title": "Delicatessen (1991)",
+            "relevance": 1,
+            "score": 0.9005695412246879
+          },
+          {
+            "candidate_movie_id": 53453,
+            "candidate_title": "Starcrash (a.k.a. Star Crash) (1978)",
+            "relevance": 0,
+            "score": 0.826008858883682
+          },
+          {
+            "candidate_movie_id": 6969,
+            "candidate_title": "Dernier Combat, Le (Last Battle, The) (1983)",
+            "relevance": 1,
+            "score": 0.8224043988608043
+          },
+          {
+            "candidate_movie_id": 1726,
+            "candidate_title": "Postman, The (1997)",
+            "relevance": 1,
+            "score": 0.8202647533806149
+          },
+          {
+            "candidate_movie_id": 27706,
+            "candidate_title": "Lemony Snicket's A Series of Unfortunate Events (2004)",
+            "relevance": 1,
+            "score": 0.8159958712532654
+          }
+        ],
+        "tfidf_plot_only": [
+          {
+            "candidate_movie_id": 1726,
+            "candidate_title": "Postman, The (1997)",
+            "relevance": 1,
+            "score": 0.02671605583803998
+          },
+          {
+            "candidate_movie_id": 27706,
+            "candidate_title": "Lemony Snicket's A Series of Unfortunate Events (2004)",
+            "relevance": 1,
+            "score": 0.02225139622013124
+          },
+          {
+            "candidate_movie_id": 2010,
+            "candidate_title": "Metropolis (1927)",
+            "relevance": 1,
+            "score": 0.017208047641986513
+          },
+          {
+            "candidate_movie_id": 1175,
+            "candidate_title": "Delicatessen (1991)",
+            "relevance": 1,
+            "score": 0.016090559360205477
+          },
+          {
+            "candidate_movie_id": 71468,
+            "candidate_title": "Ink (2009)",
+            "relevance": 1,
+            "score": 0.01549152337516201
+          }
+        ],
+        "transformer_plot_only": [
+          {
+            "candidate_movie_id": 6969,
+            "candidate_title": "Dernier Combat, Le (Last Battle, The) (1983)",
+            "relevance": 1,
+            "score": 0.46313759684562683
+          },
+          {
+            "candidate_movie_id": 53453,
+            "candidate_title": "Starcrash (a.k.a. Star Crash) (1978)",
+            "relevance": 0,
+            "score": 0.4590103328227997
+          },
+          {
+            "candidate_movie_id": 71468,
+            "candidate_title": "Ink (2009)",
+            "relevance": 1,
+            "score": 0.44337916374206543
+          },
+          {
+            "candidate_movie_id": 27706,
+            "candidate_title": "Lemony Snicket's A Series of Unfortunate Events (2004)",
+            "relevance": 1,
+            "score": 0.4211673140525818
+          },
+          {
+            "candidate_movie_id": 1726,
+            "candidate_title": "Postman, The (1997)",
+            "relevance": 1,
+            "score": 0.36479222774505615
+          }
+        ],
+        "name_discounted_tfidf": [
+          {
+            "candidate_movie_id": 1726,
+            "candidate_title": "Postman, The (1997)",
+            "relevance": 1,
+            "score": 0.026716055838039952
+          },
+          {
+            "candidate_movie_id": 27706,
+            "candidate_title": "Lemony Snicket's A Series of Unfortunate Events (2004)",
+            "relevance": 1,
+            "score": 0.022251396220131225
+          },
+          {
+            "candidate_movie_id": 2010,
+            "candidate_title": "Metropolis (1927)",
+            "relevance": 1,
+            "score": 0.017208047641986503
+          },
+          {
+            "candidate_movie_id": 6969,
+            "candidate_title": "Dernier Combat, Le (Last Battle, The) (1983)",
+            "relevance": 1,
+            "score": 0.012775273383337211
+          },
+          {
+            "candidate_movie_id": 71468,
+            "candidate_title": "Ink (2009)",
+            "relevance": 1,
+            "score": 0.012754700505674073
+          }
+        ],
+        "phase9_story_gate": [
+          {
+            "candidate_movie_id": 1175,
+            "candidate_title": "Delicatessen (1991)",
+            "relevance": 1,
+            "score": 0.8711803254271456
+          },
+          {
+            "candidate_movie_id": 53453,
+            "candidate_title": "Starcrash (a.k.a. Star Crash) (1978)",
+            "relevance": 0,
+            "score": 0.8256237731685848
+          },
+          {
+            "candidate_movie_id": 1726,
+            "candidate_title": "Postman, The (1997)",
+            "relevance": 1,
+            "score": 0.8141462284136732
+          },
+          {
+            "candidate_movie_id": 71468,
+            "candidate_title": "Ink (2009)",
+            "relevance": 1,
+            "score": 0.8072730497370073
+          },
+          {
+            "candidate_movie_id": 27706,
+            "candidate_title": "Lemony Snicket's A Series of Unfortunate Events (2004)",
+            "relevance": 1,
+            "score": 0.8057245945521754
+          }
+        ],
+        "chunked_mean": [
+          {
+            "candidate_movie_id": 53453,
+            "candidate_title": "Starcrash (a.k.a. Star Crash) (1978)",
+            "relevance": 0,
+            "score": 0.5660372972488403
+          },
+          {
+            "candidate_movie_id": 71468,
+            "candidate_title": "Ink (2009)",
+            "relevance": 1,
+            "score": 0.5254526138305664
+          },
+          {
+            "candidate_movie_id": 27706,
+            "candidate_title": "Lemony Snicket's A Series of Unfortunate Events (2004)",
+            "relevance": 1,
+            "score": 0.482822060585022
+          },
+          {
+            "candidate_movie_id": 2010,
+            "candidate_title": "Metropolis (1927)",
+            "relevance": 1,
+            "score": 0.4781351387500763
+          },
+          {
+            "candidate_movie_id": 6969,
+            "candidate_title": "Dernier Combat, Le (Last Battle, The) (1983)",
+            "relevance": 1,
+            "score": 0.4593469500541687
+          }
+        ],
+        "chunked_max_pair": [
+          {
+            "candidate_movie_id": 71468,
+            "candidate_title": "Ink (2009)",
+            "relevance": 1,
+            "score": 0.5197045803070068
+          },
+          {
+            "candidate_movie_id": 53453,
+            "candidate_title": "Starcrash (a.k.a. Star Crash) (1978)",
+            "relevance": 0,
+            "score": 0.4636879861354828
+          },
+          {
+            "candidate_movie_id": 6969,
+            "candidate_title": "Dernier Combat, Le (Last Battle, The) (1983)",
+            "relevance": 1,
+            "score": 0.46246790885925293
+          },
+          {
+            "candidate_movie_id": 27706,
+            "candidate_title": "Lemony Snicket's A Series of Unfortunate Events (2004)",
+            "relevance": 1,
+            "score": 0.41751739382743835
+          },
+          {
+            "candidate_movie_id": 2010,
+            "candidate_title": "Metropolis (1927)",
+            "relevance": 1,
+            "score": 0.36841797828674316
+          }
+        ],
+        "chunked_top2_mean": [
+          {
+            "candidate_movie_id": 71468,
+            "candidate_title": "Ink (2009)",
+            "relevance": 1,
+            "score": 0.49673324823379517
+          },
+          {
+            "candidate_movie_id": 53453,
+            "candidate_title": "Starcrash (a.k.a. Star Crash) (1978)",
+            "relevance": 0,
+            "score": 0.4608747363090515
+          },
+          {
+            "candidate_movie_id": 6969,
+            "candidate_title": "Dernier Combat, Le (Last Battle, The) (1983)",
+            "relevance": 1,
+            "score": 0.40963873267173767
+          },
+          {
+            "candidate_movie_id": 27706,
+            "candidate_title": "Lemony Snicket's A Series of Unfortunate Events (2004)",
+            "relevance": 1,
+            "score": 0.4082809090614319
+          },
+          {
+            "candidate_movie_id": 2010,
+            "candidate_title": "Metropolis (1927)",
+            "relevance": 1,
+            "score": 0.36438173055648804
+          }
+        ]
+      }
+    },
+    {
+      "split": "locked_audit",
+      "query_movie_id": 41,
+      "query_title": "Richard III (1995)",
+      "labeled_candidates": 7,
+      "rankings": {
+        "phase9_baseline": [
+          {
+            "candidate_movie_id": 1224,
+            "candidate_title": "Henry V (1989)",
+            "relevance": 1,
+            "score": 0.8524550571468295
+          },
+          {
+            "candidate_movie_id": 26150,
+            "candidate_title": "Andrei Rublev (Andrey Rublyov) (1969)",
+            "relevance": 1,
+            "score": 0.8356195318883606
+          },
+          {
+            "candidate_movie_id": 40966,
+            "candidate_title": "Libertine, The (2004)",
+            "relevance": 1,
+            "score": 0.8340182715911794
+          },
+          {
+            "candidate_movie_id": 2336,
+            "candidate_title": "Elizabeth (1998)",
+            "relevance": 1,
+            "score": 0.8293956866867553
+          },
+          {
+            "candidate_movie_id": 3811,
+            "candidate_title": "Breaker Morant (1980)",
+            "relevance": 1,
+            "score": 0.8244261033556242
+          }
+        ],
+        "tfidf_plot_only": [
+          {
+            "candidate_movie_id": 940,
+            "candidate_title": "Adventures of Robin Hood, The (1938)",
+            "relevance": 0,
+            "score": 0.15158127780314795
+          },
+          {
+            "candidate_movie_id": 1949,
+            "candidate_title": "Man for All Seasons, A (1966)",
+            "relevance": 1,
+            "score": 0.10908659283339352
+          },
+          {
+            "candidate_movie_id": 2336,
+            "candidate_title": "Elizabeth (1998)",
+            "relevance": 1,
+            "score": 0.10582700709928951
+          },
+          {
+            "candidate_movie_id": 1224,
+            "candidate_title": "Henry V (1989)",
+            "relevance": 1,
+            "score": 0.07585563274319036
+          },
+          {
+            "candidate_movie_id": 40966,
+            "candidate_title": "Libertine, The (2004)",
+            "relevance": 1,
+            "score": 0.04758499759036763
+          }
+        ],
+        "transformer_plot_only": [
+          {
+            "candidate_movie_id": 1949,
+            "candidate_title": "Man for All Seasons, A (1966)",
+            "relevance": 1,
+            "score": 0.4532482922077179
+          },
+          {
+            "candidate_movie_id": 40966,
+            "candidate_title": "Libertine, The (2004)",
+            "relevance": 1,
+            "score": 0.44562435150146484
+          },
+          {
+            "candidate_movie_id": 940,
+            "candidate_title": "Adventures of Robin Hood, The (1938)",
+            "relevance": 0,
+            "score": 0.43320146203041077
+          },
+          {
+            "candidate_movie_id": 1224,
+            "candidate_title": "Henry V (1989)",
+            "relevance": 1,
+            "score": 0.42950713634490967
+          },
+          {
+            "candidate_movie_id": 26150,
+            "candidate_title": "Andrei Rublev (Andrey Rublyov) (1969)",
+            "relevance": 1,
+            "score": 0.28257614374160767
+          }
+        ],
+        "name_discounted_tfidf": [
+          {
+            "candidate_movie_id": 1224,
+            "candidate_title": "Henry V (1989)",
+            "relevance": 1,
+            "score": 0.07086899365660405
+          },
+          {
+            "candidate_movie_id": 1949,
+            "candidate_title": "Man for All Seasons, A (1966)",
+            "relevance": 1,
+            "score": 0.06720745446814778
+          },
+          {
+            "candidate_movie_id": 940,
+            "candidate_title": "Adventures of Robin Hood, The (1938)",
+            "relevance": 0,
+            "score": 0.05510693517606208
+          },
+          {
+            "candidate_movie_id": 2336,
+            "candidate_title": "Elizabeth (1998)",
+            "relevance": 1,
+            "score": 0.04202470583160675
+          },
+          {
+            "candidate_movie_id": 26150,
+            "candidate_title": "Andrei Rublev (Andrey Rublyov) (1969)",
+            "relevance": 1,
+            "score": 0.03147034669026303
+          }
+        ],
+        "phase9_story_gate": [
+          {
+            "candidate_movie_id": 1224,
+            "candidate_title": "Henry V (1989)",
+            "relevance": 1,
+            "score": 0.8504679824215454
+          },
+          {
+            "candidate_movie_id": 40966,
+            "candidate_title": "Libertine, The (2004)",
+            "relevance": 1,
+            "score": 0.8297412548137887
+          },
+          {
+            "candidate_movie_id": 2336,
+            "candidate_title": "Elizabeth (1998)",
+            "relevance": 1,
+            "score": 0.8284290250472602
+          },
+          {
+            "candidate_movie_id": 1949,
+            "candidate_title": "Man for All Seasons, A (1966)",
+            "relevance": 1,
+            "score": 0.8137459563497665
+          },
+          {
+            "candidate_movie_id": 26150,
+            "candidate_title": "Andrei Rublev (Andrey Rublyov) (1969)",
+            "relevance": 1,
+            "score": 0.7974420427857689
+          }
+        ],
+        "chunked_mean": [
+          {
+            "candidate_movie_id": 1949,
+            "candidate_title": "Man for All Seasons, A (1966)",
+            "relevance": 1,
+            "score": 0.6786556243896484
+          },
+          {
+            "candidate_movie_id": 940,
+            "candidate_title": "Adventures of Robin Hood, The (1938)",
+            "relevance": 0,
+            "score": 0.6305961012840271
+          },
+          {
+            "candidate_movie_id": 2336,
+            "candidate_title": "Elizabeth (1998)",
+            "relevance": 1,
+            "score": 0.6100273132324219
+          },
+          {
+            "candidate_movie_id": 1224,
+            "candidate_title": "Henry V (1989)",
+            "relevance": 1,
+            "score": 0.5826196670532227
+          },
+          {
+            "candidate_movie_id": 40966,
+            "candidate_title": "Libertine, The (2004)",
+            "relevance": 1,
+            "score": 0.536892294883728
+          }
+        ],
+        "chunked_max_pair": [
+          {
+            "candidate_movie_id": 940,
+            "candidate_title": "Adventures of Robin Hood, The (1938)",
+            "relevance": 0,
+            "score": 0.6615669131278992
+          },
+          {
+            "candidate_movie_id": 1224,
+            "candidate_title": "Henry V (1989)",
+            "relevance": 1,
+            "score": 0.606717586517334
+          },
+          {
+            "candidate_movie_id": 2336,
+            "candidate_title": "Elizabeth (1998)",
+            "relevance": 1,
+            "score": 0.5971567034721375
+          },
+          {
+            "candidate_movie_id": 1949,
+            "candidate_title": "Man for All Seasons, A (1966)",
+            "relevance": 1,
+            "score": 0.5776942372322083
+          },
+          {
+            "candidate_movie_id": 3811,
+            "candidate_title": "Breaker Morant (1980)",
+            "relevance": 1,
+            "score": 0.4850277304649353
+          }
+        ],
+        "chunked_top2_mean": [
+          {
+            "candidate_movie_id": 940,
+            "candidate_title": "Adventures of Robin Hood, The (1938)",
+            "relevance": 0,
+            "score": 0.6456976532936096
+          },
+          {
+            "candidate_movie_id": 2336,
+            "candidate_title": "Elizabeth (1998)",
+            "relevance": 1,
+            "score": 0.5852423906326294
+          },
+          {
+            "candidate_movie_id": 1949,
+            "candidate_title": "Man for All Seasons, A (1966)",
+            "relevance": 1,
+            "score": 0.576674222946167
+          },
+          {
+            "candidate_movie_id": 1224,
+            "candidate_title": "Henry V (1989)",
+            "relevance": 1,
+            "score": 0.5673669576644897
+          },
+          {
+            "candidate_movie_id": 40966,
+            "candidate_title": "Libertine, The (2004)",
+            "relevance": 1,
+            "score": 0.46884477138519287
+          }
+        ]
+      }
+    },
+    {
+      "split": "development",
+      "query_movie_id": 44,
+      "query_title": "Mortal Kombat (1995)",
+      "labeled_candidates": 8,
+      "rankings": {
+        "phase9_baseline": [
+          {
+            "candidate_movie_id": 1681,
+            "candidate_title": "Mortal Kombat: Annihilation (1997)",
+            "relevance": 2,
+            "score": 0.914187782626924
+          },
+          {
+            "candidate_movie_id": 106072,
+            "candidate_title": "Thor: The Dark World (2013)",
+            "relevance": 1,
+            "score": 0.8578444295090939
+          },
+          {
+            "candidate_movie_id": 2826,
+            "candidate_title": "13th Warrior, The (1999)",
+            "relevance": 1,
+            "score": 0.8562422399804519
+          },
+          {
+            "candidate_movie_id": 100882,
+            "candidate_title": "Journey to the West: Conquering the Demons (Daai wa sai you chi Chui mo chun kei) (2013)",
+            "relevance": 1,
+            "score": 0.8253674586019623
+          },
+          {
+            "candidate_movie_id": 125974,
+            "candidate_title": "Halloweentown High (2004)",
+            "relevance": 0,
+            "score": 0.803603424325567
+          }
+        ],
+        "tfidf_plot_only": [
+          {
+            "candidate_movie_id": 1681,
+            "candidate_title": "Mortal Kombat: Annihilation (1997)",
+            "relevance": 2,
+            "score": 0.5210341503962742
+          },
+          {
+            "candidate_movie_id": 4498,
+            "candidate_title": "Dead Pool, The (1988)",
+            "relevance": 0,
+            "score": 0.08194176260758
+          },
+          {
+            "candidate_movie_id": 125974,
+            "candidate_title": "Halloweentown High (2004)",
+            "relevance": 0,
+            "score": 0.06199215795773807
+          },
+          {
+            "candidate_movie_id": 4387,
+            "candidate_title": "Kiss of the Dragon (2001)",
+            "relevance": 1,
+            "score": 0.060964247766777516
+          },
+          {
+            "candidate_movie_id": 2826,
+            "candidate_title": "13th Warrior, The (1999)",
+            "relevance": 1,
+            "score": 0.055651475404637336
+          }
+        ],
+        "transformer_plot_only": [
+          {
+            "candidate_movie_id": 1681,
+            "candidate_title": "Mortal Kombat: Annihilation (1997)",
+            "relevance": 2,
+            "score": 0.5511845946311951
+          },
+          {
+            "candidate_movie_id": 106072,
+            "candidate_title": "Thor: The Dark World (2013)",
+            "relevance": 1,
+            "score": 0.477281391620636
+          },
+          {
+            "candidate_movie_id": 6857,
+            "candidate_title": "Ninja Scroll (Jûbei ninpûchô) (1995)",
+            "relevance": 1,
+            "score": 0.39307987689971924
+          },
+          {
+            "candidate_movie_id": 100882,
+            "candidate_title": "Journey to the West: Conquering the Demons (Daai wa sai you chi Chui mo chun kei) (2013)",
+            "relevance": 1,
+            "score": 0.3927755355834961
+          },
+          {
+            "candidate_movie_id": 2826,
+            "candidate_title": "13th Warrior, The (1999)",
+            "relevance": 1,
+            "score": 0.33889278769493103
+          }
+        ],
+        "name_discounted_tfidf": [
+          {
+            "candidate_movie_id": 1681,
+            "candidate_title": "Mortal Kombat: Annihilation (1997)",
+            "relevance": 2,
+            "score": 0.3534960287385728
+          },
+          {
+            "candidate_movie_id": 125974,
+            "candidate_title": "Halloweentown High (2004)",
+            "relevance": 0,
+            "score": 0.06199215795773811
+          },
+          {
+            "candidate_movie_id": 2826,
+            "candidate_title": "13th Warrior, The (1999)",
+            "relevance": 1,
+            "score": 0.053911245334514586
+          },
+          {
+            "candidate_movie_id": 106072,
+            "candidate_title": "Thor: The Dark World (2013)",
+            "relevance": 1,
+            "score": 0.04794863335257474
+          },
+          {
+            "candidate_movie_id": 100882,
+            "candidate_title": "Journey to the West: Conquering the Demons (Daai wa sai you chi Chui mo chun kei) (2013)",
+            "relevance": 1,
+            "score": 0.03091845290555925
+          }
+        ],
+        "phase9_story_gate": [
+          {
+            "candidate_movie_id": 1681,
+            "candidate_title": "Mortal Kombat: Annihilation (1997)",
+            "relevance": 2,
+            "score": 0.914187782626924
+          },
+          {
+            "candidate_movie_id": 106072,
+            "candidate_title": "Thor: The Dark World (2013)",
+            "relevance": 1,
+            "score": 0.8564446833537178
+          },
+          {
+            "candidate_movie_id": 2826,
+            "candidate_title": "13th Warrior, The (1999)",
+            "relevance": 1,
+            "score": 0.8556434691832628
+          },
+          {
+            "candidate_movie_id": 100882,
+            "candidate_title": "Journey to the West: Conquering the Demons (Daai wa sai you chi Chui mo chun kei) (2013)",
+            "relevance": 1,
+            "score": 0.8238283118260147
+          },
+          {
+            "candidate_movie_id": 125974,
+            "candidate_title": "Halloweentown High (2004)",
+            "relevance": 0,
+            "score": 0.8032287840345061
+          }
+        ],
+        "chunked_mean": [
+          {
+            "candidate_movie_id": 1681,
+            "candidate_title": "Mortal Kombat: Annihilation (1997)",
+            "relevance": 2,
+            "score": 0.8040133714675903
+          },
+          {
+            "candidate_movie_id": 6857,
+            "candidate_title": "Ninja Scroll (Jûbei ninpûchô) (1995)",
+            "relevance": 1,
+            "score": 0.5552407503128052
+          },
+          {
+            "candidate_movie_id": 2826,
+            "candidate_title": "13th Warrior, The (1999)",
+            "relevance": 1,
+            "score": 0.5249810218811035
+          },
+          {
+            "candidate_movie_id": 100882,
+            "candidate_title": "Journey to the West: Conquering the Demons (Daai wa sai you chi Chui mo chun kei) (2013)",
+            "relevance": 1,
+            "score": 0.4995664060115814
+          },
+          {
+            "candidate_movie_id": 106072,
+            "candidate_title": "Thor: The Dark World (2013)",
+            "relevance": 1,
+            "score": 0.49335652589797974
+          }
+        ],
+        "chunked_max_pair": [
+          {
+            "candidate_movie_id": 1681,
+            "candidate_title": "Mortal Kombat: Annihilation (1997)",
+            "relevance": 2,
+            "score": 0.7511221766471863
+          },
+          {
+            "candidate_movie_id": 6857,
+            "candidate_title": "Ninja Scroll (Jûbei ninpûchô) (1995)",
+            "relevance": 1,
+            "score": 0.5203471183776855
+          },
+          {
+            "candidate_movie_id": 106072,
+            "candidate_title": "Thor: The Dark World (2013)",
+            "relevance": 1,
+            "score": 0.49792733788490295
+          },
+          {
+            "candidate_movie_id": 100882,
+            "candidate_title": "Journey to the West: Conquering the Demons (Daai wa sai you chi Chui mo chun kei) (2013)",
+            "relevance": 1,
+            "score": 0.48964932560920715
+          },
+          {
+            "candidate_movie_id": 2826,
+            "candidate_title": "13th Warrior, The (1999)",
+            "relevance": 1,
+            "score": 0.48273980617523193
+          }
+        ],
+        "chunked_top2_mean": [
+          {
+            "candidate_movie_id": 1681,
+            "candidate_title": "Mortal Kombat: Annihilation (1997)",
+            "relevance": 2,
+            "score": 0.7491070032119751
+          },
+          {
+            "candidate_movie_id": 6857,
+            "candidate_title": "Ninja Scroll (Jûbei ninpûchô) (1995)",
+            "relevance": 1,
+            "score": 0.503025233745575
+          },
+          {
+            "candidate_movie_id": 106072,
+            "candidate_title": "Thor: The Dark World (2013)",
+            "relevance": 1,
+            "score": 0.4871141016483307
+          },
+          {
+            "candidate_movie_id": 100882,
+            "candidate_title": "Journey to the West: Conquering the Demons (Daai wa sai you chi Chui mo chun kei) (2013)",
+            "relevance": 1,
+            "score": 0.47612378001213074
+          },
+          {
+            "candidate_movie_id": 2826,
+            "candidate_title": "13th Warrior, The (1999)",
+            "relevance": 1,
+            "score": 0.4735252261161804
+          }
+        ]
+      }
+    },
+    {
+      "split": "locked_audit",
+      "query_movie_id": 73,
+      "query_title": "Misérables, Les (1995)",
+      "labeled_candidates": 7,
+      "rankings": {
+        "phase9_baseline": [
+          {
+            "candidate_movie_id": 40414,
+            "candidate_title": "Joyeux Noël (Merry Christmas) (2005)",
+            "relevance": 1,
+            "score": 0.8326200955758701
+          },
+          {
+            "candidate_movie_id": 1873,
+            "candidate_title": "Misérables, Les (1998)",
+            "relevance": 2,
+            "score": 0.8243974056164682
+          },
+          {
+            "candidate_movie_id": 7079,
+            "candidate_title": "Hunchback of Notre Dame, The (1939)",
+            "relevance": 1,
+            "score": 0.8231409442163108
+          },
+          {
+            "candidate_movie_id": 8982,
+            "candidate_title": "I Am David (2003)",
+            "relevance": 1,
+            "score": 0.7892486860954969
+          },
+          {
+            "candidate_movie_id": 99532,
+            "candidate_title": "Misérables, Les (2000)",
+            "relevance": 2,
+            "score": 0.7767140516815692
+          }
+        ],
+        "tfidf_plot_only": [
+          {
+            "candidate_movie_id": 1873,
+            "candidate_title": "Misérables, Les (1998)",
+            "relevance": 2,
+            "score": 0.9999999999999932
+          },
+          {
+            "candidate_movie_id": 99149,
+            "candidate_title": "Misérables, Les (2012)",
+            "relevance": 2,
+            "score": 0.9999999999999932
+          },
+          {
+            "candidate_movie_id": 99532,
+            "candidate_title": "Misérables, Les (2000)",
+            "relevance": 2,
+            "score": 0.9999999999999932
+          },
+          {
+            "candidate_movie_id": 8982,
+            "candidate_title": "I Am David (2003)",
+            "relevance": 1,
+            "score": 0.019429138460017356
+          },
+          {
+            "candidate_movie_id": 40414,
+            "candidate_title": "Joyeux Noël (Merry Christmas) (2005)",
+            "relevance": 1,
+            "score": 0.010236031492606703
+          }
+        ],
+        "transformer_plot_only": [
+          {
+            "candidate_movie_id": 1873,
+            "candidate_title": "Misérables, Les (1998)",
+            "relevance": 2,
+            "score": 1.0
+          },
+          {
+            "candidate_movie_id": 99149,
+            "candidate_title": "Misérables, Les (2012)",
+            "relevance": 2,
+            "score": 1.0
+          },
+          {
+            "candidate_movie_id": 99532,
+            "candidate_title": "Misérables, Les (2000)",
+            "relevance": 2,
+            "score": 1.0
+          },
+          {
+            "candidate_movie_id": 48872,
+            "candidate_title": "13 Tzameti (2005)",
+            "relevance": 0,
+            "score": 0.5159882307052612
+          },
+          {
+            "candidate_movie_id": 8982,
+            "candidate_title": "I Am David (2003)",
+            "relevance": 1,
+            "score": 0.42038410902023315
+          }
+        ],
+        "name_discounted_tfidf": [
+          {
+            "candidate_movie_id": 1873,
+            "candidate_title": "Misérables, Les (1998)",
+            "relevance": 2,
+            "score": 0.47287538215309755
+          },
+          {
+            "candidate_movie_id": 99149,
+            "candidate_title": "Misérables, Les (2012)",
+            "relevance": 2,
+            "score": 0.47287538215309755
+          },
+          {
+            "candidate_movie_id": 99532,
+            "candidate_title": "Misérables, Les (2000)",
+            "relevance": 2,
+            "score": 0.47287538215309755
+          },
+          {
+            "candidate_movie_id": 8982,
+            "candidate_title": "I Am David (2003)",
+            "relevance": 1,
+            "score": 0.01942913846001652
+          },
+          {
+            "candidate_movie_id": 40414,
+            "candidate_title": "Joyeux Noël (Merry Christmas) (2005)",
+            "relevance": 1,
+            "score": 0.01008689826475887
+          }
+        ],
+        "phase9_story_gate": [
+          {
+            "candidate_movie_id": 1873,
+            "candidate_title": "Misérables, Les (1998)",
+            "relevance": 2,
+            "score": 0.8242052383890518
+          },
+          {
+            "candidate_movie_id": 40414,
+            "candidate_title": "Joyeux Noël (Merry Christmas) (2005)",
+            "relevance": 1,
+            "score": 0.8184519680753951
+          },
+          {
+            "candidate_movie_id": 7079,
+            "candidate_title": "Hunchback of Notre Dame, The (1939)",
+            "relevance": 1,
+            "score": 0.8176725253561326
+          },
+          {
+            "candidate_movie_id": 8982,
+            "candidate_title": "I Am David (2003)",
+            "relevance": 1,
+            "score": 0.7879608677265766
+          },
+          {
+            "candidate_movie_id": 99532,
+            "candidate_title": "Misérables, Les (2000)",
+            "relevance": 2,
+            "score": 0.7766235255683196
+          }
+        ],
+        "chunked_mean": [
+          {
+            "candidate_movie_id": 99149,
+            "candidate_title": "Misérables, Les (2012)",
+            "relevance": 2,
+            "score": 1.0
+          },
+          {
+            "candidate_movie_id": 99532,
+            "candidate_title": "Misérables, Les (2000)",
+            "relevance": 2,
+            "score": 1.0
+          },
+          {
+            "candidate_movie_id": 1873,
+            "candidate_title": "Misérables, Les (1998)",
+            "relevance": 2,
+            "score": 0.9999998807907104
+          },
+          {
+            "candidate_movie_id": 48872,
+            "candidate_title": "13 Tzameti (2005)",
+            "relevance": 0,
+            "score": 0.5377987027168274
+          },
+          {
+            "candidate_movie_id": 7079,
+            "candidate_title": "Hunchback of Notre Dame, The (1939)",
+            "relevance": 1,
+            "score": 0.5306616425514221
+          }
+        ],
+        "chunked_max_pair": [
+          {
+            "candidate_movie_id": 1873,
+            "candidate_title": "Misérables, Les (1998)",
+            "relevance": 2,
+            "score": 1.0000005960464478
+          },
+          {
+            "candidate_movie_id": 99149,
+            "candidate_title": "Misérables, Les (2012)",
+            "relevance": 2,
+            "score": 1.0000005960464478
+          },
+          {
+            "candidate_movie_id": 99532,
+            "candidate_title": "Misérables, Les (2000)",
+            "relevance": 2,
+            "score": 1.0000005960464478
+          },
+          {
+            "candidate_movie_id": 48872,
+            "candidate_title": "13 Tzameti (2005)",
+            "relevance": 0,
+            "score": 0.5284432172775269
+          },
+          {
+            "candidate_movie_id": 40414,
+            "candidate_title": "Joyeux Noël (Merry Christmas) (2005)",
+            "relevance": 1,
+            "score": 0.49986353516578674
+          }
+        ],
+        "chunked_top2_mean": [
+          {
+            "candidate_movie_id": 1873,
+            "candidate_title": "Misérables, Les (1998)",
+            "relevance": 2,
+            "score": 1.0000004768371582
+          },
+          {
+            "candidate_movie_id": 99149,
+            "candidate_title": "Misérables, Les (2012)",
+            "relevance": 2,
+            "score": 1.0000004768371582
+          },
+          {
+            "candidate_movie_id": 99532,
+            "candidate_title": "Misérables, Les (2000)",
+            "relevance": 2,
+            "score": 1.0000004768371582
+          },
+          {
+            "candidate_movie_id": 48872,
+            "candidate_title": "13 Tzameti (2005)",
+            "relevance": 0,
+            "score": 0.5244407057762146
+          },
+          {
+            "candidate_movie_id": 40414,
+            "candidate_title": "Joyeux Noël (Merry Christmas) (2005)",
+            "relevance": 1,
+            "score": 0.4837874174118042
+          }
+        ]
+      }
+    }
+  ],
+  "name_overlap_diagnostics": [
+    {
+      "pair_id": "P142-001",
+      "query_title": "Grumpier Old Men (1995)",
+      "candidate_title": "Pi (1998)",
+      "relevance": 0,
+      "shared_likely_name_terms": [
+        "max"
+      ],
+      "tfidf_shared_name_contribution": 0.29142682847737666,
+      "tfidf_plot_only": 0.29644831587521836,
+      "name_discounted_tfidf": 0.06330685309331674
+    },
+    {
+      "pair_id": "P142-049",
+      "query_title": "Balto (1995)",
+      "candidate_title": "American Tail: Fievel Goes West, An (1991)",
+      "relevance": 1,
+      "shared_likely_name_terms": [],
+      "tfidf_shared_name_contribution": 0.0,
+      "tfidf_plot_only": 0.012679329770352167,
+      "name_discounted_tfidf": 0.012679329770352153
+    },
+    {
+      "pair_id": "P142-073",
+      "query_title": "Misérables, Les (1995)",
+      "candidate_title": "Misérables, Les (1998)",
+      "relevance": 2,
+      "shared_likely_name_terms": [
+        "after",
+        "arme",
+        "bishop",
+        "cemetery",
+        "christmas",
+        "colonel",
+        "eve",
+        "garden",
+        "general",
+        "georges",
+        "gervais",
+        "gorbeau",
+        "gras",
+        "guard",
+        "guardsmen",
+        "homme",
+        "house",
+        "inspector",
+        "javert",
+        "jean",
+        "lachaise",
+        "lamarque",
+        "luxembourg",
+        "madeleine",
+        "mardi",
+        "marius",
+        "mayor",
+        "monsieur",
+        "move",
+        "myriel",
+        "national",
+        "out",
+        "petit",
+        "plumet",
+        "pontmercy",
+        "rue",
+        "st",
+        "thinking",
+        "valjean"
+      ],
+      "tfidf_shared_name_contribution": 0.6589057723085042,
+      "tfidf_plot_only": 0.9999999999999932,
+      "name_discounted_tfidf": 0.47287538215309755
+    }
+  ],
+  "coverage": {
+    "phase9_returned_labeled_candidates": 73,
+    "labeled_candidate_pairs": 73,
+    "phase9_labeled_candidate_coverage_by_split": {
+      "development": {
+        "returned_labeled_candidates": 45,
+        "labeled_candidate_pairs": 45,
+        "fraction": 1.0
+      },
+      "locked_audit": {
+        "returned_labeled_candidates": 28,
+        "labeled_candidate_pairs": 28,
+        "fraction": 1.0
+      }
+    },
+    "phase9_unreturned_candidates_are_bottom_ranked": true,
+    "candidate_pairs_outside_audit_are_unjudged": true
+  },
+  "long_plot_processing": {
+    "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+    "model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "model_input_limit": 256,
+    "chunk_size_wordpieces": 224,
+    "overlap_wordpieces": 48,
+    "encoded_chunk_count": 604,
+    "unique_plot_count": 90,
+    "long_plot_count": 90,
+    "plot_wordpieces_including_special_tokens": {
+      "3": 476,
+      "4": 383,
+      "5": 1100,
+      "13": 1004,
+      "20": 1374,
+      "22": 672,
+      "29": 739,
+      "34": 858,
+      "41": 1993,
+      "44": 1323,
+      "73": 4673,
+      "218": 550,
+      "606": 1103,
+      "743": 367,
+      "830": 999,
+      "840": 852,
+      "940": 1083,
+      "1027": 877,
+      "1150": 498,
+      "1175": 361,
+      "1224": 798,
+      "1678": 2673,
+      "1681": 884,
+      "1726": 751,
+      "1752": 1143,
+      "1799": 924,
+      "1821": 741,
+      "1839": 483,
+      "1873": 4673,
+      "1888": 895,
+      "1921": 1031,
+      "1949": 1152,
+      "2010": 681,
+      "2077": 777,
+      "2142": 835,
+      "2310": 1196,
+      "2336": 653,
+      "2488": 859,
+      "2671": 1259,
+      "2826": 657,
+      "3752": 967,
+      "3811": 2285,
+      "3825": 627,
+      "4069": 1341,
+      "4387": 632,
+      "4474": 1530,
+      "4498": 1211,
+      "4661": 637,
+      "4865": 850,
+      "4893": 848,
+      "5077": 319,
+      "5499": 898,
+      "5538": 728,
+      "5847": 1477,
+      "6013": 716,
+      "6124": 1307,
+      "6323": 1691,
+      "6857": 1015,
+      "6889": 813,
+      "6969": 850,
+      "7041": 1100,
+      "7079": 525,
+      "7444": 1076,
+      "8042": 411,
+      "8362": 783,
+      "8369": 1444,
+      "8982": 978,
+      "26150": 3563,
+      "27706": 739,
+      "33558": 922,
+      "34162": 763,
+      "40414": 1018,
+      "40959": 2294,
+      "40966": 967,
+      "43904": 848,
+      "47566": 373,
+      "48872": 477,
+      "49130": 885,
+      "53453": 1199,
+      "55245": 886,
+      "69306": 1092,
+      "71468": 1160,
+      "82499": 601,
+      "86833": 1083,
+      "91690": 806,
+      "99149": 4673,
+      "99532": 4673,
+      "100882": 1577,
+      "106072": 920,
+      "125974": 915
+    }
+  },
+  "existing_chunk_cache": {
+    "path": "data/models/all_minilm_l6_v2_plots_chunked.npz",
+    "reused": true,
+    "long_plot_count_full_catalog": 3400,
+    "chunk_count_full_catalog": 17548
+  },
+  "runtime_seconds": 28.327890541026136,
+  "findings": [
+    "On development groups, name-discounted TF-IDF changed NDCG@5 from 0.568 to 0.618 and unrelated audited top-five entries from 9 to 8; it still ranked unrelated candidates highly, so the heuristic did not remove the failure mode.",
+    "The fixed story gate changed development NDCG@5 from 0.849 to 0.844; on the locked groups it changed from 0.812 to 0.837. This small, selected audit does not establish a robust gate benefit.",
+    "Maximum chunk-pair cosine versus normalized-mean chunk scoring changed development NDCG@5 from 0.664 to 0.732 and locked NDCG@5 from 0.809 to 0.827; locked unrelated audited top-five entries rose from 3 to 4.",
+    "The dataset is a selected diagnostic set assembled from known model outputs and plot comparisons; neither its metrics nor its locked groups estimate broad catalog performance.",
+    "Uncertain pairs are excluded, and unjudged candidates are not treated as irrelevant. Metrics rank only the explicitly labeled pairs inside this audit file.",
+    "Name attenuation changes only likely shared name-token contributions. Capitalization is an imperfect proxy; it may suppress meaningful people, places, or sequel continuity. Keep name diagnostics as an experiment, not a production text cleaner.",
+    "The story gate leaves Phase 9 weights untouched but adds a fixed plot-support factor. It can demote a genuinely related story when both plot models rank it poorly, and the factor has not been tuned on locked groups.",
+    "Maximum chunk matching may be fooled by one incidental passage; top-two aggregation reduces single-window domination but still loses chronology. Chunk scores do not prove semantic relevance.",
+    "The Phase 9 reranker comparison is conditional on its candidate retrieval and the selected labels. No approach is declared a winner from these limited examples.",
+    "No Phase 13 test partition, ratings, Phase 13/14 reports, Phase 14.1 files, production recommendation logic, or default weights were used or changed."
+  ],
+  "artifacts": {
+    "new_model_downloaded": false,
+    "new_dependency_added": false,
+    "production_recommender_changed": false,
+    "phase14_1_artifacts_changed": false,
+    "phase13_14_artifacts_changed": false
+  }
+}

@@ -1,0 +1,1411 @@
+{
+  "phase": "Phase 14.1: Story-Level Relevance Improvement",
+  "label_source": "user_approved_ai_assisted",
+  "label_interpretation": "AI-generated relevance suggestions reviewed and approved by the user; not independent human judgments",
+  "label_provenance": "user_approved_ai_assisted",
+  "dataset": {
+    "path": "data/audit/phase14_1_story_relevance_pairs.csv",
+    "total_pairs": 25,
+    "plot_available_pairs": 22,
+    "missing_plot_pairs": 3,
+    "query_groups": 5,
+    "genres_seen": 14,
+    "proposed_label_counts": {
+      "0": 11,
+      "1": 9,
+      "2": 2
+    },
+    "approved_label_counts": {
+      "0": 11,
+      "1": 9,
+      "2": 2
+    },
+    "approved_label_pairs": 22,
+    "label_status_counts": {
+      "user_approved_ai_assisted": 22,
+      "unjudgeable_missing_plot": 3
+    },
+    "missing_plot_pair_ids": [
+      "SR004",
+      "SR018",
+      "SR025"
+    ]
+  },
+  "model_coverage": {
+    "phase6_tfidf": {
+      "available_labeled_pairs": 22,
+      "total_labeled_pairs": 22,
+      "available_queries": 5
+    },
+    "phase7_transformer": {
+      "available_labeled_pairs": 22,
+      "total_labeled_pairs": 22,
+      "available_queries": 5
+    },
+    "phase9_content": {
+      "available_labeled_pairs": 22,
+      "total_labeled_pairs": 22,
+      "available_queries": 5
+    },
+    "chunked_transformer": {
+      "available_labeled_pairs": 22,
+      "total_labeled_pairs": 22,
+      "available_queries": 5
+    }
+  },
+  "model_metrics": {
+    "phase6_tfidf": {
+      "judged_pairs": 22,
+      "query_groups": 5,
+      "queries_with_grade_2": 2,
+      "relevance_grade_counts": {
+        "0": 11,
+        "1": 9,
+        "2": 2
+      },
+      "pairwise_accuracy_grade2_vs_grade0": 0.2,
+      "ndcg_at_5": 0.6693331550223878,
+      "clearly_unrelated_in_top5": 11,
+      "grade1_or_2_pairs_outside_top5": 3
+    },
+    "phase7_transformer": {
+      "judged_pairs": 22,
+      "query_groups": 5,
+      "queries_with_grade_2": 2,
+      "relevance_grade_counts": {
+        "0": 11,
+        "1": 9,
+        "2": 2
+      },
+      "pairwise_accuracy_grade2_vs_grade0": 1.0,
+      "ndcg_at_5": 0.8221810379801402,
+      "clearly_unrelated_in_top5": 9,
+      "grade1_or_2_pairs_outside_top5": 1
+    },
+    "phase9_content": {
+      "judged_pairs": 22,
+      "query_groups": 5,
+      "queries_with_grade_2": 2,
+      "relevance_grade_counts": {
+        "0": 11,
+        "1": 9,
+        "2": 2
+      },
+      "pairwise_accuracy_grade2_vs_grade0": 1.0,
+      "ndcg_at_5": 0.8823417462090845,
+      "clearly_unrelated_in_top5": 8,
+      "grade1_or_2_pairs_outside_top5": 0
+    },
+    "chunked_transformer": {
+      "judged_pairs": 22,
+      "query_groups": 5,
+      "queries_with_grade_2": 2,
+      "relevance_grade_counts": {
+        "0": 11,
+        "1": 9,
+        "2": 2
+      },
+      "pairwise_accuracy_grade2_vs_grade0": 0.8,
+      "ndcg_at_5": 0.8422259596710135,
+      "clearly_unrelated_in_top5": 8,
+      "grade1_or_2_pairs_outside_top5": 0
+    }
+  },
+  "reranker": {
+    "method": "Phase 9 top 100 candidate retrieval, then cached chunked Transformer cosine reranking",
+    "candidate_pair_coverage": 12,
+    "labelable_pairs": 22,
+    "metrics_on_retrieved_labeled_pairs": {
+      "judged_pairs": 12,
+      "query_groups": 5,
+      "queries_with_grade_2": 2,
+      "relevance_grade_counts": {
+        "0": 2,
+        "1": 8,
+        "2": 2
+      },
+      "pairwise_accuracy_grade2_vs_grade0": null,
+      "ndcg_at_5": 0.890448693637048,
+      "clearly_unrelated_in_top5": 2,
+      "grade1_or_2_pairs_outside_top5": 0
+    },
+    "phase9_metrics_on_same_retrieved_pairs": {
+      "judged_pairs": 12,
+      "query_groups": 5,
+      "queries_with_grade_2": 2,
+      "relevance_grade_counts": {
+        "0": 2,
+        "1": 8,
+        "2": 2
+      },
+      "pairwise_accuracy_grade2_vs_grade0": null,
+      "ndcg_at_5": 0.877770699927931,
+      "clearly_unrelated_in_top5": 2,
+      "grade1_or_2_pairs_outside_top5": 0
+    },
+    "top5_unrelated_in_fixed_pair_audit": 2,
+    "plausible_pairs_outside_top5_in_retrieved_audit": 0,
+    "recommendation_changes_for_labeled_pairs_that_were_in_phase9_top5": [
+      {
+        "pair_id": "SR002",
+        "audit_relevance": 0,
+        "phase9_rank": 1,
+        "chunked_rerank_rank": null,
+        "pushed_below_top5": false,
+        "unrelated_still_in_top5": false
+      },
+      {
+        "pair_id": "SR003",
+        "audit_relevance": 1,
+        "phase9_rank": 2,
+        "chunked_rerank_rank": null,
+        "pushed_below_top5": true,
+        "unrelated_still_in_top5": false
+      },
+      {
+        "pair_id": "SR011",
+        "audit_relevance": 1,
+        "phase9_rank": 1,
+        "chunked_rerank_rank": 1,
+        "pushed_below_top5": false,
+        "unrelated_still_in_top5": false
+      },
+      {
+        "pair_id": "SR012",
+        "audit_relevance": 1,
+        "phase9_rank": 3,
+        "chunked_rerank_rank": null,
+        "pushed_below_top5": true,
+        "unrelated_still_in_top5": false
+      },
+      {
+        "pair_id": "SR015",
+        "audit_relevance": 1,
+        "phase9_rank": 1,
+        "chunked_rerank_rank": null,
+        "pushed_below_top5": true,
+        "unrelated_still_in_top5": false
+      },
+      {
+        "pair_id": "SR016",
+        "audit_relevance": 1,
+        "phase9_rank": 2,
+        "chunked_rerank_rank": null,
+        "pushed_below_top5": true,
+        "unrelated_still_in_top5": false
+      },
+      {
+        "pair_id": "SR019",
+        "audit_relevance": 1,
+        "phase9_rank": 1,
+        "chunked_rerank_rank": 4,
+        "pushed_below_top5": false,
+        "unrelated_still_in_top5": false
+      }
+    ],
+    "labeled_plausible_phase9_top5_pairs_pushed_below_top5": 4,
+    "labeled_grade0_phase9_top5_pairs_still_in_reranked_top5": 0,
+    "note": "Conditional on Phase 9 retrieval; omitted candidates are not recovered by reranking. Original rank lists are untouched."
+  },
+  "pair_results": [
+    {
+      "pair_id": "SR001",
+      "query_movie_id": 3,
+      "query_title": "Grumpier Old Men (1995)",
+      "candidate_movie_id": 1921,
+      "candidate_title": "Pi (1998)",
+      "proposed_relevance": 0,
+      "approved_relevance": 0,
+      "label_status": "user_approved_ai_assisted",
+      "label_provenance": "user_approved_ai_assisted",
+      "proposed_justification": "Different premise: a cold, competitive math researcher and numerical obsession rather than an elderly fishing rivalry and romance. Hard negative because both plots repeat Max.",
+      "phase9_explanation": "plot word overlap (TF-IDF cosine 0.296); plot semantic match (Transformer cosine 0.377)",
+      "scores": {
+        "phase6_tfidf": 0.29644831587521836,
+        "phase7_transformer": 0.3766380250453949,
+        "phase9_content": 0.5924666758120375,
+        "chunked_transformer": 0.4722553491592407
+      },
+      "in_phase9_top100": false
+    },
+    {
+      "pair_id": "SR002",
+      "query_movie_id": 3,
+      "query_title": "Grumpier Old Men (1995)",
+      "candidate_movie_id": 4069,
+      "candidate_title": "Wedding Planner, The (2001)",
+      "proposed_relevance": 0,
+      "approved_relevance": 0,
+      "label_status": "user_approved_ai_assisted",
+      "label_provenance": "user_approved_ai_assisted",
+      "proposed_justification": "Both are romantic comedies, but a wedding planner romance has no comparable central conflict to the older friends’ fishing feud.",
+      "phase9_explanation": "shared genres: comedy, romance; plot word overlap (TF-IDF cosine 0.019); plot semantic match (Transformer cosine 0.394); shared cast member: Kevin Pollak",
+      "scores": {
+        "phase6_tfidf": 0.01890127149439717,
+        "phase7_transformer": 0.39434176683425903,
+        "phase9_content": 0.8584085996821526,
+        "chunked_transformer": 0.4989520013332367
+      },
+      "in_phase9_top100": true
+    },
+    {
+      "pair_id": "SR003",
+      "query_movie_id": 3,
+      "query_title": "Grumpier Old Men (1995)",
+      "candidate_movie_id": 5077,
+      "candidate_title": "Cousins (1989)",
+      "proposed_relevance": 1,
+      "approved_relevance": 1,
+      "label_status": "user_approved_ai_assisted",
+      "label_provenance": "user_approved_ai_assisted",
+      "proposed_justification": "Both are comedy-romances about adult relationships and infidelity, but the relationship structure and central story differ.",
+      "phase9_explanation": "shared genres: comedy, romance; shared plot tags: revenge; plot word overlap (TF-IDF cosine 0.138); plot semantic match (Transformer cosine 0.425)",
+      "scores": {
+        "phase6_tfidf": 0.13793376275605784,
+        "phase7_transformer": 0.42545849084854126,
+        "phase9_content": 0.847928359781138,
+        "chunked_transformer": 0.49921661615371704
+      },
+      "in_phase9_top100": true
+    },
+    {
+      "pair_id": "SR004",
+      "query_movie_id": 3,
+      "query_title": "Grumpier Old Men (1995)",
+      "candidate_movie_id": 3450,
+      "candidate_title": "Grumpy Old Men (1993)",
+      "proposed_relevance": null,
+      "approved_relevance": null,
+      "label_status": "unjudgeable_missing_plot",
+      "label_provenance": "not_applicable_missing_plot",
+      "proposed_justification": "The title indicates a related series entry, but its plot is absent in this catalog; leave relevance unjudged.",
+      "phase9_explanation": "shared genres: comedy; shared writer: Mark Steven Johnson; shared cast member: Ann-Margret, Burgess Meredith, Daryl Hannah; shared selected crew: Alan Silvestri, John Davis",
+      "scores": {
+        "phase6_tfidf": null,
+        "phase7_transformer": null,
+        "phase9_content": null,
+        "chunked_transformer": null
+      },
+      "in_phase9_top100": false
+    },
+    {
+      "pair_id": "SR005",
+      "query_movie_id": 4,
+      "query_title": "Waiting to Exhale (1995)",
+      "candidate_movie_id": 6124,
+      "candidate_title": "Savannah Smiles (1982)",
+      "proposed_relevance": 0,
+      "approved_relevance": 0,
+      "label_status": "user_approved_ai_assisted",
+      "label_provenance": "user_approved_ai_assisted",
+      "proposed_justification": "Savannah is a character name in both records, but this candidate follows two men escaping prison and roaming for a child; the query follows four women navigating relationships.",
+      "phase9_explanation": "shared genres: comedy; plot word overlap (TF-IDF cosine 0.162); plot semantic match (Transformer cosine 0.453)",
+      "scores": {
+        "phase6_tfidf": 0.16165364358479906,
+        "phase7_transformer": 0.4528964161872864,
+        "phase9_content": 0.6911889512078112,
+        "chunked_transformer": 0.5567349195480347
+      },
+      "in_phase9_top100": false
+    },
+    {
+      "pair_id": "SR006",
+      "query_movie_id": 4,
+      "query_title": "Waiting to Exhale (1995)",
+      "candidate_movie_id": 1027,
+      "candidate_title": "Robin Hood: Prince of Thieves (1991)",
+      "proposed_relevance": 0,
+      "approved_relevance": 0,
+      "label_status": "user_approved_ai_assisted",
+      "label_provenance": "user_approved_ai_assisted",
+      "proposed_justification": "Robin is a character name in the query and the candidate title/plot, but the candidate is a medieval Robin Hood adventure.",
+      "phase9_explanation": "shared genres: drama; plot word overlap (TF-IDF cosine 0.149); plot semantic match (Transformer cosine 0.170)",
+      "scores": {
+        "phase6_tfidf": 0.14946313642547077,
+        "phase7_transformer": 0.17004826664924622,
+        "phase9_content": 0.47038181643899535,
+        "chunked_transformer": 0.37648147344589233
+      },
+      "in_phase9_top100": false
+    },
+    {
+      "pair_id": "SR007",
+      "query_movie_id": 4,
+      "query_title": "Waiting to Exhale (1995)",
+      "candidate_movie_id": 5499,
+      "candidate_title": "Robin and Marian (1976)",
+      "proposed_relevance": 0,
+      "approved_relevance": 0,
+      "label_status": "user_approved_ai_assisted",
+      "label_provenance": "user_approved_ai_assisted",
+      "proposed_justification": "Robin appears in both, but the candidate is a Robin Hood/Marian historical romance rather than a story of four contemporary friends.",
+      "phase9_explanation": "shared genres: drama, romance; plot word overlap (TF-IDF cosine 0.142); plot semantic match (Transformer cosine 0.320)",
+      "scores": {
+        "phase6_tfidf": 0.14209141303953035,
+        "phase7_transformer": 0.3204326629638672,
+        "phase9_content": 0.7379174441816688,
+        "chunked_transformer": 0.37770429253578186
+      },
+      "in_phase9_top100": false
+    },
+    {
+      "pair_id": "SR008",
+      "query_movie_id": 4,
+      "query_title": "Waiting to Exhale (1995)",
+      "candidate_movie_id": 520,
+      "candidate_title": "Robin Hood: Men in Tights (1993)",
+      "proposed_relevance": 0,
+      "approved_relevance": 0,
+      "label_status": "user_approved_ai_assisted",
+      "label_provenance": "user_approved_ai_assisted",
+      "proposed_justification": "Robin Hood name and comedy genre overlap; the plot is a parody of a medieval outlaw story, not four women’s relationships.",
+      "phase9_explanation": "shared genres: comedy; plot word overlap (TF-IDF cosine 0.135); plot semantic match (Transformer cosine 0.265)",
+      "scores": {
+        "phase6_tfidf": 0.13506340572368244,
+        "phase7_transformer": 0.2653639018535614,
+        "phase9_content": 0.5926050351238952,
+        "chunked_transformer": 0.41078007221221924
+      },
+      "in_phase9_top100": false
+    },
+    {
+      "pair_id": "SR009",
+      "query_movie_id": 4,
+      "query_title": "Waiting to Exhale (1995)",
+      "candidate_movie_id": 4474,
+      "candidate_title": "Beaches (1988)",
+      "proposed_relevance": 2,
+      "approved_relevance": 2,
+      "label_status": "user_approved_ai_assisted",
+      "label_provenance": "user_approved_ai_assisted",
+      "proposed_justification": "Both plots center on women’s friendship across life events, relationships, and time, despite different characters and settings.",
+      "phase9_explanation": "shared genres: comedy, drama; plot word overlap (TF-IDF cosine 0.039); plot semantic match (Transformer cosine 0.513)",
+      "scores": {
+        "phase6_tfidf": 0.03871753689142346,
+        "phase7_transformer": 0.5127331614494324,
+        "phase9_content": 0.7874395887038134,
+        "chunked_transformer": 0.5073043704032898
+      },
+      "in_phase9_top100": true
+    },
+    {
+      "pair_id": "SR010",
+      "query_movie_id": 4,
+      "query_title": "Waiting to Exhale (1995)",
+      "candidate_movie_id": 1678,
+      "candidate_title": "Joy Luck Club, The (1993)",
+      "proposed_relevance": 1,
+      "approved_relevance": 1,
+      "label_status": "user_approved_ai_assisted",
+      "label_provenance": "user_approved_ai_assisted",
+      "proposed_justification": "Both center on relationships among women and family generations, though one focuses on four contemporary friends and the other on mothers and daughters.",
+      "phase9_explanation": "shared genres: drama, romance; plot word overlap (TF-IDF cosine 0.036); plot semantic match (Transformer cosine 0.263); shared writer: Ronald Bass; shared selected crew: Ronald Bass",
+      "scores": {
+        "phase6_tfidf": 0.03637786236282946,
+        "phase7_transformer": 0.26316478848457336,
+        "phase9_content": 0.7543198621323215,
+        "chunked_transformer": 0.4822060465812683
+      },
+      "in_phase9_top100": false
+    },
+    {
+      "pair_id": "SR011",
+      "query_movie_id": 4,
+      "query_title": "Waiting to Exhale (1995)",
+      "candidate_movie_id": 1888,
+      "candidate_title": "Hope Floats (1998)",
+      "proposed_relevance": 1,
+      "approved_relevance": 1,
+      "label_status": "user_approved_ai_assisted",
+      "label_provenance": "user_approved_ai_assisted",
+      "proposed_justification": "Both concern a woman coping with romantic betrayal and rebuilding family life, but the query follows four friends while this one follows one mother and daughter.",
+      "phase9_explanation": "shared genres: comedy, drama, romance; shared plot tags: revenge; plot word overlap (TF-IDF cosine 0.025); plot semantic match (Transformer cosine 0.452); shared director: Forest Whitaker",
+      "scores": {
+        "phase6_tfidf": 0.024616369841266063,
+        "phase7_transformer": 0.4519231617450714,
+        "phase9_content": 0.9047590067970938,
+        "chunked_transformer": 0.6179978847503662
+      },
+      "in_phase9_top100": true
+    },
+    {
+      "pair_id": "SR012",
+      "query_movie_id": 4,
+      "query_title": "Waiting to Exhale (1995)",
+      "candidate_movie_id": 3825,
+      "candidate_title": "Coyote Ugly (2000)",
+      "proposed_relevance": 1,
+      "approved_relevance": 1,
+      "label_status": "user_approved_ai_assisted",
+      "label_provenance": "user_approved_ai_assisted",
+      "proposed_justification": "Both are contemporary stories about a woman pursuing independence amid relationships and family, but the central conflicts differ.",
+      "phase9_explanation": "shared genres: comedy, drama, romance; plot word overlap (TF-IDF cosine 0.044); plot semantic match (Transformer cosine 0.438)",
+      "scores": {
+        "phase6_tfidf": 0.044448402220642086,
+        "phase7_transformer": 0.4377838373184204,
+        "phase9_content": 0.844169342262986,
+        "chunked_transformer": 0.48549240827560425
+      },
+      "in_phase9_top100": true
+    },
+    {
+      "pair_id": "SR013",
+      "query_movie_id": 5,
+      "query_title": "Father of the Bride Part II (1995)",
+      "candidate_movie_id": 4893,
+      "candidate_title": "When a Stranger Calls (1979)",
+      "proposed_relevance": 0,
+      "approved_relevance": 0,
+      "label_status": "user_approved_ai_assisted",
+      "label_provenance": "user_approved_ai_assisted",
+      "proposed_justification": "The candidate is a babysitter-stalker thriller; the query is a family comedy about pregnancy and a household transition.",
+      "phase9_explanation": "plot word overlap (TF-IDF cosine 0.022); plot semantic match (Transformer cosine 0.552)",
+      "scores": {
+        "phase6_tfidf": 0.02241263874428211,
+        "phase7_transformer": 0.5521208643913269,
+        "phase9_content": 0.5915448296099611,
+        "chunked_transformer": 0.5632374882698059
+      },
+      "in_phase9_top100": false
+    },
+    {
+      "pair_id": "SR014",
+      "query_movie_id": 5,
+      "query_title": "Father of the Bride Part II (1995)",
+      "candidate_movie_id": 43904,
+      "candidate_title": "When a Stranger Calls (2006)",
+      "proposed_relevance": 0,
+      "approved_relevance": 0,
+      "label_status": "user_approved_ai_assisted",
+      "label_provenance": "user_approved_ai_assisted",
+      "proposed_justification": "Same thriller plot as the 1979 candidate, unrelated to the query’s pregnancy and family-comedy plot.",
+      "phase9_explanation": "plot word overlap (TF-IDF cosine 0.022); plot semantic match (Transformer cosine 0.552)",
+      "scores": {
+        "phase6_tfidf": 0.02241263874428211,
+        "phase7_transformer": 0.5521208643913269,
+        "phase9_content": 0.5565943403962396,
+        "chunked_transformer": 0.5632375478744507
+      },
+      "in_phase9_top100": false
+    },
+    {
+      "pair_id": "SR015",
+      "query_movie_id": 5,
+      "query_title": "Father of the Bride Part II (1995)",
+      "candidate_movie_id": 830,
+      "candidate_title": "First Wives Club, The (1996)",
+      "proposed_relevance": 1,
+      "approved_relevance": 1,
+      "label_status": "user_approved_ai_assisted",
+      "label_provenance": "user_approved_ai_assisted",
+      "proposed_justification": "Both are comedies about adult relationships and changing family/social ties, but the First Wives Club centers on friends and ex-husbands, not pregnancy and a new grandchild.",
+      "phase9_explanation": "shared genres: comedy; plot word overlap (TF-IDF cosine 0.166); plot semantic match (Transformer cosine 0.374); shared cast member: Diane Keaton",
+      "scores": {
+        "phase6_tfidf": 0.16621592875577734,
+        "phase7_transformer": 0.37381821870803833,
+        "phase9_content": 0.8290360797075333,
+        "chunked_transformer": 0.543555498123169
+      },
+      "in_phase9_top100": true
+    },
+    {
+      "pair_id": "SR016",
+      "query_movie_id": 5,
+      "query_title": "Father of the Bride Part II (1995)",
+      "candidate_movie_id": 86833,
+      "candidate_title": "Bridesmaids (2011)",
+      "proposed_relevance": 1,
+      "approved_relevance": 1,
+      "label_status": "user_approved_ai_assisted",
+      "label_provenance": "user_approved_ai_assisted",
+      "proposed_justification": "Both use weddings and comedy, but one centers on a maid of honor and friendship conflict while the query centers on pregnancy and an expanding family.",
+      "phase9_explanation": "shared genres: comedy; shared plot tags: comedy; plot word overlap (TF-IDF cosine 0.281); plot semantic match (Transformer cosine 0.455)",
+      "scores": {
+        "phase6_tfidf": 0.28126349486062263,
+        "phase7_transformer": 0.45542994141578674,
+        "phase9_content": 0.8254432113065505,
+        "chunked_transformer": 0.5355611443519592
+      },
+      "in_phase9_top100": true
+    },
+    {
+      "pair_id": "SR017",
+      "query_movie_id": 5,
+      "query_title": "Father of the Bride Part II (1995)",
+      "candidate_movie_id": 2059,
+      "candidate_title": "Parent Trap, The (1998)",
+      "proposed_relevance": 1,
+      "approved_relevance": 1,
+      "label_status": "user_approved_ai_assisted",
+      "label_provenance": "user_approved_ai_assisted",
+      "proposed_justification": "Both are family comedies about parents and children, but the candidate’s separated twins plot differs from the query’s pregnancy and grandparent story.",
+      "phase9_explanation": "shared genres: comedy; plot word overlap (TF-IDF cosine 0.125); plot semantic match (Transformer cosine 0.476); shared writer: Charles Shyer, Nancy Meyers; shared selected crew: Alan Silvestri",
+      "scores": {
+        "phase6_tfidf": 0.12492665907056205,
+        "phase7_transformer": 0.4763219654560089,
+        "phase9_content": 0.7892983174254184,
+        "chunked_transformer": 0.6050757765769958
+      },
+      "in_phase9_top100": true
+    },
+    {
+      "pair_id": "SR018",
+      "query_movie_id": 5,
+      "query_title": "Father of the Bride Part II (1995)",
+      "candidate_movie_id": 6944,
+      "candidate_title": "Father of the Bride (1991)",
+      "proposed_relevance": null,
+      "approved_relevance": null,
+      "label_status": "unjudgeable_missing_plot",
+      "label_provenance": "not_applicable_missing_plot",
+      "proposed_justification": "The first Father of the Bride movie is a plausible family-story neighbor, but no plot is available here to judge it.",
+      "phase9_explanation": "shared genres: comedy; shared director: Charles Shyer; shared writer: Charles Shyer, Nancy Meyers; shared cast member: BD Wong, Diane Keaton, Eugene Levy; shared selected crew: Alan Silvestri, Nancy Meyers",
+      "scores": {
+        "phase6_tfidf": null,
+        "phase7_transformer": null,
+        "phase9_content": null,
+        "chunked_transformer": null
+      },
+      "in_phase9_top100": false
+    },
+    {
+      "pair_id": "SR019",
+      "query_movie_id": 1445,
+      "query_title": "McHale's Navy (1997)",
+      "candidate_movie_id": 5801,
+      "candidate_title": "Russians Are Coming, the Russians Are Coming, The (1966)",
+      "proposed_relevance": 1,
+      "approved_relevance": 1,
+      "label_status": "user_approved_ai_assisted",
+      "label_provenance": "user_approved_ai_assisted",
+      "proposed_justification": "Both are military comedies about a crew’s schemes and a local/international predicament; the settings and conflicts are distinct.",
+      "phase9_explanation": "shared genres: comedy, war; plot word overlap (TF-IDF cosine 0.051); plot semantic match (Transformer cosine 0.384)",
+      "scores": {
+        "phase6_tfidf": 0.051369334883732805,
+        "phase7_transformer": 0.38441723585128784,
+        "phase9_content": 0.883946632040889,
+        "chunked_transformer": 0.5318027138710022
+      },
+      "in_phase9_top100": true
+    },
+    {
+      "pair_id": "SR020",
+      "query_movie_id": 1445,
+      "query_title": "McHale's Navy (1997)",
+      "candidate_movie_id": 73,
+      "candidate_title": "Misérables, Les (1995)",
+      "proposed_relevance": 0,
+      "approved_relevance": 0,
+      "label_status": "user_approved_ai_assisted",
+      "label_provenance": "user_approved_ai_assisted",
+      "proposed_justification": "Both plots involve war-related genres, but the query is a 20th-century military farce while the candidate adapts a 19th-century French novel.",
+      "phase9_explanation": "shared genres: war; plot word overlap (TF-IDF cosine 0.006); plot semantic match (Transformer cosine 0.065)",
+      "scores": {
+        "phase6_tfidf": 0.005682128994011369,
+        "phase7_transformer": 0.06546855717897415,
+        "phase9_content": 0.40286996949267645,
+        "chunked_transformer": 0.21371522545814514
+      },
+      "in_phase9_top100": false
+    },
+    {
+      "pair_id": "SR021",
+      "query_movie_id": 1445,
+      "query_title": "McHale's Navy (1997)",
+      "candidate_movie_id": 2427,
+      "candidate_title": "Thin Red Line, The (1998)",
+      "proposed_relevance": 0,
+      "approved_relevance": 0,
+      "label_status": "user_approved_ai_assisted",
+      "label_provenance": "user_approved_ai_assisted",
+      "proposed_justification": "Both involve military settings, but the candidate is a serious Pacific War drama with a different story and tone.",
+      "phase9_explanation": "shared genres: war; shared plot tags: cult; plot word overlap (TF-IDF cosine 0.075); plot semantic match (Transformer cosine 0.433)",
+      "scores": {
+        "phase6_tfidf": 0.07466781097761449,
+        "phase7_transformer": 0.43276965618133545,
+        "phase9_content": 0.7646592677577113,
+        "chunked_transformer": 0.553531289100647
+      },
+      "in_phase9_top100": true
+    },
+    {
+      "pair_id": "SR022",
+      "query_movie_id": 73,
+      "query_title": "Misérables, Les (1995)",
+      "candidate_movie_id": 1873,
+      "candidate_title": "Misérables, Les (1998)",
+      "proposed_relevance": 2,
+      "approved_relevance": 2,
+      "label_status": "user_approved_ai_assisted",
+      "label_provenance": "user_approved_ai_assisted",
+      "proposed_justification": "Both records carry the same Les Misérables plot summary and represent adaptations of the same source story.",
+      "phase9_explanation": "shared genres: drama, war; shared plot tags: melodrama, murder; plot word overlap (TF-IDF cosine 1.000); plot semantic match (Transformer cosine 1.000)",
+      "scores": {
+        "phase6_tfidf": 0.9999999999999932,
+        "phase7_transformer": 1.0,
+        "phase9_content": 0.8243974056164682,
+        "chunked_transformer": 0.9999998807907104
+      },
+      "in_phase9_top100": true
+    },
+    {
+      "pair_id": "SR023",
+      "query_movie_id": 73,
+      "query_title": "Misérables, Les (1995)",
+      "candidate_movie_id": 4429,
+      "candidate_title": "Moby Dick (1956)",
+      "proposed_relevance": 0,
+      "approved_relevance": 0,
+      "label_status": "user_approved_ai_assisted",
+      "label_provenance": "user_approved_ai_assisted",
+      "proposed_justification": "Both are long classic-literature adaptations, but the plots concern unrelated characters and conflicts.",
+      "phase9_explanation": "shared genres: drama; plot word overlap (TF-IDF cosine 0.006); plot semantic match (Transformer cosine 0.102)",
+      "scores": {
+        "phase6_tfidf": 0.00578500171320182,
+        "phase7_transformer": 0.1018625944852829,
+        "phase9_content": 0.5152606472368173,
+        "chunked_transformer": 0.21205610036849976
+      },
+      "in_phase9_top100": false
+    },
+    {
+      "pair_id": "SR024",
+      "query_movie_id": 73,
+      "query_title": "Misérables, Les (1995)",
+      "candidate_movie_id": 8724,
+      "candidate_title": "Leopard, The (Gattopardo, Il) (1963)",
+      "proposed_relevance": 1,
+      "approved_relevance": 1,
+      "label_status": "user_approved_ai_assisted",
+      "label_provenance": "user_approved_ai_assisted",
+      "proposed_justification": "Both are long historical dramas about social change and family power, a broad thematic relationship rather than a closely matching plot.",
+      "phase9_explanation": "shared genres: drama, war; shared plot tags: romantic; plot word overlap (TF-IDF cosine 0.010); plot semantic match (Transformer cosine 0.298)",
+      "scores": {
+        "phase6_tfidf": 0.01041007051716807,
+        "phase7_transformer": 0.2979474365711212,
+        "phase9_content": 0.8140598640891862,
+        "chunked_transformer": 0.4095696210861206
+      },
+      "in_phase9_top100": true
+    },
+    {
+      "pair_id": "SR025",
+      "query_movie_id": 1,
+      "query_title": "Toy Story (1995)",
+      "candidate_movie_id": 3114,
+      "candidate_title": "Toy Story 2 (1999)",
+      "proposed_relevance": null,
+      "approved_relevance": null,
+      "label_status": "unjudgeable_missing_plot",
+      "label_provenance": "not_applicable_missing_plot",
+      "proposed_justification": "Toy Story and its sequel are related by franchise, but both plot fields are missing, so plot-level relevance cannot be judged from this source.",
+      "phase9_explanation": "shared genres: adventure, animation, children, comedy, fantasy; shared director: John Lasseter; shared writer: Andrew Stanton; shared selected crew: Lee Unkrich, Randy Newman",
+      "scores": {
+        "phase6_tfidf": null,
+        "phase7_transformer": null,
+        "phase9_content": null,
+        "chunked_transformer": null
+      },
+      "in_phase9_top100": false
+    }
+  ],
+  "targeted_text_diagnostics": {
+    "known_name_collision_pairs": [
+      {
+        "pair_id": "SR001",
+        "shared_name_tokens": [
+          "Max"
+        ],
+        "query_occurrences": {
+          "Max": 9
+        },
+        "candidate_occurrences": {
+          "Max": 35
+        },
+        "tfidf_cosine": 0.29644831587521836
+      },
+      {
+        "pair_id": "SR005",
+        "shared_name_tokens": [
+          "Savannah"
+        ],
+        "query_occurrences": {
+          "Savannah": 3
+        },
+        "candidate_occurrences": {
+          "Savannah": 28
+        },
+        "tfidf_cosine": 0.16165364358479906
+      },
+      {
+        "pair_id": "SR006",
+        "shared_name_tokens": [
+          "Robin"
+        ],
+        "query_occurrences": {
+          "Robin": 3
+        },
+        "candidate_occurrences": {
+          "Robin": 30
+        },
+        "tfidf_cosine": 0.14946313642547077
+      },
+      {
+        "pair_id": "SR007",
+        "shared_name_tokens": [
+          "Robin"
+        ],
+        "query_occurrences": {
+          "Robin": 3
+        },
+        "candidate_occurrences": {
+          "Robin": 29
+        },
+        "tfidf_cosine": 0.14209141303953035
+      }
+    ],
+    "duplicate_candidate_plot_checks": [
+      {
+        "pair_ids": [
+          "SR013",
+          "SR014"
+        ],
+        "plots_identical": true
+      }
+    ],
+    "plot_length_chars_by_pair": {
+      "SR001": {
+        "query": 2217,
+        "candidate": 4921
+      },
+      "SR002": {
+        "query": 2217,
+        "candidate": 6396
+      },
+      "SR003": {
+        "query": 2217,
+        "candidate": 1416
+      },
+      "SR004": {
+        "query": 2217,
+        "candidate": null
+      },
+      "SR005": {
+        "query": 1745,
+        "candidate": 5982
+      },
+      "SR006": {
+        "query": 1745,
+        "candidate": 4150
+      },
+      "SR007": {
+        "query": 1745,
+        "candidate": 4119
+      },
+      "SR008": {
+        "query": 1745,
+        "candidate": 4994
+      },
+      "SR009": {
+        "query": 1745,
+        "candidate": 6690
+      },
+      "SR010": {
+        "query": 1745,
+        "candidate": 11768
+      },
+      "SR011": {
+        "query": 1745,
+        "candidate": 4002
+      },
+      "SR012": {
+        "query": 1745,
+        "candidate": 2823
+      },
+      "SR013": {
+        "query": 5046,
+        "candidate": 3887
+      },
+      "SR014": {
+        "query": 5046,
+        "candidate": 3887
+      },
+      "SR015": {
+        "query": 5046,
+        "candidate": 4815
+      },
+      "SR016": {
+        "query": 5046,
+        "candidate": 5024
+      },
+      "SR017": {
+        "query": 5046,
+        "candidate": 5308
+      },
+      "SR018": {
+        "query": 5046,
+        "candidate": null
+      },
+      "SR019": {
+        "query": 38084,
+        "candidate": 6304
+      },
+      "SR020": {
+        "query": 38084,
+        "candidate": 19945
+      },
+      "SR021": {
+        "query": 38084,
+        "candidate": 3727
+      },
+      "SR022": {
+        "query": 19945,
+        "candidate": 19945
+      },
+      "SR023": {
+        "query": 19945,
+        "candidate": 12248
+      },
+      "SR024": {
+        "query": 19945,
+        "candidate": 25212
+      },
+      "SR025": {
+        "query": null,
+        "candidate": null
+      }
+    }
+  },
+  "qualitative_audit": [
+    {
+      "query_movie_id": 1,
+      "query_title": "Toy Story (1995)",
+      "query_plot_available": false,
+      "query_plot_characters": 0,
+      "chunked_rerank_applied": false,
+      "phase9_top5": [
+        {
+          "movie_id": 3114,
+          "title": "Toy Story 2 (1999)",
+          "score": 0.9991458761523335,
+          "plot_score_available": null
+        },
+        {
+          "movie_id": 2355,
+          "title": "Bug's Life, A (1998)",
+          "score": 0.9961721850521049,
+          "plot_score_available": null
+        },
+        {
+          "movie_id": 45517,
+          "title": "Cars (2006)",
+          "score": 0.986505532325618,
+          "plot_score_available": null
+        },
+        {
+          "movie_id": 42191,
+          "title": "Luxo Jr. (1986)",
+          "score": 0.9243854720065775,
+          "plot_score_available": null
+        },
+        {
+          "movie_id": 4886,
+          "title": "Monsters, Inc. (2001)",
+          "score": 0.9082179429766133,
+          "plot_score_available": null
+        }
+      ],
+      "chunked_reranked_top5": [
+        {
+          "movie_id": 3114,
+          "title": "Toy Story 2 (1999)",
+          "score": 0.9991458761523335,
+          "plot_score_available": null
+        },
+        {
+          "movie_id": 2355,
+          "title": "Bug's Life, A (1998)",
+          "score": 0.9961721850521049,
+          "plot_score_available": null
+        },
+        {
+          "movie_id": 45517,
+          "title": "Cars (2006)",
+          "score": 0.986505532325618,
+          "plot_score_available": null
+        },
+        {
+          "movie_id": 42191,
+          "title": "Luxo Jr. (1986)",
+          "score": 0.9243854720065775,
+          "plot_score_available": null
+        },
+        {
+          "movie_id": 4886,
+          "title": "Monsters, Inc. (2001)",
+          "score": 0.9082179429766133,
+          "plot_score_available": null
+        }
+      ],
+      "top5_overlap": 5
+    },
+    {
+      "query_movie_id": 3,
+      "query_title": "Grumpier Old Men (1995)",
+      "query_plot_available": true,
+      "query_plot_characters": 2217,
+      "chunked_rerank_applied": true,
+      "phase9_top5": [
+        {
+          "movie_id": 4069,
+          "title": "Wedding Planner, The (2001)",
+          "score": 0.8584085996821526,
+          "plot_score_available": null
+        },
+        {
+          "movie_id": 5077,
+          "title": "Cousins (1989)",
+          "score": 0.847928359781138,
+          "plot_score_available": null
+        },
+        {
+          "movie_id": 47122,
+          "title": "John Tucker Must Die (2006)",
+          "score": 0.8466979780903113,
+          "plot_score_available": null
+        },
+        {
+          "movie_id": 55245,
+          "title": "Good Luck Chuck (2007)",
+          "score": 0.8445200468332701,
+          "plot_score_available": null
+        },
+        {
+          "movie_id": 59421,
+          "title": "What Happens in Vegas... (2008)",
+          "score": 0.8404325737377624,
+          "plot_score_available": null
+        }
+      ],
+      "chunked_reranked_top5": [
+        {
+          "movie_id": 1839,
+          "title": "My Giant (1998)",
+          "score": 0.6421135663986206,
+          "plot_score_available": true
+        },
+        {
+          "movie_id": 2375,
+          "title": "Money Pit, The (1986)",
+          "score": 0.5440580248832703,
+          "plot_score_available": true
+        },
+        {
+          "movie_id": 4229,
+          "title": "Say It Isn't So (2001)",
+          "score": 0.5408639907836914,
+          "plot_score_available": true
+        },
+        {
+          "movie_id": 2259,
+          "title": "Blame It on Rio (1984)",
+          "score": 0.5408090353012085,
+          "plot_score_available": true
+        },
+        {
+          "movie_id": 47122,
+          "title": "John Tucker Must Die (2006)",
+          "score": 0.5392480492591858,
+          "plot_score_available": true
+        }
+      ],
+      "top5_overlap": 1
+    },
+    {
+      "query_movie_id": 4,
+      "query_title": "Waiting to Exhale (1995)",
+      "query_plot_available": true,
+      "query_plot_characters": 1745,
+      "chunked_rerank_applied": true,
+      "phase9_top5": [
+        {
+          "movie_id": 1888,
+          "title": "Hope Floats (1998)",
+          "score": 0.9047590067970938,
+          "plot_score_available": null
+        },
+        {
+          "movie_id": 51903,
+          "title": "I Think I Love My Wife (2007)",
+          "score": 0.87197907697524,
+          "plot_score_available": null
+        },
+        {
+          "movie_id": 3825,
+          "title": "Coyote Ugly (2000)",
+          "score": 0.844169342262986,
+          "plot_score_available": null
+        },
+        {
+          "movie_id": 6993,
+          "title": "Hannah and Her Sisters (1986)",
+          "score": 0.8408826289762728,
+          "plot_score_available": null
+        },
+        {
+          "movie_id": 1244,
+          "title": "Manhattan (1979)",
+          "score": 0.8407369413305851,
+          "plot_score_available": null
+        }
+      ],
+      "chunked_reranked_top5": [
+        {
+          "movie_id": 1888,
+          "title": "Hope Floats (1998)",
+          "score": 0.6179978847503662,
+          "plot_score_available": true
+        },
+        {
+          "movie_id": 6549,
+          "title": "How to Deal (2003)",
+          "score": 0.6080805063247681,
+          "plot_score_available": true
+        },
+        {
+          "movie_id": 59725,
+          "title": "Sex and the City (2008)",
+          "score": 0.5930469036102295,
+          "plot_score_available": true
+        },
+        {
+          "movie_id": 4920,
+          "title": "Now, Voyager (1942)",
+          "score": 0.5839190483093262,
+          "plot_score_available": true
+        },
+        {
+          "movie_id": 52668,
+          "title": "In the Land of Women (2007)",
+          "score": 0.570702075958252,
+          "plot_score_available": true
+        }
+      ],
+      "top5_overlap": 1
+    },
+    {
+      "query_movie_id": 5,
+      "query_title": "Father of the Bride Part II (1995)",
+      "query_plot_available": true,
+      "query_plot_characters": 5046,
+      "chunked_rerank_applied": true,
+      "phase9_top5": [
+        {
+          "movie_id": 830,
+          "title": "First Wives Club, The (1996)",
+          "score": 0.8290360797075333,
+          "plot_score_available": null
+        },
+        {
+          "movie_id": 86833,
+          "title": "Bridesmaids (2011)",
+          "score": 0.8254432113065505,
+          "plot_score_available": null
+        },
+        {
+          "movie_id": 104218,
+          "title": "Grown Ups 2 (2013)",
+          "score": 0.8242835880702896,
+          "plot_score_available": null
+        },
+        {
+          "movie_id": 585,
+          "title": "Brady Bunch Movie, The (1995)",
+          "score": 0.8188710741318176,
+          "plot_score_available": null
+        },
+        {
+          "movie_id": 91690,
+          "title": "Friends with Kids (2011)",
+          "score": 0.8166943602400234,
+          "plot_score_available": null
+        }
+      ],
+      "chunked_reranked_top5": [
+        {
+          "movie_id": 82499,
+          "title": "How Do You Know (2010)",
+          "score": 0.7578086256980896,
+          "plot_score_available": true
+        },
+        {
+          "movie_id": 1821,
+          "title": "Object of My Affection, The (1998)",
+          "score": 0.7233265042304993,
+          "plot_score_available": true
+        },
+        {
+          "movie_id": 7085,
+          "title": "Send Me No Flowers (1964)",
+          "score": 0.665388822555542,
+          "plot_score_available": true
+        },
+        {
+          "movie_id": 34359,
+          "title": "Georgy Girl (1966)",
+          "score": 0.622278094291687,
+          "plot_score_available": true
+        },
+        {
+          "movie_id": 125,
+          "title": "Flirting With Disaster (1996)",
+          "score": 0.6158934831619263,
+          "plot_score_available": true
+        }
+      ],
+      "top5_overlap": 0
+    },
+    {
+      "query_movie_id": 1445,
+      "query_title": "McHale's Navy (1997)",
+      "query_plot_available": true,
+      "query_plot_characters": 38084,
+      "chunked_rerank_applied": true,
+      "phase9_top5": [
+        {
+          "movie_id": 5801,
+          "title": "Russians Are Coming, the Russians Are Coming, The (1966)",
+          "score": 0.883946632040889,
+          "plot_score_available": null
+        },
+        {
+          "movie_id": 122092,
+          "title": "Guy X (2005)",
+          "score": 0.8779060776132377,
+          "plot_score_available": null
+        },
+        {
+          "movie_id": 4349,
+          "title": "Catch-22 (1970)",
+          "score": 0.8769912218596723,
+          "plot_score_available": null
+        },
+        {
+          "movie_id": 1663,
+          "title": "Stripes (1981)",
+          "score": 0.8747980745052346,
+          "plot_score_available": null
+        },
+        {
+          "movie_id": 6434,
+          "title": "Objective, Burma! (1945)",
+          "score": 0.8501782817527411,
+          "plot_score_available": null
+        }
+      ],
+      "chunked_reranked_top5": [
+        {
+          "movie_id": 2427,
+          "title": "Thin Red Line, The (1998)",
+          "score": 0.553531289100647,
+          "plot_score_available": true
+        },
+        {
+          "movie_id": 1663,
+          "title": "Stripes (1981)",
+          "score": 0.552088737487793,
+          "plot_score_available": true
+        },
+        {
+          "movie_id": 4353,
+          "title": "Uncommon Valor (1983)",
+          "score": 0.544388473033905,
+          "plot_score_available": true
+        },
+        {
+          "movie_id": 5801,
+          "title": "Russians Are Coming, the Russians Are Coming, The (1966)",
+          "score": 0.5318027138710022,
+          "plot_score_available": true
+        },
+        {
+          "movie_id": 2379,
+          "title": "Police Academy 2: Their First Assignment (1985)",
+          "score": 0.5256245732307434,
+          "plot_score_available": true
+        }
+      ],
+      "top5_overlap": 2
+    }
+  ],
+  "recommendation_audit_labeled_overlap_only": [
+    {
+      "query_movie_id": 1,
+      "query_title": "Toy Story (1995)",
+      "phase9": [],
+      "phase9_grade0_count": 0,
+      "chunked_rerank": [],
+      "chunked_rerank_grade0_count": 0
+    },
+    {
+      "query_movie_id": 3,
+      "query_title": "Grumpier Old Men (1995)",
+      "phase9": [
+        {
+          "rank": 1,
+          "movie_id": 4069,
+          "title": "Wedding Planner, The (2001)",
+          "relevance": 0
+        },
+        {
+          "rank": 2,
+          "movie_id": 5077,
+          "title": "Cousins (1989)",
+          "relevance": 1
+        }
+      ],
+      "phase9_grade0_count": 1,
+      "chunked_rerank": [],
+      "chunked_rerank_grade0_count": 0
+    },
+    {
+      "query_movie_id": 4,
+      "query_title": "Waiting to Exhale (1995)",
+      "phase9": [
+        {
+          "rank": 1,
+          "movie_id": 1888,
+          "title": "Hope Floats (1998)",
+          "relevance": 1
+        },
+        {
+          "rank": 3,
+          "movie_id": 3825,
+          "title": "Coyote Ugly (2000)",
+          "relevance": 1
+        }
+      ],
+      "phase9_grade0_count": 0,
+      "chunked_rerank": [
+        {
+          "rank": 1,
+          "movie_id": 1888,
+          "title": "Hope Floats (1998)",
+          "relevance": 1
+        }
+      ],
+      "chunked_rerank_grade0_count": 0
+    },
+    {
+      "query_movie_id": 5,
+      "query_title": "Father of the Bride Part II (1995)",
+      "phase9": [
+        {
+          "rank": 1,
+          "movie_id": 830,
+          "title": "First Wives Club, The (1996)",
+          "relevance": 1
+        },
+        {
+          "rank": 2,
+          "movie_id": 86833,
+          "title": "Bridesmaids (2011)",
+          "relevance": 1
+        }
+      ],
+      "phase9_grade0_count": 0,
+      "chunked_rerank": [],
+      "chunked_rerank_grade0_count": 0
+    },
+    {
+      "query_movie_id": 1445,
+      "query_title": "McHale's Navy (1997)",
+      "phase9": [
+        {
+          "rank": 1,
+          "movie_id": 5801,
+          "title": "Russians Are Coming, the Russians Are Coming, The (1966)",
+          "relevance": 1
+        }
+      ],
+      "phase9_grade0_count": 0,
+      "chunked_rerank": [
+        {
+          "rank": 1,
+          "movie_id": 2427,
+          "title": "Thin Red Line, The (1998)",
+          "relevance": 0
+        },
+        {
+          "rank": 4,
+          "movie_id": 5801,
+          "title": "Russians Are Coming, the Russians Are Coming, The (1966)",
+          "relevance": 1
+        }
+      ],
+      "chunked_rerank_grade0_count": 1
+    }
+  ],
+  "runtime": {
+    "pair_scoring_seconds": 6.121009291993687,
+    "total_runtime_seconds": 20.47958045802079,
+    "peak_rss_mib": 695.25,
+    "chunked_cache_path": "data/models/all_minilm_l6_v2_plots_chunked.npz",
+    "chunked_cache_bytes": 4888476,
+    "chunked_cache_reused": true,
+    "chunk_count": 17548,
+    "long_plot_count": 3400,
+    "chunk_size_wordpieces": 224,
+    "overlap_wordpieces": 48
+  },
+  "transformer_input_lengths": {
+    "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+    "model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "sentence_transformer_max_sequence_length": 256,
+    "usable_plots_measured": 3434,
+    "plots_over_input_limit": 3400,
+    "plots_within_input_limit": 34,
+    "sample_wordpiece_counts": {
+      "3": {
+        "wordpieces_including_special_tokens": 476,
+        "exceeds_model_input_limit": true
+      },
+      "4": {
+        "wordpieces_including_special_tokens": 383,
+        "exceeds_model_input_limit": true
+      },
+      "5": {
+        "wordpieces_including_special_tokens": 1100,
+        "exceeds_model_input_limit": true
+      },
+      "1445": {
+        "wordpieces_including_special_tokens": 8902,
+        "exceeds_model_input_limit": true
+      },
+      "4893": {
+        "wordpieces_including_special_tokens": 848,
+        "exceeds_model_input_limit": true
+      },
+      "43904": {
+        "wordpieces_including_special_tokens": 848,
+        "exceeds_model_input_limit": true
+      }
+    },
+    "note": "Counts are from the pinned tokenizer on original full plots, before Sentence Transformer truncation."
+  },
+  "findings": [
+    "The prior errors are heterogeneous: the Phase 13 audit shows Max overlap for Grumpier Old Men → Pi and Robin/Savannah name collisions for Waiting to Exhale; genres, generic relationship themes, the Phase 9 rank-fusion design, truncation, and source-plot quality are separate plausible contributors.",
+    "The Father of the Bride Part II → When a Stranger Calls results are unrelated by the supplied plot texts. The two When a Stranger Calls records have identical plot text, so their mutual remake similarity does not validate their match to the query.",
+    "Phase 14 found name masking unchanged versus Phase 9 on rating metrics; that is not evidence about story relevance and is not repeated as a proposed solution here.",
+    "The Phase 7 model is capped at 256 wordpieces. The pinned Phase 14 chunk cache records 3,400 long plots; truncation is a credible coverage limitation, but chunk averaging can erase order and no semantic ground truth yet shows it fixes relevance.",
+    "The pair set is small and selected to probe known cases. Labels used for the approved-label run were AI-generated suggestions reviewed and approved by the user; there are no independent human judgments. Metrics are descriptive and should not be generalized.",
+    "No suitable pairwise model was already cached. An MS MARCO cross-encoder is designed for query-to-passage ranking and an STS cross-encoder for sentence similarity, not full plot-to-plot story relevance; no model or dependency was downloaded.",
+    "No production weights, recommendation code, Phase 13/14 reports, or evaluation manifests were changed. No Phase 13 test partition data was read for this experiment."
+  ],
+  "artifacts": {
+    "chunked_model_cache": "validated by pinned model ID/revision, plot fingerprint, ordered IDs, vector shape and unit norms",
+    "rating_features_used": false,
+    "fabricated_plots_or_labels": false,
+    "production_changes": false
+  }
+}

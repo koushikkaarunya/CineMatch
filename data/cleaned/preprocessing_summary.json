@@ -1,0 +1,82 @@
+{
+  "phase": "Phase 4: Data Preprocessing",
+  "inputs": {
+    "movies": "/Users/koushikkaarunya/Documents/ChatGPT/ML_Resume_project/data/processed/movies.csv",
+    "ratings": "/Users/koushikkaarunya/Documents/ChatGPT/ML_Resume_project/data/processed/ratings.csv"
+  },
+  "outputs": {
+    "movies": "/Users/koushikkaarunya/Documents/ChatGPT/ML_Resume_project/data/cleaned/movies.csv",
+    "ratings": "/Users/koushikkaarunya/Documents/ChatGPT/ML_Resume_project/data/cleaned/ratings.csv"
+  },
+  "movie_rows_in": 9742,
+  "movie_rows_out": 9742,
+  "movie_columns": [
+    "movie_id",
+    "imdb_id",
+    "title",
+    "release_year",
+    "genres",
+    "plot",
+    "plot_tags"
+  ],
+  "movie_dtypes_before_csv_serialization": {
+    "movie_id": "int64",
+    "imdb_id": "string",
+    "title": "string",
+    "release_year": "Int64",
+    "genres": "string",
+    "plot": "string",
+    "plot_tags": "string"
+  },
+  "rating_rows_in": 100836,
+  "rating_rows_out": 100836,
+  "rating_columns": [
+    "user_id",
+    "movie_id",
+    "rating",
+    "timestamp"
+  ],
+  "rating_dtypes_before_csv_serialization": {
+    "user_id": "int64",
+    "movie_id": "int64",
+    "rating": "float64",
+    "timestamp": "int64"
+  },
+  "movie_missing_values": {
+    "movie_id": 0,
+    "imdb_id": 0,
+    "title": 0,
+    "release_year": 13,
+    "genres": 0,
+    "plot": 6308,
+    "plot_tags": 6308
+  },
+  "rating_missing_values": {
+    "user_id": 0,
+    "movie_id": 0,
+    "rating": 0,
+    "timestamp": 0
+  },
+  "unique_movie_ids": 9742,
+  "unique_imdb_ids_nonmissing": 9742,
+  "unique_users": 610,
+  "unique_rated_movies": 9724,
+  "rating_min": 0.5,
+  "rating_max": 5.0,
+  "movie_cleaning_counts": {
+    "exact_duplicate_movie_rows_removed": 0,
+    "invalid_release_years_set_missing": 0
+  },
+  "rating_cleaning_counts": {
+    "exact_duplicate_rating_events_removed": 0,
+    "rating_rows_with_unknown_movie_id": 0
+  },
+  "all_rating_movie_ids_exist_in_catalog": true,
+  "not_added_because_sources_are_not_integrated": [
+    "director",
+    "writers",
+    "principal_cast",
+    "selected_crew",
+    "poster_url_or_id"
+  ]
+}

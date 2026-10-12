@@ -1,0 +1,10 @@
+{
+  "movielens_movies": 9742,
+  "movielens_ratings_after_duplicate_policy": 100836,
+  "movies_with_wikipedia_plot": 3434,
+  "movies_without_plot": 6308,
+  "duplicate_wikipedia_plot_rows_removed": 0,
+  "duplicate_rating_rows_removed": 0,
+  "plot_source_filter": "Wikipedia rows only",
+  "movie_id_source": "MovieLens movieId"
+}

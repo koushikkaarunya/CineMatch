@@ -1,0 +1,1075 @@
+{
+  "phase": "Phase 12 targeted diagnostics",
+  "scope_note": "Qualitative, baseline-preserving experiments; not held-out evaluation.",
+  "tfidf_character_name_ablation": [
+    {
+      "query_movie_id": 3,
+      "baseline_top5": [
+        {
+          "movie_id": 1921,
+          "title": "Pi (1998)",
+          "score": 0.29644831587521836
+        },
+        {
+          "movie_id": 2310,
+          "title": "Mighty, The (1998)",
+          "score": 0.274110835025607
+        },
+        {
+          "movie_id": 1696,
+          "title": "Bent (1997)",
+          "score": 0.2685492108072082
+        },
+        {
+          "movie_id": 49130,
+          "title": "Good Year, A (2006)",
+          "score": 0.2600312466357962
+        },
+        {
+          "movie_id": 1839,
+          "title": "My Giant (1998)",
+          "score": 0.25984406804920535
+        }
+      ],
+      "name_masked_top5": [
+        {
+          "movie_id": 8645,
+          "title": "Maria Full of Grace (Maria, Llena eres de gracia) (2004)",
+          "score": 0.17316736692823909
+        },
+        {
+          "movie_id": 1323,
+          "title": "Amityville 3-D (1983)",
+          "score": 0.16959422274993952
+        },
+        {
+          "movie_id": 8800,
+          "title": "Code 46 (2003)",
+          "score": 0.167369479642472
+        },
+        {
+          "movie_id": 3791,
+          "title": "Footloose (1984)",
+          "score": 0.16631228666999232
+        },
+        {
+          "movie_id": 89580,
+          "title": "Neds (2010)",
+          "score": 0.1646712261147493
+        }
+      ],
+      "baseline_name_contributions": [
+        {
+          "movie_id": 1921,
+          "name_unigram_cosine_contribution": 0.29142682847737666,
+          "share_of_cosine": 0.9830611707709773
+        },
+        {
+          "movie_id": 2310,
+          "name_unigram_cosine_contribution": 0.2452683296702266,
+          "share_of_cosine": 0.8947779450137898
+        },
+        {
+          "movie_id": 1696,
+          "name_unigram_cosine_contribution": 0.26580479791401607,
+          "share_of_cosine": 0.9897805959475994
+        },
+        {
+          "movie_id": 49130,
+          "name_unigram_cosine_contribution": 0.2435975125959657,
+          "share_of_cosine": 0.9368009258408555
+        },
+        {
+          "movie_id": 1839,
+          "name_unigram_cosine_contribution": 0.2546456290717529,
+          "share_of_cosine": 0.9799940055723418
+        }
+      ],
+      "top5_overlap_count": 0,
+      "note": "Diagnostic ablation only: the Phase 6 recommender and its default behavior are unchanged."
+    },
+    {
+      "query_movie_id": 4,
+      "baseline_top5": [
+        {
+          "movie_id": 6124,
+          "title": "Savannah Smiles (1982)",
+          "score": 0.16165364358479906
+        },
+        {
+          "movie_id": 1027,
+          "title": "Robin Hood: Prince of Thieves (1991)",
+          "score": 0.14946313642547077
+        },
+        {
+          "movie_id": 5499,
+          "title": "Robin and Marian (1976)",
+          "score": 0.14209141303953035
+        },
+        {
+          "movie_id": 940,
+          "title": "Adventures of Robin Hood, The (1938)",
+          "score": 0.13667782707576617
+        },
+        {
+          "movie_id": 520,
+          "title": "Robin Hood: Men in Tights (1993)",
+          "score": 0.13506340572368244
+        }
+      ],
+      "name_masked_top5": [
+        {
+          "movie_id": 3765,
+          "title": "Hot Spot, The (1990)",
+          "score": 0.1067881840746398
+        },
+        {
+          "movie_id": 8920,
+          "title": "Country Girl, The (1954)",
+          "score": 0.1042747154264451
+        },
+        {
+          "movie_id": 1845,
+          "title": "Zero Effect (1998)",
+          "score": 0.09052869237012462
+        },
+        {
+          "movie_id": 3263,
+          "title": "White Men Can't Jump (1992)",
+          "score": 0.0878619168335878
+        },
+        {
+          "movie_id": 34162,
+          "title": "Wedding Crashers (2005)",
+          "score": 0.07880581434102057
+        }
+      ],
+      "baseline_name_contributions": [
+        {
+          "movie_id": 6124,
+          "name_unigram_cosine_contribution": 0.14941511270677987,
+          "share_of_cosine": 0.9242916484489928
+        },
+        {
+          "movie_id": 1027,
+          "name_unigram_cosine_contribution": 0.13362138793818282,
+          "share_of_cosine": 0.8940089920086256
+        },
+        {
+          "movie_id": 5499,
+          "name_unigram_cosine_contribution": 0.1212470978325898,
+          "share_of_cosine": 0.8533034842778178
+        },
+        {
+          "movie_id": 940,
+          "name_unigram_cosine_contribution": 0.11991242644988448,
+          "share_of_cosine": 0.8773363537848173
+        },
+        {
+          "movie_id": 520,
+          "name_unigram_cosine_contribution": 0.12110023632677444,
+          "share_of_cosine": 0.8966176713663333
+        }
+      ],
+      "top5_overlap_count": 0,
+      "note": "Diagnostic ablation only: the Phase 6 recommender and its default behavior are unchanged."
+    },
+    {
+      "query_movie_id": 5,
+      "baseline_top5": [
+        {
+          "movie_id": 1821,
+          "title": "Object of My Affection, The (1998)",
+          "score": 0.5732502278394804
+        },
+        {
+          "movie_id": 82499,
+          "title": "How Do You Know (2010)",
+          "score": 0.3403385490875765
+        },
+        {
+          "movie_id": 802,
+          "title": "Phenomenon (1996)",
+          "score": 0.30945805028845536
+        },
+        {
+          "movie_id": 27838,
+          "title": "Mean Creek (2004)",
+          "score": 0.3037818597946426
+        },
+        {
+          "movie_id": 7085,
+          "title": "Send Me No Flowers (1964)",
+          "score": 0.29027278705621845
+        }
+      ],
+      "name_masked_top5": [
+        {
+          "movie_id": 1821,
+          "title": "Object of My Affection, The (1998)",
+          "score": 0.572962638122599
+        },
+        {
+          "movie_id": 82499,
+          "title": "How Do You Know (2010)",
+          "score": 0.33947643612945105
+        },
+        {
+          "movie_id": 802,
+          "title": "Phenomenon (1996)",
+          "score": 0.3086253857916465
+        },
+        {
+          "movie_id": 27838,
+          "title": "Mean Creek (2004)",
+          "score": 0.303568264431433
+        },
+        {
+          "movie_id": 7085,
+          "title": "Send Me No Flowers (1964)",
+          "score": 0.2900686902038816
+        }
+      ],
+      "baseline_name_contributions": [
+        {
+          "movie_id": 1821,
+          "name_unigram_cosine_contribution": 0.0,
+          "share_of_cosine": 0.0
+        },
+        {
+          "movie_id": 82499,
+          "name_unigram_cosine_contribution": 0.0,
+          "share_of_cosine": 0.0
+        },
+        {
+          "movie_id": 802,
+          "name_unigram_cosine_contribution": 0.0,
+          "share_of_cosine": 0.0
+        },
+        {
+          "movie_id": 27838,
+          "name_unigram_cosine_contribution": 0.0,
+          "share_of_cosine": 0.0
+        },
+        {
+          "movie_id": 7085,
+          "name_unigram_cosine_contribution": 0.0,
+          "share_of_cosine": 0.0
+        }
+      ],
+      "top5_overlap_count": 5,
+      "note": "Diagnostic ablation only: the Phase 6 recommender and its default behavior are unchanged."
+    }
+  ],
+  "transformer_metadata_reranking": [
+    {
+      "query_movie_id": 3,
+      "phase7_transformer_top5": [
+        {
+          "movie_id": 6789,
+          "title": "Apartment, The (Appartement, L') (1996)",
+          "score": 0.5269509553909302
+        },
+        {
+          "movie_id": 5189,
+          "title": "Humanoids from the Deep (1980)",
+          "score": 0.5246705412864685
+        },
+        {
+          "movie_id": 31590,
+          "title": "Hands Off the Loot (Touchez pas au grisbi) (1954)",
+          "score": 0.5213803052902222
+        },
+        {
+          "movie_id": 1085,
+          "title": "Old Man and the Sea, The (1958)",
+          "score": 0.493196964263916
+        },
+        {
+          "movie_id": 3324,
+          "title": "Drowning Mona (2000)",
+          "score": 0.4908880889415741
+        }
+      ],
+      "phase5_metadata_top5": [
+        {
+          "movie_id": 8809,
+          "title": "Danny Deckchair (2003)",
+          "score": 0.82
+        },
+        {
+          "movie_id": 1569,
+          "title": "My Best Friend's Wedding (1997)",
+          "score": 0.7999999999999999
+        },
+        {
+          "movie_id": 2558,
+          "title": "Forces of Nature (1999)",
+          "score": 0.7999999999999999
+        },
+        {
+          "movie_id": 2935,
+          "title": "Lady Eve, The (1941)",
+          "score": 0.7999999999999999
+        },
+        {
+          "movie_id": 3614,
+          "title": "Honeymoon in Vegas (1992)",
+          "score": 0.7999999999999999
+        }
+      ],
+      "phase9_existing_content_rerank_top5": [
+        {
+          "movie_id": 4069,
+          "title": "Wedding Planner, The (2001)",
+          "score": 0.8584085996821526
+        },
+        {
+          "movie_id": 5077,
+          "title": "Cousins (1989)",
+          "score": 0.847928359781138
+        },
+        {
+          "movie_id": 47122,
+          "title": "John Tucker Must Die (2006)",
+          "score": 0.8466979780903113
+        },
+        {
+          "movie_id": 55245,
+          "title": "Good Luck Chuck (2007)",
+          "score": 0.8445200468332701
+        },
+        {
+          "movie_id": 59421,
+          "title": "What Happens in Vegas... (2008)",
+          "score": 0.8404325737377624
+        }
+      ],
+      "transformer_metadata_rrf_top5": [
+        {
+          "movie_id": 6789,
+          "fusion_score": 0.5,
+          "source_ranks": {
+            "transformer": 1
+          },
+          "title": "Apartment, The (Appartement, L') (1996)",
+          "source_titles": {
+            "transformer": "Toy Story (1995)"
+          }
+        },
+        {
+          "movie_id": 8809,
+          "fusion_score": 0.5,
+          "source_ranks": {
+            "metadata": 1
+          },
+          "title": "Danny Deckchair (2003)",
+          "source_titles": {
+            "metadata": "Toy Story (1995)"
+          }
+        },
+        {
+          "movie_id": 1569,
+          "fusion_score": 0.25,
+          "source_ranks": {
+            "metadata": 2
+          },
+          "title": "My Best Friend's Wedding (1997)",
+          "source_titles": {
+            "metadata": "Jumanji (1995)"
+          }
+        },
+        {
+          "movie_id": 5189,
+          "fusion_score": 0.25,
+          "source_ranks": {
+            "transformer": 2
+          },
+          "title": "Humanoids from the Deep (1980)",
+          "source_titles": {
+            "transformer": "Jumanji (1995)"
+          }
+        },
+        {
+          "movie_id": 2558,
+          "fusion_score": 0.16666666666666666,
+          "source_ranks": {
+            "metadata": 3
+          },
+          "title": "Forces of Nature (1999)",
+          "source_titles": {
+            "metadata": "Grumpier Old Men (1995)"
+          }
+        }
+      ],
+      "top5_overlap_with_phase7": 2,
+      "note": "Diagnostic RRF alternative; it does not replace Phase 7 or change Phase 9 weights."
+    },
+    {
+      "query_movie_id": 4,
+      "phase7_transformer_top5": [
+        {
+          "movie_id": 6549,
+          "title": "How to Deal (2003)",
+          "score": 0.5674481987953186
+        },
+        {
+          "movie_id": 4474,
+          "title": "Beaches (1988)",
+          "score": 0.5127331614494324
+        },
+        {
+          "movie_id": 4130,
+          "title": "Maid to Order (1987)",
+          "score": 0.5111735463142395
+        },
+        {
+          "movie_id": 2428,
+          "title": "Faculty, The (1998)",
+          "score": 0.5034304857254028
+        },
+        {
+          "movie_id": 4920,
+          "title": "Now, Voyager (1942)",
+          "score": 0.4989784359931946
+        }
+      ],
+      "phase5_metadata_top5": [
+        {
+          "movie_id": 1888,
+          "title": "Hope Floats (1998)",
+          "score": 0.7999999999999999
+        },
+        {
+          "movie_id": 80586,
+          "title": "Flipped (2010)",
+          "score": 0.7999999999999999
+        },
+        {
+          "movie_id": 909,
+          "title": "Apartment, The (1960)",
+          "score": 0.7749999999999999
+        },
+        {
+          "movie_id": 1395,
+          "title": "Tin Men (1987)",
+          "score": 0.7666666666666666
+        },
+        {
+          "movie_id": 6367,
+          "title": "Down with Love (2003)",
+          "score": 0.7666666666666666
+        }
+      ],
+      "phase9_existing_content_rerank_top5": [
+        {
+          "movie_id": 1888,
+          "title": "Hope Floats (1998)",
+          "score": 0.9047590067970938
+        },
+        {
+          "movie_id": 51903,
+          "title": "I Think I Love My Wife (2007)",
+          "score": 0.87197907697524
+        },
+        {
+          "movie_id": 3825,
+          "title": "Coyote Ugly (2000)",
+          "score": 0.844169342262986
+        },
+        {
+          "movie_id": 6993,
+          "title": "Hannah and Her Sisters (1986)",
+          "score": 0.8408826289762728
+        },
+        {
+          "movie_id": 1244,
+          "title": "Manhattan (1979)",
+          "score": 0.8407369413305851
+        }
+      ],
+      "transformer_metadata_rrf_top5": [
+        {
+          "movie_id": 1888,
+          "fusion_score": 0.5,
+          "source_ranks": {
+            "metadata": 1
+          },
+          "title": "Hope Floats (1998)",
+          "source_titles": {
+            "metadata": "Toy Story (1995)"
+          }
+        },
+        {
+          "movie_id": 6549,
+          "fusion_score": 0.5,
+          "source_ranks": {
+            "transformer": 1
+          },
+          "title": "How to Deal (2003)",
+          "source_titles": {
+            "transformer": "Toy Story (1995)"
+          }
+        },
+        {
+          "movie_id": 4474,
+          "fusion_score": 0.25,
+          "source_ranks": {
+            "transformer": 2
+          },
+          "title": "Beaches (1988)",
+          "source_titles": {
+            "transformer": "Jumanji (1995)"
+          }
+        },
+        {
+          "movie_id": 80586,
+          "fusion_score": 0.25,
+          "source_ranks": {
+            "metadata": 2
+          },
+          "title": "Flipped (2010)",
+          "source_titles": {
+            "metadata": "Jumanji (1995)"
+          }
+        },
+        {
+          "movie_id": 909,
+          "fusion_score": 0.16666666666666666,
+          "source_ranks": {
+            "metadata": 3
+          },
+          "title": "Apartment, The (1960)",
+          "source_titles": {
+            "metadata": "Grumpier Old Men (1995)"
+          }
+        }
+      ],
+      "top5_overlap_with_phase7": 2,
+      "note": "Diagnostic RRF alternative; it does not replace Phase 7 or change Phase 9 weights."
+    },
+    {
+      "query_movie_id": 5,
+      "phase7_transformer_top5": [
+        {
+          "movie_id": 4893,
+          "title": "When a Stranger Calls (1979)",
+          "score": 0.5521208643913269
+        },
+        {
+          "movie_id": 43904,
+          "title": "When a Stranger Calls (2006)",
+          "score": 0.5521208643913269
+        },
+        {
+          "movie_id": 840,
+          "title": "House Arrest (1996)",
+          "score": 0.5411185026168823
+        },
+        {
+          "movie_id": 91653,
+          "title": "We Bought a Zoo (2011)",
+          "score": 0.5360785722732544
+        },
+        {
+          "movie_id": 2132,
+          "title": "Who's Afraid of Virginia Woolf? (1966)",
+          "score": 0.5350319147109985
+        }
+      ],
+      "phase5_metadata_top5": [
+        {
+          "movie_id": 8695,
+          "title": "Bachelor and the Bobby-Soxer, The (1947)",
+          "score": 0.85
+        },
+        {
+          "movie_id": 63479,
+          "title": "Sex Drive (2008)",
+          "score": 0.85
+        },
+        {
+          "movie_id": 99106,
+          "title": "Guilt Trip, The (2012)",
+          "score": 0.85
+        },
+        {
+          "movie_id": 63131,
+          "title": "Role Models (2008)",
+          "score": 0.8285714285714285
+        },
+        {
+          "movie_id": 585,
+          "title": "Brady Bunch Movie, The (1995)",
+          "score": 0.82
+        }
+      ],
+      "phase9_existing_content_rerank_top5": [
+        {
+          "movie_id": 830,
+          "title": "First Wives Club, The (1996)",
+          "score": 0.8290360797075333
+        },
+        {
+          "movie_id": 86833,
+          "title": "Bridesmaids (2011)",
+          "score": 0.8254432113065505
+        },
+        {
+          "movie_id": 104218,
+          "title": "Grown Ups 2 (2013)",
+          "score": 0.8242835880702896
+        },
+        {
+          "movie_id": 585,
+          "title": "Brady Bunch Movie, The (1995)",
+          "score": 0.8188710741318176
+        },
+        {
+          "movie_id": 91690,
+          "title": "Friends with Kids (2011)",
+          "score": 0.8166943602400234
+        }
+      ],
+      "transformer_metadata_rrf_top5": [
+        {
+          "movie_id": 4893,
+          "fusion_score": 0.5,
+          "source_ranks": {
+            "transformer": 1
+          },
+          "title": "When a Stranger Calls (1979)",
+          "source_titles": {
+            "transformer": "Toy Story (1995)"
+          }
+        },
+        {
+          "movie_id": 8695,
+          "fusion_score": 0.5,
+          "source_ranks": {
+            "metadata": 1
+          },
+          "title": "Bachelor and the Bobby-Soxer, The (1947)",
+          "source_titles": {
+            "metadata": "Toy Story (1995)"
+          }
+        },
+        {
+          "movie_id": 43904,
+          "fusion_score": 0.25,
+          "source_ranks": {
+            "transformer": 2
+          },
+          "title": "When a Stranger Calls (2006)",
+          "source_titles": {
+            "transformer": "Jumanji (1995)"
+          }
+        },
+        {
+          "movie_id": 63479,
+          "fusion_score": 0.25,
+          "source_ranks": {
+            "metadata": 2
+          },
+          "title": "Sex Drive (2008)",
+          "source_titles": {
+            "metadata": "Jumanji (1995)"
+          }
+        },
+        {
+          "movie_id": 840,
+          "fusion_score": 0.16666666666666666,
+          "source_ranks": {
+            "transformer": 3
+          },
+          "title": "House Arrest (1996)",
+          "source_titles": {
+            "transformer": "Grumpier Old Men (1995)"
+          }
+        }
+      ],
+      "top5_overlap_with_phase7": 3,
+      "note": "Diagnostic RRF alternative; it does not replace Phase 7 or change Phase 9 weights."
+    }
+  ],
+  "long_plot_chunking": {
+    "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+    "model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "cache_validated_and_reused": true,
+    "max_sequence_length": 256,
+    "chunk_size_wordpieces": 224,
+    "overlap_wordpieces": 48,
+    "long_plot_count": 3400,
+    "chunks_encoded": 17548,
+    "short_plot_vectors_reused": 34,
+    "representative_comparisons": [
+      {
+        "query_movie_id": 74,
+        "title": "Bed of Roses (1996)",
+        "plot_vector_unchanged": true,
+        "phase7_single_input_top5": [
+          {
+            "movie_id": 107436,
+            "title": "Haunter (2013)",
+            "cosine": 0.6323924660682678
+          },
+          {
+            "movie_id": 5963,
+            "title": "Children's Hour, The (1961)",
+            "cosine": 0.6058676242828369
+          },
+          {
+            "movie_id": 41285,
+            "title": "Match Point (2005)",
+            "cosine": 0.5967227220535278
+          },
+          {
+            "movie_id": 8836,
+            "title": "Wicker Park (2004)",
+            "cosine": 0.594964325428009
+          },
+          {
+            "movie_id": 2267,
+            "title": "Mortal Thoughts (1991)",
+            "cosine": 0.5778303742408752
+          }
+        ],
+        "chunked_top5": [
+          {
+            "movie_id": 8836,
+            "title": "Wicker Park (2004)",
+            "cosine": 0.6687074303627014
+          },
+          {
+            "movie_id": 38798,
+            "title": "In Her Shoes (2005)",
+            "cosine": 0.6153122186660767
+          },
+          {
+            "movie_id": 6687,
+            "title": "My Boss's Daughter (2003)",
+            "cosine": 0.6067360639572144
+          },
+          {
+            "movie_id": 3824,
+            "title": "Autumn in New York (2000)",
+            "cosine": 0.6028251051902771
+          },
+          {
+            "movie_id": 82499,
+            "title": "How Do You Know (2010)",
+            "cosine": 0.6013267040252686
+          }
+        ],
+        "top5_overlap_count": 1
+      },
+      {
+        "query_movie_id": 1445,
+        "title": "McHale's Navy (1997)",
+        "plot_vector_unchanged": false,
+        "phase7_single_input_top5": [
+          {
+            "movie_id": 2427,
+            "title": "Thin Red Line, The (1998)",
+            "cosine": 0.43276965618133545
+          },
+          {
+            "movie_id": 1894,
+            "title": "Six Days Seven Nights (1998)",
+            "cosine": 0.4248172640800476
+          },
+          {
+            "movie_id": 35807,
+            "title": "Teahouse of the August Moon, The (1956)",
+            "cosine": 0.41998594999313354
+          },
+          {
+            "movie_id": 122092,
+            "title": "Guy X (2005)",
+            "cosine": 0.4174925684928894
+          },
+          {
+            "movie_id": 42946,
+            "title": "Project A ('A' gai waak) (1983)",
+            "cosine": 0.4130888283252716
+          }
+        ],
+        "chunked_top5": [
+          {
+            "movie_id": 3643,
+            "title": "Fighting Seabees, The (1944)",
+            "cosine": 0.5704009532928467
+          },
+          {
+            "movie_id": 2427,
+            "title": "Thin Red Line, The (1998)",
+            "cosine": 0.553531289100647
+          },
+          {
+            "movie_id": 1663,
+            "title": "Stripes (1981)",
+            "cosine": 0.552088737487793
+          },
+          {
+            "movie_id": 4353,
+            "title": "Uncommon Valor (1983)",
+            "cosine": 0.544388473033905
+          },
+          {
+            "movie_id": 94018,
+            "title": "Battleship (2012)",
+            "cosine": 0.5333895683288574
+          }
+        ],
+        "top5_overlap_count": 1
+      },
+      {
+        "query_movie_id": 8724,
+        "title": "Leopard, The (Gattopardo, Il) (1963)",
+        "plot_vector_unchanged": false,
+        "phase7_single_input_top5": [
+          {
+            "movie_id": 4727,
+            "title": "Captain Corelli's Mandolin (2001)",
+            "cosine": 0.49177849292755127
+          },
+          {
+            "movie_id": 109191,
+            "title": "Winter's Tale (2014)",
+            "cosine": 0.4817032814025879
+          },
+          {
+            "movie_id": 583,
+            "title": "Dear Diary (Caro Diario) (1994)",
+            "cosine": 0.4757586717605591
+          },
+          {
+            "movie_id": 3992,
+            "title": "Malèna (2000)",
+            "cosine": 0.46799319982528687
+          },
+          {
+            "movie_id": 3580,
+            "title": "Up at the Villa (2000)",
+            "cosine": 0.4569642245769501
+          }
+        ],
+        "chunked_top5": [
+          {
+            "movie_id": 109191,
+            "title": "Winter's Tale (2014)",
+            "cosine": 0.6494895219802856
+          },
+          {
+            "movie_id": 3719,
+            "title": "Love's Labour's Lost (2000)",
+            "cosine": 0.6256623268127441
+          },
+          {
+            "movie_id": 7024,
+            "title": "Salo, or The 120 Days of Sodom (Salò o le 120 giornate di Sodoma) (1976)",
+            "cosine": 0.6050510406494141
+          },
+          {
+            "movie_id": 7089,
+            "title": "Amarcord (1973)",
+            "cosine": 0.6005395650863647
+          },
+          {
+            "movie_id": 7767,
+            "title": "Best of Youth, The (La meglio gioventù) (2003)",
+            "cosine": 0.5974081754684448
+          }
+        ],
+        "top5_overlap_count": 1
+      },
+      {
+        "query_movie_id": 108795,
+        "title": "Wonder Woman (2009)",
+        "plot_vector_unchanged": false,
+        "phase7_single_input_top5": [
+          {
+            "movie_id": 6031,
+            "title": "Imitation of Life (1959)",
+            "cosine": 0.40241044759750366
+          },
+          {
+            "movie_id": 5497,
+            "title": "Our Man Flint (1965)",
+            "cosine": 0.38841623067855835
+          },
+          {
+            "movie_id": 104419,
+            "title": "Justice League: Crisis on Two Earths (2010)",
+            "cosine": 0.3781880736351013
+          },
+          {
+            "movie_id": 900,
+            "title": "American in Paris, An (1951)",
+            "cosine": 0.3695276379585266
+          },
+          {
+            "movie_id": 2847,
+            "title": "Only Angels Have Wings (1939)",
+            "cosine": 0.3649042248725891
+          }
+        ],
+        "chunked_top5": [
+          {
+            "movie_id": 3877,
+            "title": "Supergirl (1984)",
+            "cosine": 0.5030845403671265
+          },
+          {
+            "movie_id": 1825,
+            "title": "The Players Club (1998)",
+            "cosine": 0.4923878014087677
+          },
+          {
+            "movie_id": 4356,
+            "title": "Gentlemen Prefer Blondes (1953)",
+            "cosine": 0.4882936477661133
+          },
+          {
+            "movie_id": 8778,
+            "title": "Sherlock Holmes: Dressed to Kill (1946)",
+            "cosine": 0.48302599787712097
+          },
+          {
+            "movie_id": 132800,
+            "title": "Welcome to Me (2014)",
+            "cosine": 0.46912652254104614
+          }
+        ],
+        "top5_overlap_count": 0
+      },
+      {
+        "query_movie_id": 73,
+        "title": "Misérables, Les (1995)",
+        "plot_vector_unchanged": false,
+        "phase7_single_input_top5": [
+          {
+            "movie_id": 1873,
+            "title": "Misérables, Les (1998)",
+            "cosine": 1.0
+          },
+          {
+            "movie_id": 99149,
+            "title": "Misérables, Les (2012)",
+            "cosine": 1.0
+          },
+          {
+            "movie_id": 99532,
+            "title": "Misérables, Les (2000)",
+            "cosine": 1.0
+          },
+          {
+            "movie_id": 26052,
+            "title": "Pickpocket (1959)",
+            "cosine": 0.5832527875900269
+          },
+          {
+            "movie_id": 6920,
+            "title": "Cercle Rouge, Le (Red Circle, The) (1970)",
+            "cosine": 0.5336583852767944
+          }
+        ],
+        "chunked_top5": [
+          {
+            "movie_id": 99149,
+            "title": "Misérables, Les (2012)",
+            "cosine": 1.0
+          },
+          {
+            "movie_id": 99532,
+            "title": "Misérables, Les (2000)",
+            "cosine": 1.0
+          },
+          {
+            "movie_id": 1873,
+            "title": "Misérables, Les (1998)",
+            "cosine": 0.9999998807907104
+          },
+          {
+            "movie_id": 5064,
+            "title": "The Count of Monte Cristo (2002)",
+            "cosine": 0.6543445587158203
+          },
+          {
+            "movie_id": 65596,
+            "title": "Mesrine: Killer Instinct (L'instinct de mort) (2008)",
+            "cosine": 0.6309327483177185
+          }
+        ],
+        "top5_overlap_count": 3
+      },
+      {
+        "query_movie_id": 1873,
+        "title": "Misérables, Les (1998)",
+        "plot_vector_unchanged": false,
+        "phase7_single_input_top5": [
+          {
+            "movie_id": 73,
+            "title": "Misérables, Les (1995)",
+            "cosine": 1.0
+          },
+          {
+            "movie_id": 99149,
+            "title": "Misérables, Les (2012)",
+            "cosine": 1.0
+          },
+          {
+            "movie_id": 99532,
+            "title": "Misérables, Les (2000)",
+            "cosine": 1.0
+          },
+          {
+            "movie_id": 26052,
+            "title": "Pickpocket (1959)",
+            "cosine": 0.5832527875900269
+          },
+          {
+            "movie_id": 6920,
+            "title": "Cercle Rouge, Le (Red Circle, The) (1970)",
+            "cosine": 0.5336583852767944
+          }
+        ],
+        "chunked_top5": [
+          {
+            "movie_id": 99532,
+            "title": "Misérables, Les (2000)",
+            "cosine": 1.0
+          },
+          {
+            "movie_id": 73,
+            "title": "Misérables, Les (1995)",
+            "cosine": 0.9999998807907104
+          },
+          {
+            "movie_id": 99149,
+            "title": "Misérables, Les (2012)",
+            "cosine": 0.9999998807907104
+          },
+          {
+            "movie_id": 5064,
+            "title": "The Count of Monte Cristo (2002)",
+            "cosine": 0.6543445587158203
+          },
+          {
+            "movie_id": 65596,
+            "title": "Mesrine: Killer Instinct (L'instinct de mort) (2008)",
+            "cosine": 0.6309327483177185
+          }
+        ],
+        "top5_overlap_count": 3
+      }
+    ]
+  },
+  "chosen_short_plot_id": 74,
+  "baseline_preservation": {
+    "phase6_tfidf_default_unchanged": true,
+    "phase7_transformer_unchanged": true,
+    "phase9_weights_unchanged": true,
+    "phase10_algorithm_unchanged": true
+  }
+}
