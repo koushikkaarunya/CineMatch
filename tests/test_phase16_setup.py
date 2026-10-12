@@ -9,9 +9,21 @@ from starlette.testclient import TestClient
 
 from app.main import add_configured_cors
 from scripts.phase16_measure_resources import summarize_latency, tree_size
+from scripts.data_paths import PROJECT_ROOT, data_path, data_root
 
 
 class Phase16SetupTests(unittest.TestCase):
+    def test_data_root_defaults_to_repository_data_directory(self):
+        with patch.dict(os.environ, {}, clear=True):
+            self.assertEqual(data_root(), PROJECT_ROOT / "data")
+            self.assertEqual(data_path("cleaned", "movies.csv"), PROJECT_ROOT / "data" / "cleaned" / "movies.csv")
+
+    def test_data_root_can_be_configured_for_deployment(self):
+        with tempfile.TemporaryDirectory() as directory:
+            with patch.dict(os.environ, {"CINEMATCH_DATA_ROOT": directory}):
+                self.assertEqual(data_root(), Path(directory))
+                self.assertEqual(data_path("models", "vectors.npz"), Path(directory) / "models" / "vectors.npz")
+
     def test_disk_measurement_skips_symlinks_and_counts_hardlinks_once(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

@@ -27,10 +27,11 @@ from scripts.recommend_transformer import (
     plot_fingerprint,
     usable_plot_mask,
 )
+from scripts.data_paths import data_path
 
 
-ENRICHED_MOVIES_PATH = PROJECT_ROOT / "data" / "enriched" / "movies.csv"
-CHUNKED_EMBEDDINGS_PATH = PROJECT_ROOT / "data" / "models" / "all_minilm_l6_v2_plots_chunked.npz"
+ENRICHED_MOVIES_PATH = data_path("enriched", "movies.csv")
+CHUNKED_EMBEDDINGS_PATH = data_path("models", "all_minilm_l6_v2_plots_chunked.npz")
 
 # These are design-time defaults for an initial student baseline. They have not
 # been tuned against evaluation data or the three known failure examples.

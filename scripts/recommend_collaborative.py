@@ -3,16 +3,21 @@
 from __future__ import annotations
 
 import argparse
+import sys
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 from scipy import sparse
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-RATINGS_PATH = PROJECT_ROOT / "data" / "cleaned" / "ratings.csv"
-MOVIES_PATH = PROJECT_ROOT / "data" / "cleaned" / "movies.csv"
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+from scripts.data_paths import data_path
+
+RATINGS_PATH = data_path("cleaned", "ratings.csv")
+MOVIES_PATH = data_path("cleaned", "movies.csv")
 RATING_MIN = 0.5
 RATING_MAX = 5.0
 RESULT_COLUMNS = [

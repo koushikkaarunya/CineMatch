@@ -5,16 +5,21 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import sys
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-MOVIES_PATH = PROJECT_ROOT / "data" / "cleaned" / "movies.csv"
-EMBEDDINGS_PATH = PROJECT_ROOT / "data" / "models" / "all_minilm_l6_v2_plots.npz"
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+from scripts.data_paths import data_path
+
+MOVIES_PATH = data_path("cleaned", "movies.csv")
+EMBEDDINGS_PATH = data_path("models", "all_minilm_l6_v2_plots.npz")
 MODEL_ID = "sentence-transformers/all-MiniLM-L6-v2"
 MODEL_REVISION = "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
 EXPECTED_DIMENSION = 384

@@ -20,6 +20,7 @@ dist/
 .env
 .env.*
 !.env.example
+!frontend/.env.production.example
 
 # Full pip freeze from this Mac is a local environment snapshot, not a portable lock.
 requirements-local-lock.txt
