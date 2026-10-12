@@ -1,10 +1,11 @@
 # Dataset sources and ingestion
 
 The ingestion script downloads source files into `data/raw/` and writes cleaned
-tables and a coverage summary into `data/processed/`. Both directories are
-ignored by Git so downloaded source material is not accidentally committed.
-Phase 4 reads those tables without modifying them and writes normalized output
-to `data/cleaned/`, which is also ignored because it is generated.
+tables and a coverage summary into `data/processed/`. These directories are
+ignored by default; the MPST source CSV is an explicit Git LFS exception.
+Selected processed and cleaned tables, serving artifacts, and reports are
+committed for reproducibility and deployment. Phase 4 reads the ingestion
+tables and writes normalized output to `data/cleaned/`.
 
 ## Sources
 
@@ -62,8 +63,11 @@ commercial or revenue-bearing use without permission from GroupLens. The MPST
 dataset card identifies its release as CC BY 4.0 and requests citation of the
 associated research papers. Wikipedia-derived plot text may also carry
 attribution and share-alike obligations. Keep the source credits and check the
-upstream terms before redistribution or commercial use. This repository
-excludes raw and processed data by default.
+upstream terms before redistribution or commercial use. The original
+`data/raw/mpst/mpst_full_data.csv` is stored with Git LFS. Install Git LFS
+before cloning, or run `git lfs install` and `git lfs pull` after cloning, to
+retrieve its contents. The API does not load this raw file at runtime; it uses
+the checked-in serving artifacts described in the deployment guide.
 
 TMDB was not selected as an ML source: its current API terms restrict using
 TMDB content in machine-learning or AI applications. Do not assume that the

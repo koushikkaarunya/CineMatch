@@ -8,9 +8,9 @@ from selected favorite movies.
 ## Project status
 
 The local project includes recommendation experiments, historical evaluations,
-the API, and the frontend. This repository does not include the movie datasets,
-enriched catalog, or embedding artifacts required to start the recommendation
-API. See [data/README.md](data/README.md) and
+the API, and the frontend. The serving catalog, ratings, and plot-vector
+artifacts are checked in; the original MPST source CSV is stored with Git LFS.
+See [data/README.md](data/README.md) and
 [the local setup guide](docs/phase16-setup-and-deployment.md) before running it.
 
 The evaluation reports document experimental results and their limitations;
@@ -41,11 +41,12 @@ pnpm build
 
 ## Data and licensing
 
-Dataset files and generated artifacts are excluded from Git. MovieLens and
-plot-source terms apply to data and derived outputs; review the source notes and
-applicable terms before redistributing data or operating a public service. The
-current repository has no project-wide source-code license. Do not assume that
-public visibility grants permission to reuse its code.
+Some datasets and generated serving artifacts are committed to Git, and the
+MPST source CSV is stored with Git LFS. MovieLens and plot-source terms apply to
+data and derived outputs; review the source notes and applicable terms before
+redistributing data or operating a public service. The current repository has
+no project-wide source-code license. Do not assume that public visibility
+grants permission to reuse its code.
 
 ## Deployment
 

@@ -82,10 +82,13 @@ At startup, the API loads these local artifacts:
 | `data/models/all_minilm_l6_v2_plots.npz` | 4,879,933 bytes (about 4.65 MiB) | Cached all-MiniLM-L6-v2 plot vectors |
 | **Total** | **49,131,170 bytes (46.86 MiB)** | Exact current byte sum |
 
-The local files are ignored by Git. The raw MovieLens archive, MPST source
-download, Wikidata response snapshot, intermediate tables, experimental
-chunked-embedding cache, and audit labels are not required by ordinary API
-startup and are excluded from the container build context. The model cache
+The four runtime artifacts above are checked into Git and are available to
+deployment builds. The raw MovieLens archive, MPST source download, Wikidata
+response snapshot, intermediate tables, experimental chunked-embedding cache,
+and audit labels are not required by ordinary API startup and are excluded
+from the container build context. The MPST source CSV is stored with Git LFS
+for reproducibility, but Vercel does not need to fetch it to run the API. The
+model cache
 avoids importing/downloading PyTorch and Sentence Transformers during normal
 startup. If the cache is missing or fails its catalog fingerprint validation,
 startup may try to load the pretrained model; the container sets the Hugging
