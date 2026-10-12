@@ -2,3 +2,14 @@
 
 @media(max-width:820px){.site-header{height:68px;gap:30px;padding-inline:24px}.header-note{display:none}.hero-section{grid-template-columns:1fr;min-height:auto;padding:75px 8vw 50px}.hero-art{position:absolute;right:1%;top:50px;width:40%;opacity:.38;z-index:0}.hero-copy{max-width:600px}.hero-description{max-width:430px}.hero-art-caption{display:none}.how-section{padding-inline:8vw}.personal-grid{grid-template-columns:1fr}.personal-panel{padding:25px}.detail-hero{grid-template-columns:210px 1fr;gap:30px}.credits-section{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.site-header{height:62px;padding-inline:18px;gap:22px}.brand{font-size:18px}.main-nav{gap:18px;margin-left:auto}.nav-link{font-size:11px}.hero-section{padding:63px 21px 45px;min-height:515px;align-items:start}.hero-copy h1{font-size:clamp(48px,13vw,66px)}.hero-description{font-size:13px;max-width:370px}.hero-art{width:60%;right:-10%;top:45px;opacity:.2}.search-wrap{height:55px}.catalog-note{font-size:8px}.how-section{display:block;padding:43px 22px 55px}.how-section h2{font-size:27px;margin-bottom:18px}.how-section>p{font-size:12px}.page-container{width:calc(100% - 36px);padding:20px 0 55px}.page-intro{padding:38px 0 34px}.page-intro h1{font-size:47px}.personal-panel{padding:23px 18px}.panel-description{font-size:12px}.form-row{flex-direction:column}.form-row .button{min-height:42px}.detail-hero{grid-template-columns:1fr;gap:24px;padding-top:20px}.detail-hero>.movie-art{width:150px}.detail-copy h1{font-size:38px}.plot-copy{font-size:13px}.credits-section{gap:18px 12px}.recommendation-card{padding:10px}.recommendation-evidence{padding-left:0}.results-heading h3{font-size:19px}.site-footer{padding:19px 18px;flex-wrap:wrap;gap:12px}.site-footer>span:nth-child(2){order:3;width:100%}.footer-mark{font-size:8px}}
+
+.plot-copy.plot-clamped{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:5;overflow:hidden}
+.plot-copy.plot-expanded{display:block;overflow:visible}
+.plot-summary-collapsed{position:relative;margin:0 0 22px}
+.plot-summary .plot-copy{margin-bottom:0}
+.plot-summary-collapsed .plot-copy{padding-right:88px}
+.plot-toggle{padding:0;border:0;background:transparent;color:var(--accent);font-size:12px;font-weight:600;cursor:pointer}
+.plot-summary-collapsed .plot-toggle{position:absolute;right:0;bottom:0;background:var(--bg);padding-left:5px}
+.plot-summary-expanded{margin-bottom:22px}
+.plot-summary-expanded .plot-toggle{margin-top:7px}
+.plot-toggle:hover{text-decoration:underline}

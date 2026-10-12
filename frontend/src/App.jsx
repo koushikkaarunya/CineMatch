@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import {
   getFavoriteRecommendations,
   getMovie,
@@ -232,6 +232,39 @@ function ResultsPanel({ response, loading, error, onOpen, emptyLabel = 'No recom
   )
 }
 
+function PlotSummary({ plot }) {
+  const plotRef = useRef(null)
+  const [expanded, setExpanded] = useState(false)
+  const [hasMore, setHasMore] = useState(false)
+
+  useEffect(() => {
+    const element = plotRef.current
+    if (!element || expanded) return undefined
+
+    const checkOverflow = () => setHasMore(element.scrollHeight > element.clientHeight + 1)
+    checkOverflow()
+    if (typeof ResizeObserver === 'undefined') return undefined
+    const observer = new ResizeObserver(checkOverflow)
+    observer.observe(element)
+    return () => observer.disconnect()
+  }, [expanded, plot])
+
+  if (!plot) {
+    return <p className="plot-copy">A plot summary is not available for this title in the catalog.</p>
+  }
+
+  return (
+    <div className={expanded ? 'plot-summary plot-summary-expanded' : 'plot-summary plot-summary-collapsed'}>
+      <p ref={plotRef} className={expanded ? 'plot-copy plot-expanded' : 'plot-copy plot-clamped'}>{plot}</p>
+      {hasMore && (
+        <button className="plot-toggle" aria-expanded={expanded} onClick={() => setExpanded((value) => !value)}>
+          {expanded ? 'Read less' : 'Read more'}
+        </button>
+      )}
+    </div>
+  )
+}
+
 function MovieDetails({ movieId, onBack, onOpen, backLabel = '← Back to discover' }) {
   const [movie, setMovie] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -265,7 +298,7 @@ function MovieDetails({ movieId, onBack, onOpen, backLabel = '← Back to discov
           <p className="eyebrow">MOVIE DETAILS <span className="catalog-id">CATALOG ID {movie.movie_id}</span></p>
           <h1>{movie.title}</h1>
           <div className="genre-list">{movie.release_year && <span className="year-tag">{movie.release_year}</span>}{(movie.genres || []).map((genre) => <span className="genre-tag" key={genre}>{genre}</span>)}</div>
-          <p className="plot-copy">{movie.plot || 'A plot summary is not available for this title in the catalog.'}</p>
+          <PlotSummary plot={movie.plot} />
           <button className="button button-primary" onClick={recommend} disabled={recommendationLoading}>
             {recommendationLoading ? 'Finding related films…' : 'Find films like this'} <span aria-hidden="true">↗</span>
           </button>
