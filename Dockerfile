@@ -1,5 +1,5 @@
 # OCI Ampere A1 is ARM64; the official Python image supports linux/arm64.
-FROM --platform=linux/arm64 python:3.14.6-slim-bookworm
+FROM --platform=linux/amd64 python:3.14.6-slim-bookworm
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
